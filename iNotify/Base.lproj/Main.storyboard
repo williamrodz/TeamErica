@@ -12,7 +12,7 @@
         <!--MainScreen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="MainScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="iNotify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MainScreen" id="BYZ-38-t0r" customClass="MainViewController" customModule="iNotify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,6 +29,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137" y="136"/>
         </scene>
         <!--GetHelp-->
         <scene sceneID="e1A-6g-Sov">
