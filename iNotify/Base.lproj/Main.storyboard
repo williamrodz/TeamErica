@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,16 +62,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SEND TO MEENAKSHI"/>
                             </button>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YrW-nx-4iN">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="bottom" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5b-It-Reb">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="B5b-It-Reb" secondAttribute="height" multiplier="375:44" id="JSm-xr-otk"/>
+                                </constraints>
                                 <items>
-                                    <tabBarItem title="Analytics" id="Xnz-30-IfY"/>
-                                    <tabBarItem title="Home" id="iOg-Jp-LU9"/>
-                                    <tabBarItem title="Settings" id="eWT-hc-08r"/>
+                                    <barButtonItem title="Item" id="XtG-l5-Emk"/>
+                                    <barButtonItem title="Item" id="3F8-Jx-Hlu"/>
+                                    <barButtonItem title="Item" id="hKl-wh-6ls"/>
                                 </items>
-                            </tabBar>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="KGn-HU-gA4"/>
