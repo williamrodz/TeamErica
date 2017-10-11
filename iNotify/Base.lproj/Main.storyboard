@@ -34,7 +34,7 @@
         <!--GetHelp-->
         <scene sceneID="e1A-6g-Sov">
             <objects>
-                <viewController title="GetHelp" id="kdd-sr-tfV" sceneMemberID="viewController">
+                <viewController title="GetHelp" id="kdd-sr-tfV" customClass="GetHelpViewController" customModule="iNotify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Lp-zi-3e4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
