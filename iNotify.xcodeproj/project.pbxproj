@@ -269,6 +269,7 @@
 				C076DA7A1F8E7CF700D648A2 /* NotifiViewController.swift in Sources */,
 				3D10EF741F8D73C700479B43 /* ViewController.swift in Sources */,
 				3D10EF721F8D73C700479B43 /* AppDelegate.swift in Sources */,
+				C25B746B1F8E7C9100F0BDC4 /* DisplayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
