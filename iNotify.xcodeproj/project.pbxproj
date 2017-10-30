@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0F25EE1FA6BF1300B796B6 /* DisplayMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0F25ED1FA6BF1200B796B6 /* DisplayMessageViewController.swift */; };
 		3D10EF721F8D73C700479B43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10EF711F8D73C700479B43 /* AppDelegate.swift */; };
 		3D10EF741F8D73C700479B43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10EF731F8D73C700479B43 /* ViewController.swift */; };
 		3D10EF771F8D73C700479B43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D10EF751F8D73C700479B43 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D0F25ED1FA6BF1200B796B6 /* DisplayMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMessageViewController.swift; sourceTree = "<group>"; };
 		3D10EF6E1F8D73C700479B43 /* iNotify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iNotify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D10EF711F8D73C700479B43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D10EF731F8D73C700479B43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		3D10EF701F8D73C700479B43 /* iNotify */ = {
 			isa = PBXGroup;
 			children = (
+				3D0F25ED1FA6BF1200B796B6 /* DisplayMessageViewController.swift */,
 				3D9909151F8E7B0A006CEF5F /* MainViewController.swift */,
 				C2916B971FA6BBB600F23DA8 /* MainEditViewController.swift */,
 				C076DA791F8E7CF700D648A2 /* NotifiViewController.swift */,
@@ -277,6 +280,7 @@
 				CE1820321F8E7FA5004B143E /* GetHelpViewController.swift in Sources */,
 				3D10EF741F8D73C700479B43 /* ViewController.swift in Sources */,
 				3D10EF721F8D73C700479B43 /* AppDelegate.swift in Sources */,
+				3D0F25EE1FA6BF1300B796B6 /* DisplayMessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

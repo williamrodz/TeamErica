@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -152,7 +152,7 @@
         <!--Display-->
         <scene sceneID="FmU-Fn-thR">
             <objects>
-                <viewController title="Display" id="Qnj-iE-Taf" sceneMemberID="viewController">
+                <viewController title="Display" id="Qnj-iE-Taf" customClass="DisplayMessageViewController" customModule="iNotify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VOq-7I-frI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,6 +175,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="I'm fine!"/>
                                 <connections>
+                                    <action selector="displayMessageButton:" destination="Qnj-iE-Taf" eventType="touchUpInside" id="z80-kt-VzE"/>
                                     <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorView="F0I-FG-7Pt" id="xnl-yf-uCM">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
@@ -184,6 +185,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="KuG-wd-DE6"/>
                     </view>
+                    <connections>
+                        <outlet property="displayMessageLabel" destination="F0I-FG-7Pt" id="3nA-lb-muo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGs-na-3vV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
