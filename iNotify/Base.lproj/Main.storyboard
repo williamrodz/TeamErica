@@ -246,7 +246,7 @@
         <!--MainScreen-->
         <scene sceneID="B0N-er-RQ5">
             <objects>
-                <viewController title="MainScreen" id="L7g-VT-i08" customClass="MainViewController" customModule="iNotify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MainScreen" id="L7g-VT-i08" customClass="MainEditViewController" customModule="iNotify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ajx-WM-TWV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -499,7 +499,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Gxh-8T-tRC"/>
         <segue reference="Lwb-P3-E89"/>
         <segue reference="Dzz-7q-JTc"/>
     </inferredMetricsTieBreakers>
