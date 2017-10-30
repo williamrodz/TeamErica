@@ -279,7 +279,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="Get Help">
+                                <state key="normal" title="Edit Get Help">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -291,7 +291,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.74117647060000003" green="0.76470588240000004" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="Display">
+                                <state key="normal" title="Edit Display">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -303,7 +303,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.18039215689999999" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="Notify">
+                                <state key="normal" title="Edit Notify">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -331,15 +331,15 @@
                                 <rect key="frame" x="34" y="102" width="300" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="Send to Jenny"/>
+                                <state key="normal" title="Edit Jenny"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBP-lX-dw7">
                                 <rect key="frame" x="34" y="229" width="300" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="Send to William"/>
+                                <state key="normal" title="Edit William"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notify" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzM-Cy-c1B">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Notify" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzM-Cy-c1B">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.18039215689999999" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -354,7 +354,7 @@
                                     <barButtonItem title="📊" id="QIr-yH-yf7"/>
                                     <barButtonItem title="🏠" style="plain" id="275-74-Z8x">
                                         <connections>
-                                            <segue destination="L7g-VT-i08" kind="show" id="Xx7-NK-inb"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="p8j-TX-mDn"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="⚙️" id="jYc-y0-8iz">
@@ -368,7 +368,7 @@
                                 <rect key="frame" x="34" y="349" width="300" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="Send to Meenakshi"/>
+                                <state key="normal" title="Edit Meenakshi"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqj-14-FnO">
                                 <rect key="frame" x="5" y="70" width="46" height="30"/>
@@ -402,7 +402,7 @@
                                     <barButtonItem title="📊" id="BsV-gQ-4wy"/>
                                     <barButtonItem title="🏠" style="plain" id="Jhc-M1-cJn">
                                         <connections>
-                                            <segue destination="L7g-VT-i08" kind="show" id="ZXe-i2-GSL"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="Mrs-bn-Wpg"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="⚙️" id="5dX-Al-Tbd">
@@ -412,7 +412,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Get Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8k-DZ-95L">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Get Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8k-DZ-95L">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -424,19 +424,19 @@
                                 <rect key="frame" x="37" y="164" width="300" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="SEND TO WILLIAM"/>
+                                <state key="normal" title="Edit WILLIAM"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeT-MJ-qN3">
                                 <rect key="frame" x="37" y="281" width="300" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="SEND TO JENNY"/>
+                                <state key="normal" title="Edit JENNY"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLZ-Sa-XMP">
                                 <rect key="frame" x="37" y="388" width="300" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="SEND TO MEENAKSHI"/>
+                                <state key="normal" title="Edit MEENAKSHI"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbI-ZM-uaN">
                                 <rect key="frame" x="16" y="78" width="46" height="30"/>
@@ -458,7 +458,7 @@
         <!--Display-->
         <scene sceneID="4Tf-WA-aDX">
             <objects>
-                <viewController title="Display" id="urS-Zs-dZZ" sceneMemberID="viewController">
+                <viewController title="Display" id="urS-Zs-dZZ" customClass="DisplayEditViewController" customModule="iNotify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="35k-rx-5Kn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -470,7 +470,7 @@
                                     <barButtonItem title="📊" id="EGh-dW-y9o"/>
                                     <barButtonItem title="🏠" style="plain" id="2rn-fV-fBx">
                                         <connections>
-                                            <segue destination="L7g-VT-i08" kind="show" id="Lwb-P3-E89"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="InO-bn-TIA"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="⚙️" id="yOd-DL-hSY">
@@ -506,11 +506,17 @@
                                 <rect key="frame" x="265" y="579" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save Edits"/>
+                                <connections>
+                                    <action selector="saveDisplayEditContent:" destination="urS-Zs-dZZ" eventType="touchUpInside" id="WL5-NN-OkS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="6nU-yc-jxK"/>
                     </view>
+                    <connections>
+                        <outlet property="displayEditContent" destination="CEa-7f-6Lo" id="u05-nx-uMI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2n-Vm-AYy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -518,7 +524,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Lwb-P3-E89"/>
-        <segue reference="Dzz-7q-JTc"/>
+        <segue reference="yoN-5c-WgU"/>
+        <segue reference="InO-bn-TIA"/>
     </inferredMetricsTieBreakers>
 </document>
