@@ -9,9 +9,18 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
+    @IBOutlet var testingLabel: UILabel!
+    
+    var settings : [String : Any] = [
+        "notifyContacts":["Jenny","Messi","Meenakshi"],
+        "getHelpContacts":["Obama","Trump","Hillary"],
+        "displayMessage":"I'm fine, don't worry!"
+        ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        testingLabel.text? = settings["displayMessage"] as! String
 
         // Do any additional setup after loading the view.
     }
