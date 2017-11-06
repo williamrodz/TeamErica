@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -103,7 +103,11 @@
                                             <segue destination="BYZ-38-t0r" kind="show" id="5iL-iG-9ED"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="⚙️" id="hKl-wh-6ls"/>
+                                    <barButtonItem title="⚙️" id="hKl-wh-6ls">
+                                        <connections>
+                                            <segue destination="L7g-VT-i08" kind="show" id="DmI-y4-wLA"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Get Help" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H6Y-J2-RyM">
@@ -167,7 +171,11 @@
                                             <segue destination="BYZ-38-t0r" kind="show" id="Dzz-7q-JTc"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="⚙️" id="F67-YG-Cv1"/>
+                                    <barButtonItem title="⚙️" id="F67-YG-Cv1">
+                                        <connections>
+                                            <segue destination="L7g-VT-i08" kind="show" id="8ai-0V-Pxw"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0I-FG-7Pt">
@@ -231,7 +239,11 @@
                                             <segue destination="BYZ-38-t0r" kind="show" id="doS-SK-IUW"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="⚙️" id="t4t-WI-LfQ"/>
+                                    <barButtonItem title="⚙️" id="t4t-WI-LfQ">
+                                        <connections>
+                                            <segue destination="L7g-VT-i08" kind="show" id="cFt-ze-01c"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0z-Bi-RA6">
@@ -255,7 +267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvP-qn-UY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="853.60000000000002" y="136.28185907046478"/>
+            <point key="canvasLocation" x="854" y="135"/>
         </scene>
         <!--MainScreen-->
         <scene sceneID="B0N-er-RQ5">
@@ -270,7 +282,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem title="📊" id="iHa-4j-vSP"/>
-                                    <barButtonItem title="🏠" style="plain" id="bar-3x-AkD"/>
+                                    <barButtonItem title="🏠" style="plain" id="bar-3x-AkD">
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="Yzn-uO-0CF"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="⚙️" id="ACo-pQ-h8A"/>
                                 </items>
                             </toolbar>
@@ -354,7 +370,7 @@
                                     <barButtonItem title="📊" id="QIr-yH-yf7"/>
                                     <barButtonItem title="🏠" style="plain" id="275-74-Z8x">
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="p8j-TX-mDn"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="15X-an-5lN"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="⚙️" id="jYc-y0-8iz">
@@ -402,7 +418,7 @@
                                     <barButtonItem title="📊" id="BsV-gQ-4wy"/>
                                     <barButtonItem title="🏠" style="plain" id="Jhc-M1-cJn">
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="Mrs-bn-Wpg"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="gfG-Ed-imK"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="⚙️" id="5dX-Al-Tbd">
@@ -470,7 +486,7 @@
                                     <barButtonItem title="📊" id="EGh-dW-y9o"/>
                                     <barButtonItem title="🏠" style="plain" id="2rn-fV-fBx">
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="InO-bn-TIA"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="fWL-mR-MsX"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="⚙️" id="yOd-DL-hSY">
@@ -525,6 +541,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="yoN-5c-WgU"/>
-        <segue reference="InO-bn-TIA"/>
+        <segue reference="fWL-mR-MsX"/>
     </inferredMetricsTieBreakers>
 </document>
