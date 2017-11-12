@@ -12,9 +12,11 @@ import CoreLocation
 
 // Settings variable here has to be outside of view controller class defintion for
 // it to be global and public
+var contacts: [String:Any] = ["Jenny":"+14255169153", "Mesi":"+1 (305) 333-7331", "William":"+17879552555"]
+
 var settings : [String : Any] = [
-    "notifyContacts":["Jenny","Mesi","Meenakshi"],
-    "getHelpContacts":["Obama","Trump","Hillary"],
+    "notifyContacts":[contacts["Jenny"], contacts["Mesi"],contacts["William"]],
+    "getHelpContacts":[contacts["Jenny"], contacts["Mesi"],contacts["William"]],
     "displayMessage":"I'm fine, don't worry!",
     "welcomeMessage": "Hello Erica! 😉 ",
     "latitude":"",
