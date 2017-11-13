@@ -20,8 +20,10 @@ var settings : [String : Any] = [
     "displayMessage":"I'm fine, don't worry!",
     "welcomeMessage": "Hello Erica! 😉 ",
     "latitude":"",
-    "logitude":""
+    "longitude":""
 ]
+
+let googleMapsURL:String = "https://www.google.com/maps/place/"
 
 class MainViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -32,7 +34,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     {
         let location = locations[0] //get most recent location of user
         settings["latitude"] = location.coordinate.latitude
-        settings["logitude"] = location.coordinate.longitude
+        settings["longitude"] = location.coordinate.longitude
     }
     
     override func viewDidLoad() {
