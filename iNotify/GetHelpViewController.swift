@@ -43,8 +43,8 @@ class GetHelpViewController: UIViewController {
     }
     
     @IBAction func getHelpFromContact2(_ sender: Any) {
-        let latitude = String(describing: settings["latitude"])
-        let longitude = String(describing: settings["longitude"])
+        let latitude = String(describing: settings["latitude"]!)
+        let longitude = String(describing: settings["longitude"]!)
         let googleMapsURL = getGoogleMapsLocationURL(latitude: latitude, longitude: longitude)
         
         let message:String = "Please come get me at \(googleMapsURL)"
@@ -52,8 +52,8 @@ class GetHelpViewController: UIViewController {
         sendData(toPhoneNumber: contacts["Jenny"] as! String, bodyOfMessage: message)
     }
     @IBAction func getHelpFromContact3(_ sender: Any) {
-        let latitude = String(describing: settings["latitude"])
-        let longitude = String(describing: settings["longitude"])
+        let latitude = String(describing: settings["latitude"]!)
+        let longitude = String(describing: settings["longitude"]!)
         let googleMapsURL = getGoogleMapsLocationURL(latitude: latitude, longitude: longitude)
         
         let message:String = "Please come get me at \(googleMapsURL)"
