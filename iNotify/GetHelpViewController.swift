@@ -21,7 +21,7 @@ class GetHelpViewController: UIViewController {
             "Body": bodyOfMessage ?? ""
         ]
         
-        Alamofire.request("https://b13c47c8.ngrok.io/sms", method: .post, parameters: parameters, headers: headers).responseJSON { response in
+        Alamofire.request("https://sparkling-credit-8614.twil.io/sms", method: .post, parameters: parameters, headers: headers).responseJSON { response in
             print(response.response)
             
         }
