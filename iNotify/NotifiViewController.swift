@@ -10,8 +10,6 @@ import UIKit
 
 class NotifiViewController: UIViewController {
 
-    @IBAction func button(_ sender: Any) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +25,10 @@ class NotifiViewController: UIViewController {
     @IBAction func sendEmail(_ sender: Any) {
         
         let smtpSession = MCOSMTPSession()
-        smtpSession.hostname = "smtp.gmail.com"
-        smtpSession.username = "jennyjin43@gmail.com"
-        smtpSession.password = "newbeginnings<3"
+        let mailSettings = appSettings.getMailSettings()
+        smtpSession.hostname = mailSettings.smtpHostName
+        smtpSession.username = mailSettings.userName
+        smtpSession.password = mailSettings.password
         smtpSession.port = 465
         smtpSession.authType = MCOAuthType.saslPlain
         smtpSession.connectionType = MCOConnectionType.TLS
@@ -41,8 +40,8 @@ class NotifiViewController: UIViewController {
             }
         }
         let builder = MCOMessageBuilder()
-        builder.header.to = [MCOAddress(displayName: "Jenny", mailbox: "jennyjin43@gmail.com")]
-        builder.header.from = MCOAddress(displayName: "Jenny", mailbox: "jennyjin43@gmail.com")
+        builder.header.to = [MCOAddress(displayName: mailSettings.displayName, mailbox: mailSettings.userName)]
+        builder.header.from = MCOAddress(displayName: mailSettings.displayName, mailbox: mailSettings.userName)
         builder.header.subject = "Test Email"
         builder.htmlBody="<p>This is a test using MailCore</p>"
         

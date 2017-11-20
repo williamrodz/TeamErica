@@ -14,14 +14,9 @@ import CoreLocation
 // it to be global and public
 var contacts: [String:Any] = ["Jenny":"+14255169153", "Mesi":"+1305333-7331", "William":"+17879552555"]
 
-var settings : [String : Any] = [
-    "notifyContacts":[contacts["Jenny"], contacts["Mesi"],contacts["William"]],
-    "getHelpContacts":[contacts["Jenny"], contacts["Mesi"],contacts["William"]],
-    "displayMessage":"I'm fine, don't worry!",
-    "welcomeMessage": "Hello Erica! 😉 ",
-    "latitude":"",
-    "longitude":""
-]
+var buttonSettings: [String:Any] = ["enabled":false,"messageBody":"default body"]
+
+var appSettings = Settings()
 
 let googleMapsURL:String = "https://www.google.com/maps/place/"
 
@@ -33,13 +28,13 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         let location = locations[0] //get most recent location of user
-        settings["latitude"] = location.coordinate.latitude
-        settings["longitude"] = location.coordinate.longitude
+        appSettings.updateLatitude( newLatitude: location.coordinate.latitude)
+        appSettings.updateLongitude( newLongitude: location.coordinate.longitude)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        testingLabel.text? = settings["welcomeMessage"] as! String
+        testingLabel.text? = appSettings.getWelcomeMessage()
         
         // set variables for location
         manager.delegate = self

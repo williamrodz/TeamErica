@@ -20,7 +20,7 @@ class DisplayMessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        displayMessageLabel.setTitle(settings["displayMessage"] as? String, for: .normal)
+        displayMessageLabel.setTitle(appSettings.getDisplayMessage(), for: .normal)
     }
 
     override func didReceiveMemoryWarning() {

@@ -12,7 +12,7 @@ class DisplayEditViewController: UIViewController {
     @IBOutlet var displayEditContent: UITextView!
     
     @IBAction func saveDisplayEditContent(_ sender: Any) {
-        settings["displayMessage"] = displayEditContent.text
+        appSettings.updateDisplayMessage(newMessage: displayEditContent.text)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
