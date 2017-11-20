@@ -9,9 +9,6 @@
 import UIKit
 
 class NotifiViewController: UIViewController {
-
-    @IBAction func button(_ sender: Any) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

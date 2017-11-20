@@ -13,6 +13,7 @@ class DisplayEditViewController: UIViewController {
     
     @IBAction func saveDisplayEditContent(_ sender: Any) {
         settings["displayMessage"] = displayEditContent.text
+        print("Working!!!!!")
     }
     override func viewDidLoad() {
         super.viewDidLoad()

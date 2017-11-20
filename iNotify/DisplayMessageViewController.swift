@@ -13,14 +13,14 @@ class DisplayMessageViewController: UIViewController {
 //
 //    var settings = MainViewController.settings
     
-    @IBOutlet var displayMessageLabel: UIButton!
-    @IBAction func displayMessageButton(_ sender: Any) {
-    }
+    @IBOutlet weak var displayMessageLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        displayMessageLabel.setTitle(settings["displayMessage"] as? String, for: .normal)
+        displayMessageLabel.text = settings["displayMessage"] as! String
+        print("Loading from DisplayMessageViewController")
     }
 
     override func didReceiveMemoryWarning() {

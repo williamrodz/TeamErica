@@ -27,7 +27,6 @@ let googleMapsURL:String = "https://www.google.com/maps/place/"
 
 class MainViewController: UIViewController, CLLocationManagerDelegate {
     
-    @IBOutlet var testingLabel: UILabel!
     let manager = CLLocationManager()
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
@@ -39,7 +38,6 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        testingLabel.text? = settings["welcomeMessage"] as! String
         
         // set variables for location
         manager.delegate = self
