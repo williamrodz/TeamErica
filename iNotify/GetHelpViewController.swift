@@ -10,6 +10,22 @@ import UIKit
 import Alamofire
 
 class GetHelpViewController: UIViewController {
+    @IBOutlet var button1Outlet: UIButton!
+    @IBOutlet var button2Outlet: UIButton!
+    @IBOutlet var button3Outlet: UIButton!
+    
+    func enableButtonsAccordingly() {
+        let notifySettings : [String:ButtonSettings] = appSettings.getNotifyScreenDict()
+        if (notifySettings["button1"]?.enabled)!{
+            button1Outlet.isHidden = false
+        }
+        if (notifySettings["button2"]?.enabled)!{
+            button2Outlet.isHidden = false
+        }
+        if (notifySettings["button3"]?.enabled)!{
+            button3Outlet.isHidden = false
+        }
+    }
     
     func sendData(toPhoneNumber:String, bodyOfMessage:String) {
         let headers = [
@@ -27,15 +43,15 @@ class GetHelpViewController: UIViewController {
         }
     }
     
-    func getGoogleMapsLocationURL( latitude:String, longitude:String) -> String {
+    func getGoogleMapsLocationURL() -> String {
+        let latitude = String(appSettings.getLatitude())
+        let longitude = String(appSettings.getLongitude())
         return googleMapsURL + latitude + "," + longitude
     }
     
     @IBAction func getHelpFromContact1(_ sender: Any) {
         
-        let latitude = String(describing: settings["latitude"]!)
-        let longitude = String(describing: settings["longitude"]!)
-        let googleMapsURL = getGoogleMapsLocationURL(latitude: latitude, longitude: longitude)
+        let googleMapsURL = getGoogleMapsLocationURL()
         
         let message:String = "Please come get me at \(googleMapsURL)"
         
@@ -43,18 +59,14 @@ class GetHelpViewController: UIViewController {
     }
     
     @IBAction func getHelpFromContact2(_ sender: Any) {
-        let latitude = String(describing: settings["latitude"]!)
-        let longitude = String(describing: settings["longitude"]!)
-        let googleMapsURL = getGoogleMapsLocationURL(latitude: latitude, longitude: longitude)
+        let googleMapsURL = getGoogleMapsLocationURL()
         
         let message:String = "Please come get me at \(googleMapsURL)"
         
         sendData(toPhoneNumber: contacts["Jenny"] as! String, bodyOfMessage: message)
     }
     @IBAction func getHelpFromContact3(_ sender: Any) {
-        let latitude = String(describing: settings["latitude"]!)
-        let longitude = String(describing: settings["longitude"]!)
-        let googleMapsURL = getGoogleMapsLocationURL(latitude: latitude, longitude: longitude)
+        let googleMapsURL = getGoogleMapsLocationURL()
         
         let message:String = "Please come get me at \(googleMapsURL)"
         

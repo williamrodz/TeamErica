@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0DBD521FC236AC00B9BF5E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0DBD511FC236AC00B9BF5E /* Settings.swift */; };
 		3D0F25EE1FA6BF1300B796B6 /* DisplayMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0F25ED1FA6BF1200B796B6 /* DisplayMessageViewController.swift */; };
 		3D0F25F01FA6C4A400B796B6 /* DisplayEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0F25EF1FA6C4A400B796B6 /* DisplayEditViewController.swift */; };
 		3D10EF721F8D73C700479B43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10EF711F8D73C700479B43 /* AppDelegate.swift */; };
-		3D10EF741F8D73C700479B43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10EF731F8D73C700479B43 /* ViewController.swift */; };
 		3D10EF771F8D73C700479B43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D10EF751F8D73C700479B43 /* Main.storyboard */; };
 		3D10EF791F8D73C700479B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D10EF781F8D73C700479B43 /* Assets.xcassets */; };
 		3D10EF7C1F8D73C700479B43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D10EF7A1F8D73C700479B43 /* LaunchScreen.storyboard */; };
@@ -42,11 +42,11 @@
 
 /* Begin PBXFileReference section */
 		07471ED0A80C031F7DEFD14E /* Pods-iNotify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iNotify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iNotify/Pods-iNotify.debug.xcconfig"; sourceTree = "<group>"; };
+		3D0DBD511FC236AC00B9BF5E /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		3D0F25ED1FA6BF1200B796B6 /* DisplayMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMessageViewController.swift; sourceTree = "<group>"; };
 		3D0F25EF1FA6C4A400B796B6 /* DisplayEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayEditViewController.swift; sourceTree = "<group>"; };
 		3D10EF6E1F8D73C700479B43 /* iNotify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iNotify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D10EF711F8D73C700479B43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3D10EF731F8D73C700479B43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3D10EF761F8D73C700479B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D10EF781F8D73C700479B43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D10EF7B1F8D73C700479B43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -131,11 +131,11 @@
 				3D9909151F8E7B0A006CEF5F /* MainViewController.swift */,
 				C2916B971FA6BBB600F23DA8 /* MainEditViewController.swift */,
 				C076DA791F8E7CF700D648A2 /* NotifiViewController.swift */,
+				CE1820311F8E7FA5004B143E /* GetHelpViewController.swift */,
 				3D0F25EF1FA6C4A400B796B6 /* DisplayEditViewController.swift */,
 				3D10EF711F8D73C700479B43 /* AppDelegate.swift */,
-				3D10EF731F8D73C700479B43 /* ViewController.swift */,
 				3D10EF751F8D73C700479B43 /* Main.storyboard */,
-				CE1820311F8E7FA5004B143E /* GetHelpViewController.swift */,
+				3D0DBD511FC236AC00B9BF5E /* Settings.swift */,
 				3D10EF781F8D73C700479B43 /* Assets.xcassets */,
 				3D10EF7A1F8D73C700479B43 /* LaunchScreen.storyboard */,
 				3D10EF7D1F8D73C700479B43 /* Info.plist */,
@@ -364,8 +364,8 @@
 				C2916B981FA6BBB600F23DA8 /* MainEditViewController.swift in Sources */,
 				C076DA7A1F8E7CF700D648A2 /* NotifiViewController.swift in Sources */,
 				CE1820321F8E7FA5004B143E /* GetHelpViewController.swift in Sources */,
-				3D10EF741F8D73C700479B43 /* ViewController.swift in Sources */,
 				3D0F25F01FA6C4A400B796B6 /* DisplayEditViewController.swift in Sources */,
+				3D0DBD521FC236AC00B9BF5E /* Settings.swift in Sources */,
 				3D10EF721F8D73C700479B43 /* AppDelegate.swift in Sources */,
 				3D0F25EE1FA6BF1300B796B6 /* DisplayMessageViewController.swift in Sources */,
 			);
@@ -547,6 +547,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamErica.iNotify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/iNotify/sendEmail_bridge.h";
+				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -570,6 +571,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.TeamErica.iNotify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/iNotify/sendEmail_bridge.h";
+				SWIFT_REFLECTION_METADATA_LEVEL = none;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
