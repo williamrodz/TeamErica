@@ -21,6 +21,9 @@
 		C076DA7A1F8E7CF700D648A2 /* NotifiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C076DA791F8E7CF700D648A2 /* NotifiViewController.swift */; };
 		C2916B981FA6BBB600F23DA8 /* MainEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2916B971FA6BBB600F23DA8 /* MainEditViewController.swift */; };
 		CE1820321F8E7FA5004B143E /* GetHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1820311F8E7FA5004B143E /* GetHelpViewController.swift */; };
+		CE22BEAE1FC92D8100F13D9C /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE22BEAD1FC92D6400F13D9C /* ContactsUI.framework */; };
+		CE22BEAF1FC92D8900F13D9C /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE22BEAC1FC92D5A00F13D9C /* Contacts.framework */; };
+		CEE4EDAD1FC4B2E7001ADC5F /* TextNotifyEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE4EDAC1FC4B2E7001ADC5F /* TextNotifyEditController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		C22A86271FB38B3B0022672E /* sendEmail_bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sendEmail_bridge.h; sourceTree = "<group>"; };
 		C2916B971FA6BBB600F23DA8 /* MainEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEditViewController.swift; sourceTree = "<group>"; };
 		CE1820311F8E7FA5004B143E /* GetHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHelpViewController.swift; sourceTree = "<group>"; };
+		CE22BEAC1FC92D5A00F13D9C /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		CE22BEAD1FC92D6400F13D9C /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
+		CEE4EDAC1FC4B2E7001ADC5F /* TextNotifyEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNotifyEditController.swift; sourceTree = "<group>"; };
 		E162F009726E760A3147CA1B /* Pods_iNotify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iNotify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -71,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE22BEAF1FC92D8900F13D9C /* Contacts.framework in Frameworks */,
+				CE22BEAE1FC92D8100F13D9C /* ContactsUI.framework in Frameworks */,
 				92FECB678FB56D2F2968BEC6 /* Pods_iNotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +147,7 @@
 				3D10EF781F8D73C700479B43 /* Assets.xcassets */,
 				3D10EF7A1F8D73C700479B43 /* LaunchScreen.storyboard */,
 				3D10EF7D1F8D73C700479B43 /* Info.plist */,
+				CEE4EDAC1FC4B2E7001ADC5F /* TextNotifyEditController.swift */,
 			);
 			path = iNotify;
 			sourceTree = "<group>";
@@ -164,6 +173,8 @@
 		D10AD6E4A7271511BF5C774A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE22BEAD1FC92D6400F13D9C /* ContactsUI.framework */,
+				CE22BEAC1FC92D5A00F13D9C /* Contacts.framework */,
 				E162F009726E760A3147CA1B /* Pods_iNotify.framework */,
 			);
 			name = Frameworks;
@@ -365,6 +376,7 @@
 				C076DA7A1F8E7CF700D648A2 /* NotifiViewController.swift in Sources */,
 				CE1820321F8E7FA5004B143E /* GetHelpViewController.swift in Sources */,
 				3D0F25F01FA6C4A400B796B6 /* DisplayEditViewController.swift in Sources */,
+				CEE4EDAD1FC4B2E7001ADC5F /* TextNotifyEditController.swift in Sources */,
 				3D0DBD521FC236AC00B9BF5E /* Settings.swift in Sources */,
 				3D10EF721F8D73C700479B43 /* AppDelegate.swift in Sources */,
 				3D0F25EE1FA6BF1300B796B6 /* DisplayMessageViewController.swift in Sources */,
@@ -535,7 +547,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MN5S8CDSSL;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -559,7 +571,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MN5S8CDSSL;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",

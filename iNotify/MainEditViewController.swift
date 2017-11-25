@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Contacts
+import ContactsUI
 
-class MainEditViewController: UIViewController {
+class MainEditViewController: UIViewController, CNContactPickerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
