@@ -1,6 +1,0 @@
-framework module Pods_iNotify {
-  umbrella header "Pods-iNotify-umbrella.h"
-
-  export *
-  module * { export * }
-}
