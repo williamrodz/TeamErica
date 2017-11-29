@@ -9,47 +9,55 @@
 import UIKit
 
 
-struct ButtonSettings {
-    var messageBody:String
-    var enabled: Bool
-    var recipients:[String]
-    var recipientsNickname:String
-}
-
-struct MailInformation{
-    var smtpHostName: String
-    var userName: String
-    var password: String
-    var displayName:String
-}
 
 class Settings {
-    var welcomeMessage:String
+    var firstTimeRunning:Bool
+    
     var displayMessage:String
     var latitude:Double
     var longitude:Double
     
-    var notifyScreenDict:[String:ButtonSettings]
+    var notifyScreenDict:[String:Dictionary<String, String>]
     var getHelpScreenDict:[String:Dictionary<String, String>]
     
-    var mailSettings:MailInformation
+    var mailSMTPHostName: String
+    var mailUserName: String
+    var mailPassword: String
+    var mailDisplayName: String
     
     
     init(){
-        self.welcomeMessage = "Welcome Erica 😉"
-        self.displayMessage = "I'm not feeling well. Could you get me some water?"
-        self.latitude = 0
-        self.longitude = 0
-        self.mailSettings = MailInformation(smtpHostName: "smtp.gmail.com", userName: "jennyjin43@gmail.com", password: "newbeginnings<3", displayName:"Jenny")
-        self.notifyScreenDict = [
-            "button1": ButtonSettings(messageBody:"",enabled:false,recipients:[], recipientsNickname:""),
-            "button2": ButtonSettings(messageBody:"",enabled:false,recipients:[], recipientsNickname:""),
-            "button3": ButtonSettings(messageBody:"",enabled:false,recipients:[], recipientsNickname:"")]
-        
-        self.getHelpScreenDict = [:]
+        //Check if app settings have been changed at least once
+        if let x = UserDefaults.standard.object(forKey: "firstTimeRunning") as? Bool{
+            self.firstTimeRunning = x
+            self.displayMessage = UserDefaults.standard.object(forKey: "displayMessage") as! String
+            self.latitude = UserDefaults.standard.object(forKey: "latitude") as! Double
+            self.longitude = UserDefaults.standard.object(forKey: "longitude") as! Double
+            self.mailSMTPHostName = UserDefaults.standard.object(forKey: "mailSMTPHostName") as! String
+            self.mailUserName = UserDefaults.standard.object(forKey: "mailUserName") as! String
+            self.mailPassword = UserDefaults.standard.object(forKey: "mailPassword") as! String
+            self.mailDisplayName = UserDefaults.standard.object(forKey: "mailDisplayName") as! String
+            
+            self.notifyScreenDict = UserDefaults.standard.object(forKey: "notifyScreenDict") as![String:Dictionary<String, String>]
+            self.getHelpScreenDict = UserDefaults.standard.object(forKey: "getHelpScreenDict") as![String:Dictionary<String, String>]
+            
+        }
+        else {
+            
+            self.firstTimeRunning = true
+            self.displayMessage = "I'm not feeling well. Could you get me some water?"
+            self.latitude = 0
+            self.longitude = 0
+            self.mailSMTPHostName = "smtp.gmail.com"
+            self.mailUserName = "jennyjin43@gmail.com"
+            self.mailPassword = "newbeginnings<3"
+            self.mailDisplayName = "Jenny"
+            self.notifyScreenDict = [:]
+            self.getHelpScreenDict = [:]
+        }
     }
     
-    func getNotifyScreenDict ()-> [String:ButtonSettings] {
+    func getNotifyScreenDict ()-> [String:Dictionary<String, String>] {
         return self.notifyScreenDict
     }
     
@@ -82,10 +90,6 @@ class Settings {
         return self.longitude
     }
     
-    func getWelcomeMessage() -> String{
-        return self.welcomeMessage
-    }
-    
     func updateDisplayMessage(newMessage:String){
         self.displayMessage = newMessage
     }
@@ -94,9 +98,11 @@ class Settings {
         return self.displayMessage
     }
     
-    func getMailSettings()->MailInformation {
-        return self.mailSettings
+    func getMailSettings()->[String:String] {
+        return ["mailSMTPHostName":self.mailSMTPHostName,"mailDisplayName":self.mailDisplayName,"mailUserName":self.mailUserName, "mailPassword":self.mailPassword]
+
+        }
     }
-}
+
 
 

@@ -39,6 +39,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        saveSettingsToUserDefaults()
+    }
+    
+    func saveSettingsToUserDefaults() {
+        UserDefaults.standard.set(appSettings.firstTimeRunning, forKey: "firstTimeRunning")
+        UserDefaults.standard.set(appSettings.displayMessage, forKey: "displayMessage")
+        UserDefaults.standard.set(appSettings.latitude, forKey: "latitude")
+        UserDefaults.standard.set(appSettings.longitude, forKey: "longitude")
+        UserDefaults.standard.set(appSettings.mailSMTPHostName, forKey: "mailSMTPHostName")
+        UserDefaults.standard.set(appSettings.mailPassword, forKey: "mailPassword")
+        UserDefaults.standard.set(appSettings.mailDisplayName, forKey: "mailDisplayName")
+        UserDefaults.standard.set(appSettings.notifyScreenDict, forKey: "notifyScreenDict")
+        UserDefaults.standard.set(appSettings.getHelpScreenDict, forKey: "getHelpScreenDict")
     }
 
 

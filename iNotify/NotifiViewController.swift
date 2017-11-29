@@ -25,9 +25,10 @@ class NotifiViewController: UIViewController {
         
         let smtpSession = MCOSMTPSession()
         let mailSettings = appSettings.getMailSettings()
-        smtpSession.hostname = mailSettings.smtpHostName
-        smtpSession.username = mailSettings.userName
-        smtpSession.password = mailSettings.password
+
+        smtpSession.hostname = mailSettings["mailSMTPHostName"]
+        smtpSession.username = mailSettings["mailUserName"]
+        smtpSession.password = mailSettings["mailPassword"]
         smtpSession.port = 465
         smtpSession.authType = MCOAuthType.saslPlain
         smtpSession.connectionType = MCOConnectionType.TLS
@@ -39,8 +40,8 @@ class NotifiViewController: UIViewController {
             }
         }
         let builder = MCOMessageBuilder()
-        builder.header.to = [MCOAddress(displayName: mailSettings.displayName, mailbox: mailSettings.userName)]
-        builder.header.from = MCOAddress(displayName: mailSettings.displayName, mailbox: mailSettings.userName)
+        builder.header.to = [MCOAddress(displayName: mailSettings["mailDisplayName"], mailbox: mailSettings["mailUserName"])]
+        builder.header.from = MCOAddress(displayName: mailSettings["mailDisplayName"], mailbox: mailSettings["mailUserName"])
         builder.header.subject = "Test Email"
         builder.htmlBody="<p>This is a test using MailCore</p>"
         
