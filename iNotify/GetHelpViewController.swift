@@ -9,23 +9,12 @@
 import UIKit
 import Alamofire
 
-class GetHelpViewController: UIViewController {
-    @IBOutlet var button1Outlet: UIButton!
-    @IBOutlet var button2Outlet: UIButton!
-    @IBOutlet var button3Outlet: UIButton!
+class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     
-    func enableButtonsAccordingly() {
-        let notifySettings : [String:ButtonSettings] = appSettings.getNotifyScreenDict()
-        if (notifySettings["button1"]?.enabled)!{
-            button1Outlet.isHidden = false
-        }
-        if (notifySettings["button2"]?.enabled)!{
-            button2Outlet.isHidden = false
-        }
-        if (notifySettings["button3"]?.enabled)!{
-            button3Outlet.isHidden = false
-        }
-    }
+    @IBOutlet weak var getHelpTable: UITableView!
+    
+    var getHelpContacts = [String](appSettings.getGetHelpScreenDict().keys) //finds the recipients of the get help feature
     
     func sendData(toPhoneNumber:String, bodyOfMessage:String) {
         let headers = [
@@ -49,35 +38,29 @@ class GetHelpViewController: UIViewController {
         return googleMapsURL + latitude + "," + longitude
     }
     
-    @IBAction func getHelpFromContact1(_ sender: Any) {
+    @IBAction func getHelpFromContact(_ sender: Any) {
         
         let googleMapsURL = getGoogleMapsLocationURL()
         
-        let message:String = "Please come get me at \(googleMapsURL)"
+        let button = sender as! UIButton
+        let nameContact = getHelpContacts[button.tag]
+        let contactInfo = appSettings.getGetHelpContactInfo(Name: nameContact)
+        let message:String = contactInfo["MessageBody"]! + "Please come get me at \(googleMapsURL)"
         
-        sendData(toPhoneNumber: contacts["William"] as! String, bodyOfMessage: message)
+        print("Button \(nameContact) was pressed!")
+        print("The button has been clicked.")
+        sendData(toPhoneNumber: contactInfo["Contact"]!, bodyOfMessage: message)
     }
     
-    @IBAction func getHelpFromContact2(_ sender: Any) {
-        let googleMapsURL = getGoogleMapsLocationURL()
-        
-        let message:String = "Please come get me at \(googleMapsURL)"
-        
-        sendData(toPhoneNumber: contacts["Jenny"] as! String, bodyOfMessage: message)
-    }
-    @IBAction func getHelpFromContact3(_ sender: Any) {
-        let googleMapsURL = getGoogleMapsLocationURL()
-        
-        let message:String = "Please come get me at \(googleMapsURL)"
-        
-        sendData(toPhoneNumber: contacts["Mesi"] as! String, bodyOfMessage: message)
-    }
     override func viewDidLoad() {
+        getHelpTable.delegate = self
+        getHelpTable.dataSource = self
+        
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -93,5 +76,31 @@ class GetHelpViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("Hi Helooooo")
+        return getHelpContacts.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = getHelpTable.dequeueReusableCell(withIdentifier: "customCell") as! customTableViewCell
+        
+        cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
+        cell.cellButton.setTitle(getHelpContacts[indexPath.row], for: .normal)
+        cell.cellButton.tag = indexPath.row
+        cell.cellButton.addTarget(self, action: #selector(getHelpFromContact), for: .touchUpInside)
+        cell.cellImage.image = UIImage(named: "message-icon")
+        cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height / 3
+        return cell
+    }
+    
+    
+    
 
 }

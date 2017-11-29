@@ -30,7 +30,7 @@ class Settings {
     var longitude:Double
     
     var notifyScreenDict:[String:ButtonSettings]
-    var getHelpScreenDict:[String:ButtonSettings]
+    var getHelpScreenDict:[String:Dictionary<String, String>]
     
     var mailSettings:MailInformation
     
@@ -41,21 +41,29 @@ class Settings {
         self.latitude = 0
         self.longitude = 0
         self.mailSettings = MailInformation(smtpHostName: "smtp.gmail.com", userName: "jennyjin43@gmail.com", password: "newbeginnings<3", displayName:"Jenny")
-        self.notifyScreenDict = ["button1": ButtonSettings(messageBody:"",enabled:false,recipients:[], recipientsNickname:""),
-                                 "button2": ButtonSettings(messageBody:"",enabled:false,recipients:[], recipientsNickname:""),
-                                 "button3": ButtonSettings(messageBody:"",enabled:false,recipients:[], recipientsNickname:"")]
+        self.notifyScreenDict = [
+            "button1": ButtonSettings(messageBody:"",enabled:false,recipients:[], recipientsNickname:""),
+            "button2": ButtonSettings(messageBody:"",enabled:false,recipients:[], recipientsNickname:""),
+            "button3": ButtonSettings(messageBody:"",enabled:false,recipients:[], recipientsNickname:"")]
         
-        self.getHelpScreenDict = ["button1": ButtonSettings(messageBody:"",enabled:false,recipients:[], recipientsNickname:""),
-                                  "button2": ButtonSettings(messageBody:"",enabled:false,recipients:[], recipientsNickname:""),
-                                  "button3": ButtonSettings(messageBody:"",enabled:false,recipients:[], recipientsNickname:"")]
+        self.getHelpScreenDict = [:]
     }
     
     func getNotifyScreenDict ()-> [String:ButtonSettings] {
         return self.notifyScreenDict
     }
     
-    func getGetHelpScreenDict ()-> [String:ButtonSettings] {
+    func getGetHelpScreenDict ()-> [String:Dictionary<String, String>] {
         return self.getHelpScreenDict
+    }
+    
+    func addGetHelpRecipient (Name: String, Contact: String, Message:String) {
+        let messageContent: [String: String] = ["Name": Name, "Contact": Contact, "MessageBody": Message]
+        self.getHelpScreenDict[Name] = messageContent
+    }
+    
+    func getGetHelpContactInfo (Name: String) -> [String: String]{
+        return self.getHelpScreenDict[Name]!
     }
     
     func updateLatitude(newLatitude:Double){
@@ -90,6 +98,5 @@ class Settings {
         return self.mailSettings
     }
 }
-
 
 

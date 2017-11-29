@@ -19,6 +19,9 @@
 		3D9909161F8E7B0A006CEF5F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9909151F8E7B0A006CEF5F /* MainViewController.swift */; };
 		92FECB678FB56D2F2968BEC6 /* Pods_iNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E162F009726E760A3147CA1B /* Pods_iNotify.framework */; };
 		C076DA7A1F8E7CF700D648A2 /* NotifiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C076DA791F8E7CF700D648A2 /* NotifiViewController.swift */; };
+		C0D77A591FCE3AC7006EFA75 /* customTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D77A581FCE3AC7006EFA75 /* customTableViewCell.swift */; };
+		C0D77A5B1FCEFD01006EFA75 /* GetHelpMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D77A5A1FCEFD01006EFA75 /* GetHelpMessageViewController.swift */; };
+		C0D77A5D1FCF0517006EFA75 /* getHelpEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D77A5C1FCF0517006EFA75 /* getHelpEditViewController.swift */; };
 		C2916B981FA6BBB600F23DA8 /* MainEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2916B971FA6BBB600F23DA8 /* MainEditViewController.swift */; };
 		CE1820321F8E7FA5004B143E /* GetHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1820311F8E7FA5004B143E /* GetHelpViewController.swift */; };
 		CE22BEAE1FC92D8100F13D9C /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE22BEAD1FC92D6400F13D9C /* ContactsUI.framework */; };
@@ -63,6 +66,9 @@
 		3D9909151F8E7B0A006CEF5F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5DEDD989CCCCE837C75FFE1A /* Pods-iNotify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iNotify.release.xcconfig"; path = "Pods/Target Support Files/Pods-iNotify/Pods-iNotify.release.xcconfig"; sourceTree = "<group>"; };
 		C076DA791F8E7CF700D648A2 /* NotifiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifiViewController.swift; sourceTree = "<group>"; };
+		C0D77A581FCE3AC7006EFA75 /* customTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
+		C0D77A5A1FCEFD01006EFA75 /* GetHelpMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHelpMessageViewController.swift; sourceTree = "<group>"; };
+		C0D77A5C1FCF0517006EFA75 /* getHelpEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getHelpEditViewController.swift; sourceTree = "<group>"; };
 		C22A86271FB38B3B0022672E /* sendEmail_bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sendEmail_bridge.h; sourceTree = "<group>"; };
 		C2916B971FA6BBB600F23DA8 /* MainEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEditViewController.swift; sourceTree = "<group>"; };
 		CE1820311F8E7FA5004B143E /* GetHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHelpViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +149,9 @@
 				3D0F25EF1FA6C4A400B796B6 /* DisplayEditViewController.swift */,
 				3D10EF711F8D73C700479B43 /* AppDelegate.swift */,
 				3D10EF751F8D73C700479B43 /* Main.storyboard */,
+				C0D77A5C1FCF0517006EFA75 /* getHelpEditViewController.swift */,
+				C0D77A5A1FCEFD01006EFA75 /* GetHelpMessageViewController.swift */,
+				C0D77A581FCE3AC7006EFA75 /* customTableViewCell.swift */,
 				3D0DBD511FC236AC00B9BF5E /* Settings.swift */,
 				3D10EF781F8D73C700479B43 /* Assets.xcassets */,
 				3D10EF7A1F8D73C700479B43 /* LaunchScreen.storyboard */,
@@ -373,10 +382,13 @@
 			files = (
 				3D9909161F8E7B0A006CEF5F /* MainViewController.swift in Sources */,
 				C2916B981FA6BBB600F23DA8 /* MainEditViewController.swift in Sources */,
+				C0D77A591FCE3AC7006EFA75 /* customTableViewCell.swift in Sources */,
 				C076DA7A1F8E7CF700D648A2 /* NotifiViewController.swift in Sources */,
+				C0D77A5B1FCEFD01006EFA75 /* GetHelpMessageViewController.swift in Sources */,
 				CE1820321F8E7FA5004B143E /* GetHelpViewController.swift in Sources */,
 				3D0F25F01FA6C4A400B796B6 /* DisplayEditViewController.swift in Sources */,
 				CEE4EDAD1FC4B2E7001ADC5F /* TextNotifyEditController.swift in Sources */,
+				C0D77A5D1FCF0517006EFA75 /* getHelpEditViewController.swift in Sources */,
 				3D0DBD521FC236AC00B9BF5E /* Settings.swift in Sources */,
 				3D10EF721F8D73C700479B43 /* AppDelegate.swift in Sources */,
 				3D0F25EE1FA6BF1300B796B6 /* DisplayMessageViewController.swift in Sources */,
