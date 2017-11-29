@@ -51,6 +51,16 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate{
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         let fullName = "\(contact.givenName) \(contact.familyName)"
         
+        if recipients.text!.isEmpty{
+            print("Check")
+            recipients.text = fullName
+        }
+        else{
+            recipients.text = recipients.text! + ";"
+            recipients.text = recipients.text! + fullName
+        }
+        
+        
     }
     
     override func viewDidLoad() {
