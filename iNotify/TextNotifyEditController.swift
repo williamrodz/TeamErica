@@ -13,6 +13,7 @@ import ContactsUI
 
 class TextNotifyEditController: UIViewController, CNContactPickerDelegate{
     
+    @IBOutlet weak var recipients: UITextField!
     @IBAction func contacts(_ sender: Any) {
 
         let entityType = CNEntityType.contacts

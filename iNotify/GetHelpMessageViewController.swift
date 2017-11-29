@@ -16,6 +16,9 @@ class GetHelpMessageViewController: UIViewController {
     
     @IBOutlet weak var getHelpMessage: UITextView!
     
+    @IBOutlet weak var recipients: UITextField!
+    @IBAction func contacts(_ sender: Any) {
+    }
     
     @IBAction func getHelpSaveMessage(_ sender: Any) {
         appSettings.addGetHelpRecipient(Name: getHelpName.text!, Contact: getHelpContact.text!, Message: getHelpMessage.text)

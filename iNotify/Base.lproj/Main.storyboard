@@ -616,6 +616,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ey1-vQ-jZh"/>
                     </view>
+                    <connections>
+                        <outlet property="recipients" destination="LSC-Hg-iRd" id="eHa-33-3g7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxg-S6-ycf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -757,6 +760,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBR-dL-hKx">
+                                <rect key="frame" x="313" y="160" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="contacts:" destination="kuK-4Y-DBV" eventType="touchUpInside" id="dOQ-8R-9qv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="nff-EL-YSW"/>
@@ -765,6 +776,7 @@
                         <outlet property="getHelpContact" destination="3ir-eb-YBX" id="rXv-tw-7ES"/>
                         <outlet property="getHelpMessage" destination="7bv-ep-fk4" id="Zdu-ws-HFQ"/>
                         <outlet property="getHelpName" destination="pGB-Lc-Rft" id="4Qt-Wv-t85"/>
+                        <outlet property="recipients" destination="3ir-eb-YBX" id="Don-ri-kmu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3K-Xz-1iK" userLabel="First Responder" sceneMemberID="firstResponder"/>
