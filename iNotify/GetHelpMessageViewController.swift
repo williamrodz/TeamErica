@@ -5,10 +5,12 @@
 //  Created by Meseret  Kebede on 29/11/2017.
 //  Copyright © 2017 Team Erica. All rights reserved.
 //
-
+import Foundation
 import UIKit
+import Contacts
+import ContactsUI
 
-class GetHelpMessageViewController: UIViewController {
+class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate {
 
     @IBOutlet weak var getHelpName: UITextField!
     
@@ -18,6 +20,51 @@ class GetHelpMessageViewController: UIViewController {
     
     @IBOutlet weak var recipients: UITextField!
     @IBAction func contacts(_ sender: Any) {
+        let entityType = CNEntityType.contacts
+        let authStatus = CNContactStore.authorizationStatus(for: entityType)
+        
+        if authStatus == CNAuthorizationStatus.notDetermined{
+            let contactStore = CNContactStore.init()
+            contactStore.requestAccess(for: entityType, completionHandler: {(success,nil) in
+                if success {
+                    self.openContacts()
+                }
+                    
+                else {
+                    print("Not Authorised!")
+                }
+            })
+        }
+        else if authStatus == CNAuthorizationStatus.authorized{
+            self.openContacts()
+        }
+    }
+    
+    func openContacts(){
+        let contactPicker = CNContactPickerViewController.init()
+        contactPicker.delegate = self
+        self.present(contactPicker, animated: true, completion: nil)
+    }
+    
+    func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
+        picker.dismiss(animated: true){
+            
+        }
+    }
+    
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+        let fullName = "\(contact.givenName) \(contact.familyName)"
+        
+        if recipients.text!.isEmpty{
+            print("Check")
+            recipients.text = fullName
+        }
+        else{
+            recipients.text = recipients.text! + ";"
+            recipients.text = recipients.text! + fullName
+        }
+        
+        
     }
     
     @IBAction func getHelpSaveMessage(_ sender: Any) {
