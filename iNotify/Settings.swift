@@ -65,13 +65,27 @@ class Settings {
         return self.getHelpScreenDict
     }
     
+    func getGetHelpContactInfo (Name: String) -> [String: String]{
+        return self.getHelpScreenDict[Name]!
+    }
+    
+    func getNotifyContactInfo (Name: String) -> [String:String]{
+        return self.notifyScreenDict[Name]!
+    }
+    
     func addGetHelpRecipient (Name: String, Contact: String, Message:String) {
         let messageContent: [String: String] = ["Name": Name, "Contact": Contact, "MessageBody": Message]
         self.getHelpScreenDict[Name] = messageContent
     }
     
-    func getGetHelpContactInfo (Name: String) -> [String: String]{
-        return self.getHelpScreenDict[Name]!
+    func addNotifiTextRecipient (Name: String, Contact: String, Message: String) {
+        let messageContent: [String: String] = ["Type": "Text", "Name": Name, "Contact": Contact, "MessageBody": Message]
+        self.notifyScreenDict[Name] = messageContent
+    }
+    
+    func addNotifiEmailRecipient (Name: String, toContact: String, Subject: String, Message: String) {
+        let messageContent: [String: String] = ["Type": "Email", "Name": Name, "To": toContact, "Subject": Subject, "MessageBody": Message]
+        self.notifyScreenDict[Name] = messageContent
     }
     
     func updateLatitude(newLatitude:Double){

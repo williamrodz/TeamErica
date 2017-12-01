@@ -215,45 +215,72 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZW-Lf-T7k">
-                                <rect key="frame" x="0.0" y="177" width="375" height="92"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aS3-Nz-PM5">
+                                <rect key="frame" x="16" y="140" width="359" height="455"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0068388483080000003" green="0.47524887230000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="Jenny Jin">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="sendEmail:" destination="NDG-Cc-TtV" eventType="touchUpInside" id="ORb-fx-W8y"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lik-IP-abT">
-                                <rect key="frame" x="0.0" y="287" width="375" height="92"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0068388483080000003" green="0.47524887230000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="William Rodriguez">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdj-bB-lfI">
-                                <rect key="frame" x="0.0" y="397" width="375" height="92"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0068388483080000003" green="0.47524887230000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="Meenakshi">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notifyCell" rowHeight="100" id="L1v-Fn-w0y" customClass="customTableViewCell" customModule="iNotify" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="359" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L1v-Fn-w0y" id="V16-tS-xwc">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAL-Pm-2Lj">
+                                                    <rect key="frame" x="10" y="5" width="339" height="89.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hdT-jg-bdA">
+                                                            <rect key="frame" x="0.0" y="5" width="80" height="80"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="80" id="k3f-uK-u2a"/>
+                                                                <constraint firstAttribute="width" constant="80" id="t74-y6-Lhe"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSj-58-6C4">
+                                                            <rect key="frame" x="88" y="8" width="243" height="73.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                            <state key="normal" title="Button"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="0.51008668664383561" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="LSj-58-6C4" firstAttribute="leading" secondItem="hdT-jg-bdA" secondAttribute="trailing" constant="8" id="WgE-qi-89c"/>
+                                                        <constraint firstAttribute="trailing" secondItem="LSj-58-6C4" secondAttribute="trailing" constant="8" id="g8R-jr-2Pq"/>
+                                                        <constraint firstAttribute="bottom" secondItem="LSj-58-6C4" secondAttribute="bottom" constant="8" id="oAh-t7-QrA"/>
+                                                        <constraint firstItem="LSj-58-6C4" firstAttribute="top" secondItem="jAL-Pm-2Lj" secondAttribute="top" constant="8" id="pAB-H9-7Gn"/>
+                                                        <constraint firstItem="hdT-jg-bdA" firstAttribute="leading" secondItem="jAL-Pm-2Lj" secondAttribute="leading" id="rYY-Hm-CnR"/>
+                                                        <constraint firstItem="hdT-jg-bdA" firstAttribute="centerY" secondItem="jAL-Pm-2Lj" secondAttribute="centerY" id="usq-zi-G9L"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jAL-Pm-2Lj" firstAttribute="leading" secondItem="V16-tS-xwc" secondAttribute="leading" constant="10" id="PgA-Lp-MHT"/>
+                                                <constraint firstAttribute="trailing" secondItem="jAL-Pm-2Lj" secondAttribute="trailing" constant="10" id="chs-Ff-PoZ"/>
+                                                <constraint firstItem="jAL-Pm-2Lj" firstAttribute="top" secondItem="V16-tS-xwc" secondAttribute="top" constant="5" id="lks-bp-Hrf"/>
+                                                <constraint firstAttribute="bottom" secondItem="jAL-Pm-2Lj" secondAttribute="bottom" constant="5" id="nkQ-Jh-T2I"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellButton" destination="LSj-58-6C4" id="eXu-NS-FZb"/>
+                                            <outlet property="cellImage" destination="hdT-jg-bdA" id="G84-R2-8tk"/>
+                                            <outlet property="cellView" destination="jAL-Pm-2Lj" id="Yiw-H7-EYh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Wj6-bW-INZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="WOz-Q6-69C"/>
+                    <connections>
+                        <outlet property="notifiTable" destination="aS3-Nz-PM5" id="tfL-ZM-DSO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMQ-UN-7nW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="60" y="-725"/>
+            <point key="canvasLocation" x="60" y="-725.48725637181417"/>
         </scene>
         <!--Get Help View Controller-->
         <scene sceneID="HUu-ND-I8K">
@@ -272,7 +299,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pv7-km-wrf">
-                                <rect key="frame" x="16" y="158" width="343" height="429"/>
+                                <rect key="frame" x="16" y="158" width="343" height="436"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -589,6 +616,9 @@
                                 <rect key="frame" x="313" y="573" width="46" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="notifyAddText:" destination="K2M-Sp-z0K" eventType="touchUpInside" id="BGG-7r-NdD"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of recipient or group" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GuE-6l-j0Q">
                                 <rect key="frame" x="82" y="115" width="266" height="30"/>
@@ -617,6 +647,8 @@
                         <viewLayoutGuide key="safeArea" id="ey1-vQ-jZh"/>
                     </view>
                     <connections>
+                        <outlet property="notifyGroupName" destination="GuE-6l-j0Q" id="zNQ-1H-4xH"/>
+                        <outlet property="notifyMessage" destination="tdJ-2p-nGl" id="7cQ-JR-LyW"/>
                         <outlet property="recipients" destination="LSC-Hg-iRd" id="eHa-33-3g7"/>
                     </connections>
                 </viewController>
@@ -624,10 +656,10 @@
             </objects>
             <point key="canvasLocation" x="53.600000000000001" y="686.80659670164926"/>
         </scene>
-        <!--View Controller-->
+        <!--Text Notify Edit Controller-->
         <scene sceneID="mey-ah-i9m">
             <objects>
-                <viewController id="mdY-K5-tD4" sceneMemberID="viewController">
+                <viewController id="mdY-K5-tD4" customClass="TextNotifyEditController" customModule="iNotify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oT7-EO-0IN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -671,6 +703,9 @@
                                 <rect key="frame" x="313" y="566" width="46" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="notifyAddEmail:" destination="mdY-K5-tD4" eventType="touchUpInside" id="6JI-jm-fAe"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qoz-xp-LDl">
                                 <rect key="frame" x="97" y="206" width="222" height="30"/>
@@ -697,6 +732,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7bb-6P-nZo"/>
                     </view>
+                    <connections>
+                        <outlet property="notifyEmailSubject" destination="qoz-xp-LDl" id="rOV-8M-qsw"/>
+                        <outlet property="notifyGroupName" destination="nFp-Sx-ho8" id="kvN-l7-NTD"/>
+                        <outlet property="notifyMessage" destination="QnU-yw-sqA" id="vp5-IF-eex"/>
+                        <outlet property="recipients" destination="pqK-H3-3cV" id="1yJ-mP-t7L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUE-Dz-mma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

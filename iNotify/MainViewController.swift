@@ -12,7 +12,6 @@ import CoreLocation
 
 // Settings variable here has to be outside of view controller class defintion for
 // it to be global and public
-//var contacts: [String:Any] = ["Jenny":"+14255169153", "Mesi":"+1305333-7331", "William":"+17879552555"]
 
 var buttonSettings: [String:Any] = ["enabled":false,"messageBody":"default body"]
 

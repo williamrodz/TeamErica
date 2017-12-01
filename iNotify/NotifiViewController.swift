@@ -7,10 +7,19 @@
 //
 
 import UIKit
+import Alamofire
 
-class NotifiViewController: UIViewController {
+class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
+    
+    
+    @IBOutlet weak var notifiTable: UITableView!
+    
+    var notifiContacts = [String](appSettings.getNotifyScreenDict().keys) //finds the recipients of the notify application.
     
     override func viewDidLoad() {
+        notifiTable.delegate = self
+        notifiTable.dataSource = self
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -21,7 +30,26 @@ class NotifiViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func sendData(toPhoneNumber:String, bodyOfMessage:String) {
+        let headers = [
+            "Content-Type": "application/x-www-form-urlencoded"
+        ]
+        
+        let parameters: Parameters = [
+            "To": toPhoneNumber ?? "",
+            "Body": bodyOfMessage ?? ""
+        ]
+        
+        Alamofire.request("https://sparkling-credit-8614.twil.io/sms", method: .post, parameters: parameters, headers: headers).responseJSON { response in
+            print(response.response)
+        }
+    }
+    
     @IBAction func sendEmail(_ sender: Any) {
+        
+        let notifyButton = sender as! UIButton
+        let notifyContact = notifiContacts[notifyButton.tag]
+        let notifyContactInfo = appSettings.getNotifyContactInfo(Name: notifyContact)
         
         let smtpSession = MCOSMTPSession()
         let mailSettings = appSettings.getMailSettings()
@@ -40,9 +68,9 @@ class NotifiViewController: UIViewController {
             }
         }
         let builder = MCOMessageBuilder()
-        builder.header.to = [MCOAddress(displayName: mailSettings["mailDisplayName"], mailbox: mailSettings["mailUserName"])]
+        builder.header.to = [MCOAddress(displayName: mailSettings["mailDisplayName"], mailbox: notifyContactInfo["To"])]
         builder.header.from = MCOAddress(displayName: mailSettings["mailDisplayName"], mailbox: mailSettings["mailUserName"])
-        builder.header.subject = "Test Email"
+        builder.header.subject = notifyContactInfo["Subject"]
         builder.htmlBody="<p>This is a test using MailCore</p>"
         
         let rfc822Data = builder.data()
@@ -55,6 +83,51 @@ class NotifiViewController: UIViewController {
             }
             
         }
+    }
+    
+    @IBAction func notifyContact(_ sender: Any) {
+        let notifyButton = sender as! UIButton
+        let notifyContact = notifiContacts[notifyButton.tag]
+        let notifyContactInfo = appSettings.getNotifyContactInfo(Name: notifyContact)
+        
+        let message:String = notifyContactInfo["MessageBody"]!
+        
+        print("Button \(notifyContact) was pressed!")
+        print("The button has been clicked.")
+        sendData(toPhoneNumber: notifyContactInfo["Contact"]!, bodyOfMessage: message)
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("Hi Helooooo")
+        return notifiContacts.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        print("I triedddddddddd")
+        return 100
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let contactName = notifiContacts[indexPath.row]
+        let avenue = appSettings.getNotifyContactInfo(Name: contactName)["Type"]
+        let cell = notifiTable.dequeueReusableCell(withIdentifier: "notifyCell") as! customTableViewCell
+        
+        cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
+        cell.cellButton.setTitle(contactName, for: .normal)
+        cell.cellButton.tag = indexPath.row
+        cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height / 3
+        
+        if (avenue == "Email") {
+            cell.cellButton.addTarget(self, action: #selector(sendEmail), for: .touchUpInside)
+            cell.cellImage.image = UIImage(named: "mail-icon")
+        } else {
+            cell.cellButton.addTarget(self, action: #selector(notifyContact), for: .touchUpInside)
+            cell.cellImage.image = UIImage(named: "message-icon")
+        }
+        
+        return cell
     }
     
     /*

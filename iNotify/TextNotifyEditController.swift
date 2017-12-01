@@ -14,6 +14,25 @@ import ContactsUI
 class TextNotifyEditController: UIViewController, CNContactPickerDelegate{
     
     @IBOutlet weak var recipients: UITextField!
+    
+    @IBOutlet weak var notifyMessage: UITextView!
+    
+    @IBOutlet weak var notifyGroupName: UITextField!
+    
+    @IBOutlet weak var notifyEmailSubject: UITextField!
+    
+    
+    @IBAction func notifyAddEmail(_ sender: Any) {
+        appSettings.addNotifiEmailRecipient(Name: notifyGroupName.text!, toContact: recipients.text!, Subject: notifyEmailSubject.text!, Message: notifyMessage.text)
+    }
+    
+    @IBAction func notifyAddText(_ sender: Any) {
+        appSettings.addNotifiTextRecipient(Name: notifyGroupName.text!, Contact: recipients.text!, Message: notifyMessage.text)
+    }
+    
+    
+    
+    //contacts stuff
     @IBAction func contacts(_ sender: Any) {
 
         let entityType = CNEntityType.contacts
