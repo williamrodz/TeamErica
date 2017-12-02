@@ -60,7 +60,7 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate {
             recipients.text = fullName
         }
         else{
-            recipients.text = recipients.text! + ";"
+            recipients.text = recipients.text! + "; "
             recipients.text = recipients.text! + fullName
         }
         
