@@ -19,6 +19,7 @@ class DisplayMessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print("Display message in appSettings is \(appSettings.getDisplayMessage())")
         displayMessageLabel.text =  appSettings.getDisplayMessage()
         print("Loading from DisplayMessageViewController")
     }

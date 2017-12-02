@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        saveSettingsToUserDefaults()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -43,11 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func saveSettingsToUserDefaults() {
+        print("---Saving settings data---")
+        appSettings.firstTimeRunning = false
         UserDefaults.standard.set(appSettings.firstTimeRunning, forKey: "firstTimeRunning")
         UserDefaults.standard.set(appSettings.displayMessage, forKey: "displayMessage")
         UserDefaults.standard.set(appSettings.latitude, forKey: "latitude")
         UserDefaults.standard.set(appSettings.longitude, forKey: "longitude")
         UserDefaults.standard.set(appSettings.mailSMTPHostName, forKey: "mailSMTPHostName")
+        UserDefaults.standard.set(appSettings.mailUserName,forKey: "mailUserName")
         UserDefaults.standard.set(appSettings.mailPassword, forKey: "mailPassword")
         UserDefaults.standard.set(appSettings.mailDisplayName, forKey: "mailDisplayName")
         UserDefaults.standard.set(appSettings.notifyScreenDict, forKey: "notifyScreenDict")

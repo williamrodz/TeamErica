@@ -29,12 +29,20 @@ class Settings {
     init(){
         //Check if app settings have been changed at least once
         if let x = UserDefaults.standard.object(forKey: "firstTimeRunning") as? Bool{
+            print("----App has been run at least once----")
+            print("Loading preloaded values:")
             self.firstTimeRunning = x
+            print("self.firstTimeRunning is \(self.firstTimeRunning)")
             self.displayMessage = UserDefaults.standard.object(forKey: "displayMessage") as! String
+            print("self.displayMessage is \(self.displayMessage)")
             self.latitude = UserDefaults.standard.object(forKey: "latitude") as! Double
+            print("self.latitude is \(self.latitude)")
             self.longitude = UserDefaults.standard.object(forKey: "longitude") as! Double
+            print("self.longitude is \(self.longitude)")
             self.mailSMTPHostName = UserDefaults.standard.object(forKey: "mailSMTPHostName") as! String
+            print("self.mailSMTPHostName is \(self.mailSMTPHostName)")
             self.mailUserName = UserDefaults.standard.object(forKey: "mailUserName") as! String
+            print("self.mailUserName is \(self.mailUserName)")
             self.mailPassword = UserDefaults.standard.object(forKey: "mailPassword") as! String
             self.mailDisplayName = UserDefaults.standard.object(forKey: "mailDisplayName") as! String
             
