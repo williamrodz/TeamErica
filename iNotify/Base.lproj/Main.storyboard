@@ -10,21 +10,78 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Analytics View Controller-->
         <scene sceneID="eCp-ET-jgj">
             <objects>
-                <viewController id="21q-br-N5Z" sceneMemberID="viewController">
+                <viewController id="21q-br-N5Z" customClass="AnalyticsViewController" customModule="iNotify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fgm-6j-Obk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ILG-h5-opJ">
+                                <rect key="frame" x="16" y="25" width="343" height="572"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="analyticsCell" rowHeight="100" id="0SG-0b-6po" customClass="analyticsTableViewCell" customModule="iNotify" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0SG-0b-6po" id="hxG-BF-n6g">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psR-O0-SKm">
+                                                    <rect key="frame" x="8" y="8" width="247" height="85"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FG9-1z-lm8">
+                                                    <rect key="frame" x="263" y="11" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="mcZ-Oa-pFR"/>
+                                                        <constraint firstAttribute="height" constant="80" id="xDK-Y1-AlT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="0.51137093320000004" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="FG9-1z-lm8" firstAttribute="leading" secondItem="psR-O0-SKm" secondAttribute="trailing" constant="8" id="07p-Fm-Zrs"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="FG9-1z-lm8" secondAttribute="trailing" constant="8" id="08F-zX-mLb"/>
+                                                <constraint firstItem="FG9-1z-lm8" firstAttribute="centerY" secondItem="hxG-BF-n6g" secondAttribute="centerY" id="Ij9-r9-rMu"/>
+                                                <constraint firstItem="FG9-1z-lm8" firstAttribute="top" secondItem="hxG-BF-n6g" secondAttribute="topMargin" constant="8" id="NkJ-iw-moi"/>
+                                                <constraint firstItem="psR-O0-SKm" firstAttribute="top" secondItem="hxG-BF-n6g" secondAttribute="top" constant="8" id="Sv9-rH-mXt"/>
+                                                <constraint firstItem="psR-O0-SKm" firstAttribute="leading" secondItem="hxG-BF-n6g" secondAttribute="leading" constant="8" id="dc2-fr-fMQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="psR-O0-SKm" secondAttribute="bottom" constant="8" id="fDR-ea-QAT"/>
+                                                <constraint firstAttribute="trailing" secondItem="FG9-1z-lm8" secondAttribute="trailing" id="ggT-KG-lg0"/>
+                                                <constraint firstAttribute="bottom" secondItem="psR-O0-SKm" secondAttribute="bottom" constant="8" id="v8e-MQ-5UL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FG9-1z-lm8" secondAttribute="bottom" constant="8" id="yvI-sk-Cva"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="analyticsButton" destination="FG9-1z-lm8" id="S8g-Ql-KBn"/>
+                                            <outlet property="analyticsDataCell" destination="hxG-BF-n6g" id="RdX-tp-yzz"/>
+                                            <outlet property="analyticsLabel" destination="psR-O0-SKm" id="E6p-9f-HP0"/>
+                                            <outlet property="cellButton" destination="FG9-1z-lm8" id="WMQ-zu-Hjr"/>
+                                            <outlet property="cellView" destination="hxG-BF-n6g" id="ozd-km-sqC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="afa-e0-XPT"/>
                     </view>
                     <navigationItem key="navigationItem" id="isp-bQ-p8c"/>
+                    <connections>
+                        <outlet property="analyticsTable" destination="ILG-h5-opJ" id="e0B-gd-HvV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qr2-jH-JFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-623" y="1400"/>
+            <point key="canvasLocation" x="-623.20000000000005" y="1399.2503748125939"/>
         </scene>
         <!--Main Edit View Controller-->
         <scene sceneID="91D-yc-6RK">

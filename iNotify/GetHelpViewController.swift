@@ -50,6 +50,14 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
         print("Button \(nameContact) was pressed!")
         print("The button has been clicked.")
         sendData(toPhoneNumber: contactInfo["Contact"]!, bodyOfMessage: message)
+        
+        //Add to Analytics data storage
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "MMM d,yyyy h:mm a"
+        let resultDate = format.string(from: date)
+        print(resultDate)
+        appSettings.addAnalyticsTracker(Name: nameContact, Timestamp: resultDate, Type: "Get Help")
     }
     
     override func viewDidLoad() {

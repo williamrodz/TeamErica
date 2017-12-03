@@ -20,6 +20,8 @@
 		3D9909161F8E7B0A006CEF5F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9909151F8E7B0A006CEF5F /* MainViewController.swift */; };
 		92FECB678FB56D2F2968BEC6 /* Pods_iNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E162F009726E760A3147CA1B /* Pods_iNotify.framework */; };
 		C0218FFC1FD3EB10006D0BF1 /* EmailNotifyEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0218FFB1FD3EB10006D0BF1 /* EmailNotifyEditViewController.swift */; };
+		C0218FFE1FD3F36A006D0BF1 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0218FFD1FD3F36A006D0BF1 /* AnalyticsViewController.swift */; };
+		C02190001FD3F703006D0BF1 /* analyticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0218FFF1FD3F703006D0BF1 /* analyticsTableViewCell.swift */; };
 		C076DA7A1F8E7CF700D648A2 /* NotifiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C076DA791F8E7CF700D648A2 /* NotifiViewController.swift */; };
 		C099B5871FD3DDD800B24AE1 /* NotifyEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C099B5861FD3DDD700B24AE1 /* NotifyEditViewController.swift */; };
 		C0D77A591FCE3AC7006EFA75 /* customTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D77A581FCE3AC7006EFA75 /* customTableViewCell.swift */; };
@@ -70,6 +72,8 @@
 		3D9909151F8E7B0A006CEF5F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5DEDD989CCCCE837C75FFE1A /* Pods-iNotify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iNotify.release.xcconfig"; path = "Pods/Target Support Files/Pods-iNotify/Pods-iNotify.release.xcconfig"; sourceTree = "<group>"; };
 		C0218FFB1FD3EB10006D0BF1 /* EmailNotifyEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailNotifyEditViewController.swift; sourceTree = "<group>"; };
+		C0218FFD1FD3F36A006D0BF1 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		C0218FFF1FD3F703006D0BF1 /* analyticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = analyticsTableViewCell.swift; sourceTree = "<group>"; };
 		C076DA791F8E7CF700D648A2 /* NotifiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifiViewController.swift; sourceTree = "<group>"; };
 		C099B5861FD3DDD700B24AE1 /* NotifyEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyEditViewController.swift; sourceTree = "<group>"; };
 		C0D77A581FCE3AC7006EFA75 /* customTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
@@ -147,7 +151,9 @@
 		3D10EF701F8D73C700479B43 /* iNotify */ = {
 			isa = PBXGroup;
 			children = (
+				C0218FFF1FD3F703006D0BF1 /* analyticsTableViewCell.swift */,
 				3D0F25ED1FA6BF1200B796B6 /* DisplayMessageViewController.swift */,
+				C0218FFD1FD3F36A006D0BF1 /* AnalyticsViewController.swift */,
 				3D9909151F8E7B0A006CEF5F /* MainViewController.swift */,
 				C2916B971FA6BBB600F23DA8 /* MainEditViewController.swift */,
 				C076DA791F8E7CF700D648A2 /* NotifiViewController.swift */,
@@ -390,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D9909161F8E7B0A006CEF5F /* MainViewController.swift in Sources */,
+				C02190001FD3F703006D0BF1 /* analyticsTableViewCell.swift in Sources */,
 				C2916B981FA6BBB600F23DA8 /* MainEditViewController.swift in Sources */,
 				C0D77A591FCE3AC7006EFA75 /* customTableViewCell.swift in Sources */,
 				C076DA7A1F8E7CF700D648A2 /* NotifiViewController.swift in Sources */,
@@ -404,6 +411,7 @@
 				C099B5871FD3DDD800B24AE1 /* NotifyEditViewController.swift in Sources */,
 				3D3B74E71FD3909A00D1105E /* EmailSettingsViewController.swift in Sources */,
 				3D0F25EE1FA6BF1300B796B6 /* DisplayMessageViewController.swift in Sources */,
+				C0218FFE1FD3F36A006D0BF1 /* AnalyticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

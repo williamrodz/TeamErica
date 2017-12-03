@@ -80,6 +80,14 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
                 NSLog("Error sending email: \(error)")
             } else {
                 NSLog("Successfully sent email!")
+                
+                //Add to Analytics data storage
+                let date = Date()
+                let format = DateFormatter()
+                format.dateFormat = "MMM d,yyyy h:mm a"
+                let resultDate = format.string(from: date)
+                print(resultDate)
+                appSettings.addAnalyticsTracker(Name: notifyContact, Timestamp: resultDate, Type: "Notify")
             }
             
         }
@@ -95,6 +103,14 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         print("Button \(notifyContact) was pressed!")
         print("The button has been clicked.")
         sendData(toPhoneNumber: notifyContactInfo["Contact"]!, bodyOfMessage: message)
+        
+        //Add to Analytics data storage
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "MMM d,yyyy h:mm a"
+        let resultDate = format.string(from: date)
+        print(resultDate)
+        appSettings.addAnalyticsTracker(Name: notifyContact, Timestamp: resultDate, Type: "Notify")
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

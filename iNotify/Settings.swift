@@ -19,6 +19,7 @@ class Settings {
     
     var notifyScreenDict:[String:Dictionary<String, String>]
     var getHelpScreenDict:[String:Dictionary<String, String>]
+    var analyticsScreenDict:[String:Dictionary<String, String>]
     
     var mailSMTPHostName: String
     var mailUserName: String
@@ -48,7 +49,7 @@ class Settings {
             
             self.notifyScreenDict = UserDefaults.standard.object(forKey: "notifyScreenDict") as![String:Dictionary<String, String>]
             self.getHelpScreenDict = UserDefaults.standard.object(forKey: "getHelpScreenDict") as![String:Dictionary<String, String>]
-            
+            self.analyticsScreenDict = UserDefaults.standard.object(forKey: "analyticsScreenDict") as![String:Dictionary<String, String>]
         }
         else {
             
@@ -62,6 +63,7 @@ class Settings {
             self.mailDisplayName = "Jenny"
             self.notifyScreenDict = [:]
             self.getHelpScreenDict = [:]
+            self.analyticsScreenDict = [:]
         }
     }
     
@@ -73,12 +75,26 @@ class Settings {
         return self.getHelpScreenDict
     }
     
+    func getAnalyticsScreenDict ()-> [String:Dictionary<String, String>] {
+        return self.analyticsScreenDict
+    }
+    
     func getGetHelpContactInfo (Name: String) -> [String: String]{
         return self.getHelpScreenDict[Name]!
     }
     
     func getNotifyContactInfo (Name: String) -> [String:String]{
         return self.notifyScreenDict[Name]!
+    }
+    
+    func getAnalyticsContactInfo (Name: String) -> [String:String]{
+        return self.analyticsScreenDict[Name]!
+    }
+    
+    func addAnalyticsTracker (Name: String, Timestamp: String, Type: String) {
+        let messageContent: [String: String] = ["Timestamp": Timestamp, "Type": Type, "Name": Name]
+        let analyticsLabel = Timestamp + " " + Type + ": " + Name
+        self.analyticsScreenDict[analyticsLabel] = messageContent
     }
     
     func addGetHelpRecipient (Name: String, Contact: String, Message:String) {
