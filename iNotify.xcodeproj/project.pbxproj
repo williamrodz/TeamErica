@@ -16,6 +16,7 @@
 		3D10EF7C1F8D73C700479B43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D10EF7A1F8D73C700479B43 /* LaunchScreen.storyboard */; };
 		3D10EF871F8D73C800479B43 /* iNotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10EF861F8D73C800479B43 /* iNotifyTests.swift */; };
 		3D10EF921F8D73C800479B43 /* iNotifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10EF911F8D73C800479B43 /* iNotifyUITests.swift */; };
+		3D3B74E71FD3909A00D1105E /* EmailSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3B74E61FD3909A00D1105E /* EmailSettingsViewController.swift */; };
 		3D9909161F8E7B0A006CEF5F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9909151F8E7B0A006CEF5F /* MainViewController.swift */; };
 		92FECB678FB56D2F2968BEC6 /* Pods_iNotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E162F009726E760A3147CA1B /* Pods_iNotify.framework */; };
 		C076DA7A1F8E7CF700D648A2 /* NotifiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C076DA791F8E7CF700D648A2 /* NotifiViewController.swift */; };
@@ -63,6 +64,7 @@
 		3D10EF8D1F8D73C800479B43 /* iNotifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iNotifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D10EF911F8D73C800479B43 /* iNotifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iNotifyUITests.swift; sourceTree = "<group>"; };
 		3D10EF931F8D73C800479B43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D3B74E61FD3909A00D1105E /* EmailSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSettingsViewController.swift; sourceTree = "<group>"; };
 		3D9909151F8E7B0A006CEF5F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5DEDD989CCCCE837C75FFE1A /* Pods-iNotify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iNotify.release.xcconfig"; path = "Pods/Target Support Files/Pods-iNotify/Pods-iNotify.release.xcconfig"; sourceTree = "<group>"; };
 		C076DA791F8E7CF700D648A2 /* NotifiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifiViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				3D0F25EF1FA6C4A400B796B6 /* DisplayEditViewController.swift */,
 				3D10EF711F8D73C700479B43 /* AppDelegate.swift */,
 				3D10EF751F8D73C700479B43 /* Main.storyboard */,
+				3D3B74E61FD3909A00D1105E /* EmailSettingsViewController.swift */,
 				C0D77A5C1FCF0517006EFA75 /* getHelpEditViewController.swift */,
 				C0D77A5A1FCEFD01006EFA75 /* GetHelpMessageViewController.swift */,
 				C0D77A581FCE3AC7006EFA75 /* customTableViewCell.swift */,
@@ -391,6 +394,7 @@
 				C0D77A5D1FCF0517006EFA75 /* getHelpEditViewController.swift in Sources */,
 				3D0DBD521FC236AC00B9BF5E /* Settings.swift in Sources */,
 				3D10EF721F8D73C700479B43 /* AppDelegate.swift in Sources */,
+				3D3B74E71FD3909A00D1105E /* EmailSettingsViewController.swift in Sources */,
 				3D0F25EE1FA6BF1300B796B6 /* DisplayMessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
