@@ -45,14 +45,36 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
         let button = sender as! UIButton
         let nameContact = getHelpContacts[button.tag]
         let contactInfo = appSettings.getGetHelpContactInfo(Name: nameContact)
-        let message:String = contactInfo["MessageBody"]! + "Please come get me at \(googleMapsURL)"
+        // Get time and date information
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        
+        let message:String = contactInfo["MessageBody"]! + "\nI am currently at \(googleMapsURL)\n I was here at \(hour):\(minutes)"
         
         print("Button \(nameContact) was pressed!")
-        print("The button has been clicked.")
-        sendData(toPhoneNumber: contactInfo["Contact"]!, bodyOfMessage: message)
+        var rawPhoneNumberText:String = contactInfo["Contact"]!
+        print("Sending text to \(rawPhoneNumberText)")
+        // Trim Whitespace
+        let noWhiteSpacePhoneNumbers = rawPhoneNumberText.trimmingCharacters(in: .whitespaces)
+        
+        //Check if more than one phone number in recipients
+        var recipientsArray:[String] = []
+        if noWhiteSpacePhoneNumbers.range(of:";") != nil {
+            recipientsArray = noWhiteSpacePhoneNumbers.components(separatedBy: ";")
+        } else {
+            recipientsArray.append(noWhiteSpacePhoneNumbers)
+        }
+        
+        //send message to everyone
+        recipientsArray.forEach { individualPhoneNumber in
+            sendData(toPhoneNumber: individualPhoneNumber, bodyOfMessage: message)
+        }
+        
         
         //Add to Analytics data storage
-        let date = Date()
+        //        let date = Date() : Date already saved above
         let format = DateFormatter()
         format.dateFormat = "MMM d,yyyy h:mm a"
         let resultDate = format.string(from: date)
@@ -86,7 +108,6 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
     */
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Hi Helooooo")
         return getHelpContacts.count
     }
     

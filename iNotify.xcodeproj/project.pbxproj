@@ -162,15 +162,15 @@
 				3D10EF711F8D73C700479B43 /* AppDelegate.swift */,
 				3D10EF751F8D73C700479B43 /* Main.storyboard */,
 				C099B5861FD3DDD700B24AE1 /* NotifyEditViewController.swift */,
+				CEE4EDAC1FC4B2E7001ADC5F /* TextNotifyEditController.swift */,
+				C0D77A5A1FCEFD01006EFA75 /* GetHelpMessageViewController.swift */,
 				3D3B74E61FD3909A00D1105E /* EmailSettingsViewController.swift */,
 				C0D77A5C1FCF0517006EFA75 /* getHelpEditViewController.swift */,
-				C0D77A5A1FCEFD01006EFA75 /* GetHelpMessageViewController.swift */,
 				C0D77A581FCE3AC7006EFA75 /* customTableViewCell.swift */,
 				3D0DBD511FC236AC00B9BF5E /* Settings.swift */,
 				3D10EF781F8D73C700479B43 /* Assets.xcassets */,
 				3D10EF7A1F8D73C700479B43 /* LaunchScreen.storyboard */,
 				3D10EF7D1F8D73C700479B43 /* Info.plist */,
-				CEE4EDAC1FC4B2E7001ADC5F /* TextNotifyEditController.swift */,
 				C0218FFB1FD3EB10006D0BF1 /* EmailNotifyEditViewController.swift */,
 			);
 			path = iNotify;

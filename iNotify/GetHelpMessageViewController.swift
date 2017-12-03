@@ -58,15 +58,23 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate {
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         let fullName = "\(contact.givenName) \(contact.familyName)"
         
+        var phoneNumbers = [String]()
+        if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
+            for phoneNumber in contact.phoneNumbers {
+                
+                let phone = phoneNumber.value
+                phoneNumbers.append(phone.stringValue)
+            }
+        }
+        
+        
         if getHelpContact.text!.isEmpty{
-            print("Check")
-            getHelpContact.text = fullName
+            getHelpContact.text = phoneNumbers[0] //currently just appending first phone number
         }
         else{
             getHelpContact.text = getHelpContact.text! + "; "
-            getHelpContact.text = getHelpContact.text! + fullName
+            getHelpContact.text = getHelpContact.text! + phoneNumbers[0]
         }
-        
         
     }
     

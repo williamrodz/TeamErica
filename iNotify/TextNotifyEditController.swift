@@ -11,15 +11,17 @@ import UIKit
 import Contacts
 import ContactsUI
 
-class TextNotifyEditController: UIViewController, CNContactPickerDelegate{
+class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITextViewDelegate{
     
     @IBOutlet weak var recipients: UITextField!
     @IBOutlet weak var notifyMessage: UITextView!
     @IBOutlet weak var notifyGroupName: UITextField!
-    
+        
     var preSetRecipients = ""
     var preSetMessage = ""
     var preSetGroupName = ""
+    
+    //var phoneNumberPicker:UIPickerView = UIPickerView()
     
     @IBAction func notifyAddText(_ sender: Any) {
         appSettings.addNotifiTextRecipient(Name: notifyGroupName.text!, Contact: recipients.text!, Message: notifyMessage.text)
@@ -32,7 +34,20 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate{
         recipients.text = preSetRecipients
         notifyMessage.text = preSetMessage
         notifyGroupName.text = preSetGroupName
+        
+        notifyMessage.delegate = self //make notifyMessage use this file's 'return' text
+        print("Inside")
+        
+
     }
+    
+//    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+//        if(text == "\n") { //return key pressed
+//            textView.resignFirstResponder()
+//            return false
+//        }
+//        return true
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -81,12 +96,22 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate{
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         let fullName = "\(contact.givenName) \(contact.familyName)"
         
+        var phoneNumbers = [String]()
+        if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
+            for phoneNumber in contact.phoneNumbers {
+                
+                let phone = phoneNumber.value
+                phoneNumbers.append(phone.stringValue)
+            }
+        }
+        
+        
         if recipients.text!.isEmpty{
-            recipients.text = fullName
+            recipients.text = phoneNumbers[0] //currently just appending first phone number
         }
         else{
-            recipients.text = recipients.text! + ";"
-            recipients.text = recipients.text! + fullName
+            recipients.text = recipients.text! + "; "
+            recipients.text = recipients.text! + phoneNumbers[0]
         }
         
         
