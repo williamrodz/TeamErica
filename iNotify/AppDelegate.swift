@@ -56,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set(appSettings.mailDisplayName, forKey: "mailDisplayName")
         UserDefaults.standard.set(appSettings.notifyScreenDict, forKey: "notifyScreenDict")
         UserDefaults.standard.set(appSettings.getHelpScreenDict, forKey: "getHelpScreenDict")
+        UserDefaults.standard.set(appSettings.analyticsScreenDict, forKey: "analyticsScreenDict")
     }
 
 
