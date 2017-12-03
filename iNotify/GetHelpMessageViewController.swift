@@ -18,7 +18,10 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate {
     
     @IBOutlet weak var getHelpMessage: UITextView!
     
-    @IBOutlet weak var recipients: UITextField!
+    var preSetNickname = ""
+    var preSetContact = ""
+    var preSetMessage = ""
+    
     @IBAction func contacts(_ sender: Any) {
         let entityType = CNEntityType.contacts
         let authStatus = CNContactStore.authorizationStatus(for: entityType)
@@ -55,13 +58,13 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate {
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         let fullName = "\(contact.givenName) \(contact.familyName)"
         
-        if recipients.text!.isEmpty{
+        if getHelpContact.text!.isEmpty{
             print("Check")
-            recipients.text = fullName
+            getHelpContact.text = fullName
         }
         else{
-            recipients.text = recipients.text! + "; "
-            recipients.text = recipients.text! + fullName
+            getHelpContact.text = getHelpContact.text! + "; "
+            getHelpContact.text = getHelpContact.text! + fullName
         }
         
         
@@ -74,6 +77,10 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        getHelpName.text = preSetNickname
+        getHelpContact.text = preSetContact
+        getHelpMessage.text = preSetMessage
     }
 
     override func didReceiveMemoryWarning() {

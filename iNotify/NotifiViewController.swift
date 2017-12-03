@@ -98,13 +98,11 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Hi Helooooo")
         return notifiContacts.count
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        print("I triedddddddddd")
         return 100
     }
     

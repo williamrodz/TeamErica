@@ -28,7 +28,6 @@ class getHelpEditViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Hi Helooooo")
         return getHelpContacts.count
     }
     
@@ -39,16 +38,42 @@ class getHelpEditViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("I was called")
         let cell = getHelpEditTable.dequeueReusableCell(withIdentifier: "getHelpEditCell") as! customTableViewCell
         
         cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
         cell.cellButton.setTitle(getHelpContacts[indexPath.row], for: .normal)
         cell.cellButton.tag = indexPath.row
-        //cell.cellButton.addTarget(self, action: #selector(getHelpFromContact), for: .touchUpInside)
+        cell.cellButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         cell.cellImage.image = UIImage(named: "message-icon")
         cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height / 3
         return cell
+    }
+    
+    @objc func buttonPressed(sender: Any) {
+        performSegue(withIdentifier: "customizeGetHelpSegue", sender: sender)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "customizeGetHelpSegue" {
+            let nextVC: GetHelpMessageViewController = segue.destination as! GetHelpMessageViewController
+            
+            let button = sender as! UIButton
+            let nameContact = getHelpContacts[button.tag]
+            let contactInfo = appSettings.getGetHelpContactInfo(Name: nameContact)
+            
+            nextVC.preSetNickname = contactInfo["Name"]!
+            nextVC.preSetContact = contactInfo["Contact"]!
+            nextVC.preSetMessage = contactInfo["MessageBody"]!
+        }
+            
+        else if segue.identifier == "newContactGetHelpSegue"{
+            let nextVC: GetHelpMessageViewController = segue.destination as! GetHelpMessageViewController
+            
+            nextVC.preSetNickname = ""
+            nextVC.preSetContact = ""
+            nextVC.preSetMessage = ""
+            
+        }
     }
     /*
     // MARK: - Navigation
