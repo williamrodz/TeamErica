@@ -57,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set(appSettings.notifyScreenDict, forKey: "notifyScreenDict")
         UserDefaults.standard.set(appSettings.getHelpScreenDict, forKey: "getHelpScreenDict")
         UserDefaults.standard.set(appSettings.analyticsScreenDict, forKey: "analyticsScreenDict")
+        UserDefaults.standard.set(appSettings.analyticsTrackerDict, forKey: "analyticsTrackerDict")
     }
 
 

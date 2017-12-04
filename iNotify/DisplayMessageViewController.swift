@@ -19,6 +19,7 @@ class DisplayMessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Display message in appSettings is \(appSettings.getDisplayMessage())")
+        appSettings.addAnalyticsTrackerDisplay()
         displayMessageLabel.text =  appSettings.getDisplayMessage()
         displayMessageLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
 

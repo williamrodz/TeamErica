@@ -75,11 +75,12 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //Add to Analytics data storage
         //        let date = Date() : Date already saved above
+        appSettings.addAnalyticsTrackerGetHelp()
         let format = DateFormatter()
         format.dateFormat = "MMM d,yyyy h:mm a"
         let resultDate = format.string(from: date)
         print(resultDate)
-        appSettings.addAnalyticsTracker(Name: nameContact, Timestamp: resultDate, Type: "Get Help")
+        appSettings.addAnalyticsScreenDict(Name: nameContact, Timestamp: resultDate, Type: "Get Help")
     }
     
     override func viewDidLoad() {

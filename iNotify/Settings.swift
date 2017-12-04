@@ -20,12 +20,12 @@ class Settings {
     var notifyScreenDict:[String:Dictionary<String, String>]
     var getHelpScreenDict:[String:Dictionary<String, String>]
     var analyticsScreenDict:[String:Dictionary<String, String>]
+    var analyticsTrackerDict:[String:Int]
     
     var mailSMTPHostName: String
     var mailUserName: String
     var mailPassword: String
     var mailDisplayName: String
-    
     
     init(){
         //Check if app settings have been changed at least once
@@ -50,9 +50,10 @@ class Settings {
             self.notifyScreenDict = UserDefaults.standard.object(forKey: "notifyScreenDict") as![String:Dictionary<String, String>]
             self.getHelpScreenDict = UserDefaults.standard.object(forKey: "getHelpScreenDict") as![String:Dictionary<String, String>]
             self.analyticsScreenDict = UserDefaults.standard.object(forKey: "analyticsScreenDict") as![String:Dictionary<String, String>]
+            self.analyticsTrackerDict = UserDefaults.standard.object(forKey: "analyticsTracker") as! [String:Int]
         }
-        else {
             
+        else {
             self.firstTimeRunning = true
             self.displayMessage = "I'm not feeling well. Could you get me some water?"
             self.latitude = 0
@@ -64,6 +65,7 @@ class Settings {
             self.notifyScreenDict = [:]
             self.getHelpScreenDict = [:]
             self.analyticsScreenDict = [:]
+            self.analyticsTrackerDict = ["Total Get Help":0, "Total Notify":0, "Total Display":0]
         }
     }
     
@@ -79,6 +81,10 @@ class Settings {
         return self.analyticsScreenDict
     }
     
+    func getAnalyticsTrackerDict () -> [String:Int] {
+        return self.analyticsTrackerDict
+    }
+    
     func getGetHelpContactInfo (Name: String) -> [String: String]{
         return self.getHelpScreenDict[Name]!
     }
@@ -91,7 +97,19 @@ class Settings {
         return self.analyticsScreenDict[Name]!
     }
     
-    func addAnalyticsTracker (Name: String, Timestamp: String, Type: String) {
+    func addAnalyticsTrackerDisplay () {
+        self.analyticsTrackerDict["Total Display"]? += 1
+    }
+    
+    func addAnalyticsTrackerGetHelp () {
+        self.analyticsTrackerDict["Total Get Help"]? += 1
+    }
+    
+    func addAnalyticsTrackerNotify () {
+        self.analyticsTrackerDict["Total Notify"]? += 1
+    }
+    
+    func addAnalyticsScreenDict (Name: String, Timestamp: String, Type: String) {
         let messageContent: [String: String] = ["Timestamp": Timestamp, "Type": Type, "Name": Name]
         let analyticsLabel = Timestamp + " " + Type + ": " + Name
         self.analyticsScreenDict[analyticsLabel] = messageContent
