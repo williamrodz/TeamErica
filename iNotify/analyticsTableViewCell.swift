@@ -11,7 +11,6 @@ import UIKit
 class analyticsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var analyticsDataCell: UIView!
-    @IBOutlet weak var analyticsLabel: UILabel!
     @IBOutlet weak var analyticsButton: UIButton!
     
     override func awakeFromNib() {

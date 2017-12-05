@@ -22,11 +22,11 @@ class AnalyticsHomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let displayFeature = "Display" + String(describing: appSettings.getAnalyticsTrackerDict()["Total Display"]!)
-        let getHelpFeature = "Get Help" + String(describing: appSettings.getAnalyticsTrackerDict()["Total Get Help"]!)
-        let notifyFeature = "Notify" + String(describing: appSettings.getAnalyticsTrackerDict()["Total Notify"]!)
+        let totalDisplayFeature = "Total times the Display feature was used: " + String(describing: appSettings.getAnalyticsTrackerDict()["Total Display"]!) + "\n \n"
+        let totalGetHelpFeature = "Total times the Get Help feature was used: " + String(describing: appSettings.getAnalyticsTrackerDict()["Total Get Help"]!) + "\n \n"
+        let totalNotifyFeature = "Total times the Notify feature was used: " + String(describing: appSettings.getAnalyticsTrackerDict()["Total Notify"]!) + "\n \n"
         
-        summaryDataField.text = displayFeature + getHelpFeature + notifyFeature
+        summaryDataField.text = "Summary Page \n \n \n" + totalDisplayFeature + totalGetHelpFeature + totalNotifyFeature
     }
 
     override func didReceiveMemoryWarning() {

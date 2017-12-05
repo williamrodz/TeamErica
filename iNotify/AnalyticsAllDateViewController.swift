@@ -1,74 +1,74 @@
 //
-//  AnalyticsViewController.swift
+//  AnalyticsAllDateViewController.swift
 //  iNotify
 //
-//  Created by Meseret  Kebede on 03/12/2017.
+//  Created by Meseret  Kebede on 05/12/2017.
 //  Copyright © 2017 Team Erica. All rights reserved.
 //
 
 import UIKit
 
-class AnalyticsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    //analyticsTable that will be connected to the storyboard
+class AnalyticsAllDateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var analyticsTable: UITableView!
+    @IBOutlet weak var allDatesData: UITableView!
     
-    var analyticsList = [String](appSettings.getAnalyticsScreenDict().keys)
+    var senderMonth = ""
+    var dataForMonth = [String]()
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(analyticsList)
-        return analyticsList.count
+        return dataForMonth.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        print(analyticsList)
         return 100
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dataLabel = analyticsList[indexPath.row]
-        let cell = analyticsTable.dequeueReusableCell(withIdentifier: "analyticsCell") as! analyticsTableViewCell
+        let dataLabel = dataForMonth[indexPath.row]
+        let cell = allDatesData.dequeueReusableCell(withIdentifier: "dataPoint") as! analyticsTableViewCell
         
         cell.analyticsDataCell.layer.cornerRadius = cell.analyticsDataCell.frame.height / 2
-        cell.analyticsButton.addTarget(self, action: #selector(getMonthData), for: .touchUpInside)
+        cell.analyticsButton.addTarget(self, action: #selector(getNotes), for: .touchUpInside)
         cell.analyticsButton.setTitle(dataLabel, for: .normal)
         cell.analyticsButton.tag = indexPath.row
         return cell
     }
     
-    @objc func getMonthData(sender: Any) {
-        performSegue(withIdentifier: "dataForMonth", sender: sender)
+    @objc func getNotes(sender: Any) {
+        print("here     ", dataForMonth)
+        performSegue(withIdentifier: "dataPointDetails", sender: sender)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "dataForMonth" {
-            let nextVC: AnalyticsAllDateViewController = segue.destination as! AnalyticsAllDateViewController
+        if segue.identifier == "dataPointDetails" {
+            let nextVC: AnalyticsNotesViewController = segue.destination as! AnalyticsNotesViewController
             
             let button = sender as! UIButton
-            let month = analyticsList[button.tag]
-            let dataForMonth = [String] (appSettings.getAnalyticsMonthInfo(Month: month).keys)
-
-            nextVC.senderMonth = month
-            nextVC.dataForMonth = [String] (appSettings.getAnalyticsMonthInfo(Month: month).keys)
+            print("button tag:     "+dataForMonth[button.tag])
+            let dataPoint = dataForMonth[button.tag]
             
+            nextVC.month = senderMonth
+            nextVC.dataPointTime = dataPoint
         }
     }
     
     
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        print(analyticsList)
-        analyticsTable.delegate = self
-        analyticsTable.dataSource = self
+        allDatesData.delegate = self
+        allDatesData.dataSource = self
         
+        super.viewDidLoad()
+        print(dataForMonth)
         // Do any additional setup after loading the view.
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     /*
     // MARK: - Navigation

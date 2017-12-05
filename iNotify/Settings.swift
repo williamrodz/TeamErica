@@ -19,7 +19,7 @@ class Settings {
     
     var notifyScreenDict:[String:Dictionary<String, String>]
     var getHelpScreenDict:[String:Dictionary<String, String>]
-    var analyticsScreenDict:[String:Dictionary<String, String>]
+    var analyticsScreenDict:[String:[String: Dictionary<String, String>]]
     var analyticsTrackerDict:[String:Int]
     
     var mailSMTPHostName: String
@@ -49,7 +49,7 @@ class Settings {
             
             self.notifyScreenDict = UserDefaults.standard.object(forKey: "notifyScreenDict") as![String:Dictionary<String, String>]
             self.getHelpScreenDict = UserDefaults.standard.object(forKey: "getHelpScreenDict") as![String:Dictionary<String, String>]
-            self.analyticsScreenDict = UserDefaults.standard.object(forKey: "analyticsScreenDict") as![String:Dictionary<String, String>]
+            self.analyticsScreenDict = UserDefaults.standard.object(forKey: "analyticsScreenDict") as![String:[String: Dictionary<String, String>]]
             self.analyticsTrackerDict = UserDefaults.standard.object(forKey: "analyticsTracker") as! [String:Int]
         }
             
@@ -77,7 +77,7 @@ class Settings {
         return self.getHelpScreenDict
     }
     
-    func getAnalyticsScreenDict ()-> [String:Dictionary<String, String>] {
+    func getAnalyticsScreenDict ()-> [String:[String: Dictionary<String, String>]] {
         return self.analyticsScreenDict
     }
     
@@ -93,8 +93,12 @@ class Settings {
         return self.notifyScreenDict[Name]!
     }
     
-    func getAnalyticsContactInfo (Name: String) -> [String:String]{
-        return self.analyticsScreenDict[Name]!
+    func getAnalyticsMonthInfo (Month: String) -> [String: Dictionary<String, String>] {
+        return self.analyticsScreenDict[Month]!
+    }
+    
+    func getAnalyticsDataPointinfo (Month: String, Timestamp: String) -> Dictionary<String, String> {
+        return self.analyticsScreenDict[Month]![Timestamp]!
     }
     
     func addAnalyticsTrackerDisplay () {
@@ -109,10 +113,20 @@ class Settings {
         self.analyticsTrackerDict["Total Notify"]? += 1
     }
     
-    func addAnalyticsScreenDict (Name: String, Timestamp: String, Type: String) {
-        let messageContent: [String: String] = ["Timestamp": Timestamp, "Type": Type, "Name": Name]
+    func addAnalyticsScreenDict (Name: String, Timestamp: String, Type: String, Month: String) {
+        let messageContent: Dictionary<String, String> = ["Timestamp": Timestamp, "Type": Type, "Name": Name, "Month": Month, "Notes": ""]
         let analyticsLabel = Timestamp + " " + Type + ": " + Name
-        self.analyticsScreenDict[analyticsLabel] = messageContent
+        print([analyticsLabel:messageContent])
+        if (self.analyticsScreenDict.keys.contains(Month)) {
+            self.analyticsScreenDict[Month]![analyticsLabel] = messageContent
+        } else {
+            let insideDict = [analyticsLabel:messageContent]
+            self.analyticsScreenDict[Month] = insideDict
+        }
+    }
+    
+    func addAnalyticsNote (Month: String, Analyticslabel: String, Note: String) {
+        self.analyticsScreenDict[Month]![Analyticslabel]!["Notes"] = Note
     }
     
     func addGetHelpRecipient (Name: String, Contact: String, Message:String) {

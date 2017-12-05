@@ -85,11 +85,14 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
                 appSettings.addAnalyticsTrackerNotify()
                 
                 let date = Date()
-                let format = DateFormatter()
-                format.dateFormat = "MMM d,yyyy h:mm a"
-                let resultDate = format.string(from: date)
+                let fullFormat = DateFormatter()
+                let monthFormat = DateFormatter()
+                fullFormat.dateFormat = "MMM d,yyyy h:mm a"
+                monthFormat.dateFormat = "MMMM yyyy"
+                let resultDate = fullFormat.string(from: date)
+                let month = monthFormat.string(from: date)
                 print(resultDate)
-                appSettings.addAnalyticsScreenDict(Name: notifyContact, Timestamp: resultDate, Type: "Notify")
+                appSettings.addAnalyticsScreenDict(Name: notifyContact, Timestamp: resultDate, Type: "Notify", Month: month)
             }
             
         }
@@ -109,11 +112,14 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         //Add to Analytics data storage
         appSettings.addAnalyticsTrackerNotify()
         let date = Date()
-        let format = DateFormatter()
-        format.dateFormat = "MMM d,yyyy h:mm a"
-        let resultDate = format.string(from: date)
+        let fullFormat = DateFormatter()
+        let monthFormat = DateFormatter()
+        fullFormat.dateFormat = "MMM d,yyyy h:mm a"
+        monthFormat.dateFormat = "MMMM yyyy"
+        let resultDate = fullFormat.string(from: date)
+        let month = monthFormat.string(from: date)
         print(resultDate)
-        appSettings.addAnalyticsScreenDict(Name: notifyContact, Timestamp: resultDate, Type: "Notify")
+        appSettings.addAnalyticsScreenDict(Name: notifyContact, Timestamp: resultDate, Type: "Notify", Month: month)
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
