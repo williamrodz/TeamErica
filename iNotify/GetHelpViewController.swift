@@ -85,13 +85,17 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             
             //Add to Analytics data storage
-            //        let date = Date() : Date already saved above
+            //        let date = Date() : Date already saved above
             appSettings.addAnalyticsTrackerGetHelp()
-            let format = DateFormatter()
-            format.dateFormat = "MMM d,yyyy h:mm a"
-            let resultDate = format.string(from: date)
+            let dateToday = Date()
+            let fullFormat = DateFormatter()
+            let monthFormat = DateFormatter()
+            fullFormat.dateFormat = "MMM d,yyyy h:mm a"
+            monthFormat.dateFormat = "MMMM yyyy"
+            let resultDate = fullFormat.string(from: dateToday)
+            let month = monthFormat.string(from: dateToday)
             print(resultDate)
-            appSettings.addAnalyticsScreenDict(Name: nameContact, Timestamp: resultDate, Type: "Get Help")
+            appSettings.addAnalyticsScreenDict(Name: nameContact, Timestamp: resultDate, Type: "Get Help", Month: month)
             
             //return to root of Home
             _  = self.navigationController?.popToRootViewController(animated: true)
