@@ -25,8 +25,9 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
             "To": toPhoneNumber ?? "",
             "Body": bodyOfMessage ?? ""
         ]
+        // old account url was https://sparkling-credit-8614.twil.io/sms
         
-        Alamofire.request("https://sparkling-credit-8614.twil.io/sms", method: .post, parameters: parameters, headers: headers).responseJSON { response in
+        Alamofire.request("https://faint-hospital-4825.twil.io/sms", method: .post, parameters: parameters, headers: headers).responseJSON { response in
             print(response.response)
             
         }

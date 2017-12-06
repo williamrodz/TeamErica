@@ -40,7 +40,9 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
             "Body": bodyOfMessage ?? ""
         ]
         
-        Alamofire.request("https://sparkling-credit-8614.twil.io/sms", method: .post, parameters: parameters, headers: headers).responseJSON { response in
+        //old url was https://sparkling-credit-8614.twil.io/sms
+        
+        Alamofire.request("https://faint-hospital-4825.twil.io/sms", method: .post, parameters: parameters, headers: headers).responseJSON { response in
             print(response.response)
         }
     }
@@ -77,9 +79,9 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         
         
         // Box
-        let refreshAlert = UIAlertController(title: "Notifying by email", message: "Are you sure you want to send your preset email to \(notifyContact)?", preferredStyle: UIAlertControllerStyle.alert)
+        let refreshAlert = UIAlertController(title: "Notifying by email", message: "Are you sure you want to send your preset email to \"\(notifyContact)\"?", preferredStyle: UIAlertControllerStyle.alert)
         
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+        refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
             
             //Send the email
             let sendOperation = smtpSession.sendOperation(with: rfc822Data)
@@ -141,7 +143,7 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         //Confirm box
         let refreshAlert = UIAlertController(title: "Notifying by SMS", message: "Are you sure you want to send your preset SMS to \"\(notifyContact)\"", preferredStyle: UIAlertControllerStyle.alert)
         
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+        refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
             self.sendData(toPhoneNumber: notifyContactInfo["Contact"]!, bodyOfMessage: message)
             
             //Add to Analytics data storage

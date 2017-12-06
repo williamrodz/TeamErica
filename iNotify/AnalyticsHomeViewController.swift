@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnalyticsHomeViewController: UIViewController {
+class AnalyticsHomeViewController: UIViewController,UITabBarControllerDelegate {
 
     
     @IBOutlet weak var summaryDataField: UITextView!
@@ -16,10 +16,21 @@ class AnalyticsHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBarController?.delegate = self
         
         // Do any additional setup after loading the view.
         
     }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        // Make so that every time Second Tab(Home) is pressed on TabController,
+        // the root of it is always accessed.
+        let indexOfDesiredViewController = 1
+        let secondVC = tabBarController.viewControllers?[indexOfDesiredViewController] as! UINavigationController
+        secondVC.popToRootViewController(animated: false)
+    }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         let totalDisplayFeature = "Total times the Display feature was used: " + String(describing: appSettings.getAnalyticsTrackerDict()["Total Display"]!) + "\n \n"
