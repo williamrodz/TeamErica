@@ -172,6 +172,24 @@ class Settings {
         return ["mailSMTPHostName":self.mailSMTPHostName,"mailDisplayName":self.mailDisplayName,"mailUserName":self.mailUserName, "mailPassword":self.mailPassword]
 
         }
+    
+    func updateMailUserName(newEmail:String) {
+        self.mailUserName = newEmail
+    }
+    
+    
+    func updateMailPassword(newPassword:String) {
+        self.mailPassword = newPassword
+    }
+    
+    func updateMailDisplayName(newDisplayName:String) {
+        self.mailDisplayName = newDisplayName
+    }
+    
+    func updateMailSMTPHostName(newSMTPAddress:String){
+        self.mailSMTPHostName = newSMTPAddress
+    }
+    
     }
 
 

@@ -9,7 +9,43 @@
 import UIKit
 
 class EmailSettingsViewController: UIViewController {
-
+    @IBOutlet var emailDisplayName: UITextField!
+    @IBOutlet var emailAddress: UITextField!
+    @IBOutlet var emailPassword: UITextField!
+    @IBOutlet var emailSMTPserver: UITextField!
+    
+    
+    
+    
+    @IBAction func saveEmailSettings(_ sender: Any) {
+        let newDisplayName:String = self.emailDisplayName.text!
+        let newMailUserName:String = self.emailAddress.text!
+        let newMailPassword:String = self.emailPassword.text!
+        let newMailSMTPHostName:String = self.emailSMTPserver.text!
+        
+        let bodyMessage:String = "Changing sending email address to \"\(newDisplayName)\" (\(newMailUserName)) \n through this outgoing email server: \(newMailSMTPHostName)"
+        
+        let refreshAlert = UIAlertController(title: "Updating Email Settings", message: bodyMessage, preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            appSettings.updateMailDisplayName(newDisplayName:newDisplayName )
+            appSettings.updateMailUserName(newEmail: newMailUserName )
+            appSettings.updateMailPassword(newPassword: newMailPassword)
+            appSettings.updateMailSMTPHostName(newSMTPAddress: newMailSMTPHostName)
+            
+            //Return to root View Controller afterwards
+            _  = self.navigationController?.popToRootViewController(animated: true)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
