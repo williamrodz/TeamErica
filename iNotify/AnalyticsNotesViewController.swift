@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnalyticsNotesViewController: UIViewController {
+class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var timeStamp: UILabel!
@@ -27,7 +27,7 @@ class AnalyticsNotesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround()
         var details = (appSettings.getAnalyticsDataPointinfo(Month: month, Timestamp: dataPointTime))
             
         timeStamp.text = dataPointTime

@@ -19,6 +19,18 @@ var appSettings = Settings()
 
 let googleMapsURL:String = "https://www.google.com/maps/place/"
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     let manager = CLLocationManager()

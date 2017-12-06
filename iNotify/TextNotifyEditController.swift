@@ -37,7 +37,7 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         recipients.text = preSetRecipients
         notifyMessage.text = preSetMessage

@@ -23,7 +23,7 @@ class EmailNotifyEditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         emailGroupName.text = preSetGroupName
         emailRecipients.text = preSetRecipients
