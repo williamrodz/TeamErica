@@ -80,6 +80,7 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate {
     
     @IBAction func getHelpSaveMessage(_ sender: Any) {
         appSettings.addGetHelpRecipient(Name: getHelpName.text!, Contact: getHelpContact.text!, Message: getHelpMessage.text)
+        _  = self.navigationController?.popToRootViewController(animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

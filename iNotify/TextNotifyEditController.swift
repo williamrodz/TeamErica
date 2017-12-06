@@ -24,7 +24,15 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
     //var phoneNumberPicker:UIPickerView = UIPickerView()
     
     @IBAction func notifyAddText(_ sender: Any) {
+        
+
         appSettings.addNotifiTextRecipient(Name: notifyGroupName.text!, Contact: recipients.text!, Message: notifyMessage.text)
+        _  = self.navigationController?.popToRootViewController(animated: true)
+        
+        
+        
+        
+        
     }
     
     override func viewDidLoad() {

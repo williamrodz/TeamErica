@@ -39,6 +39,7 @@ class EmailNotifyEditViewController: UIViewController {
     
     @IBAction func notifyAddEmail(_ sender: Any) {
         appSettings.addNotifiEmailRecipient(Name: emailGroupName.text!, toContact: emailRecipients.text!, Subject: emailSubject.text!, Message: emailMessage.text)
+        _  = self.navigationController?.popToRootViewController(animated: true)
     }
     
 

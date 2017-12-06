@@ -40,6 +40,11 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func getHelpFromContact(_ sender: Any) {
         
+        
+        
+        
+        
+        
         let googleMapsURL = getGoogleMapsLocationURL()
         
         let button = sender as! UIButton
@@ -67,20 +72,42 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
             recipientsArray.append(noWhiteSpacePhoneNumbers)
         }
         
-        //send message to everyone
-        recipientsArray.forEach { individualPhoneNumber in
-            sendData(toPhoneNumber: individualPhoneNumber, bodyOfMessage: message)
-        }
+        
+        // Confirm box
+        let refreshAlert = UIAlertController(title: "Get Help", message: "Are you sure you want to send your message to \(nameContact)?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            
+            //send message to everyone
+            recipientsArray.forEach { individualPhoneNumber in
+                self.sendData(toPhoneNumber: individualPhoneNumber, bodyOfMessage: message)
+            }
+            
+            
+            //Add to Analytics data storage
+            //        let date = Date() : Date already saved above
+            appSettings.addAnalyticsTrackerGetHelp()
+            let format = DateFormatter()
+            format.dateFormat = "MMM d,yyyy h:mm a"
+            let resultDate = format.string(from: date)
+            print(resultDate)
+            appSettings.addAnalyticsScreenDict(Name: nameContact, Timestamp: resultDate, Type: "Get Help")
+            
+            //return to root of Home
+            _  = self.navigationController?.popToRootViewController(animated: true)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
         
         
-        //Add to Analytics data storage
-        //        let date = Date() : Date already saved above
-        appSettings.addAnalyticsTrackerGetHelp()
-        let format = DateFormatter()
-        format.dateFormat = "MMM d,yyyy h:mm a"
-        let resultDate = format.string(from: date)
-        print(resultDate)
-        appSettings.addAnalyticsScreenDict(Name: nameContact, Timestamp: resultDate, Type: "Get Help")
+        
+        
+        
+
     }
     
     override func viewDidLoad() {

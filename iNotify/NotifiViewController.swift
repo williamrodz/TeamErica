@@ -74,25 +74,55 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         builder.htmlBody="<p>This is a test using MailCore</p>"
         
         let rfc822Data = builder.data()
-        let sendOperation = smtpSession.sendOperation(with: rfc822Data)
-        sendOperation?.start { (error) -> Void in
-            if (error != nil) {
-                NSLog("Error sending email: \(error)")
-            } else {
-                NSLog("Successfully sent email!")
+        
+        
+        // Box
+        let refreshAlert = UIAlertController(title: "Notifying by email", message: "Are you sure you want to send your preset email to \(notifyContact)?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            
+            //Send the email
+            let sendOperation = smtpSession.sendOperation(with: rfc822Data)
+            sendOperation?.start { (error) -> Void in
+                if (error != nil) {
+                    NSLog("Error sending email: \(error)")
+                } else {
+                    NSLog("Successfully sent email!")
+                    
+                    //Add to Analytics data storage
+                    appSettings.addAnalyticsTrackerNotify()
+                    
+                    let date = Date()
+                    let format = DateFormatter()
+                    format.dateFormat = "MMM d,yyyy h:mm a"
+                    let resultDate = format.string(from: date)
+                    print(resultDate)
+                    appSettings.addAnalyticsScreenDict(Name: notifyContact, Timestamp: resultDate, Type: "Notify")
+                }
                 
-                //Add to Analytics data storage
-                appSettings.addAnalyticsTrackerNotify()
-                
-                let date = Date()
-                let format = DateFormatter()
-                format.dateFormat = "MMM d,yyyy h:mm a"
-                let resultDate = format.string(from: date)
-                print(resultDate)
-                appSettings.addAnalyticsScreenDict(Name: notifyContact, Timestamp: resultDate, Type: "Notify")
             }
             
-        }
+            
+            
+            // Return to root
+            _  = self.navigationController?.popToRootViewController(animated: true)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
     }
     
     @IBAction func notifyContact(_ sender: Any) {
@@ -104,16 +134,38 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         
         print("Button \(notifyContact) was pressed!")
         print("The button has been clicked.")
-        sendData(toPhoneNumber: notifyContactInfo["Contact"]!, bodyOfMessage: message)
         
-        //Add to Analytics data storage
-        appSettings.addAnalyticsTrackerNotify()
-        let date = Date()
-        let format = DateFormatter()
-        format.dateFormat = "MMM d,yyyy h:mm a"
-        let resultDate = format.string(from: date)
-        print(resultDate)
-        appSettings.addAnalyticsScreenDict(Name: notifyContact, Timestamp: resultDate, Type: "Notify")
+        
+        //Confirm box
+        let refreshAlert = UIAlertController(title: "Notifying by SMS", message: "Are you sure you want to send your preset SMS to \"\(notifyContact)\"", preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            self.sendData(toPhoneNumber: notifyContactInfo["Contact"]!, bodyOfMessage: message)
+            
+            //Add to Analytics data storage
+            appSettings.addAnalyticsTrackerNotify()
+            let date = Date()
+            let format = DateFormatter()
+            format.dateFormat = "MMM d,yyyy h:mm a"
+            let resultDate = format.string(from: date)
+            print(resultDate)
+            appSettings.addAnalyticsScreenDict(Name: notifyContact, Timestamp: resultDate, Type: "Notify")
+            
+            
+            _  = self.navigationController?.popToRootViewController(animated: true)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+        
+        
+        
+        
+        
+
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
