@@ -8,8 +8,17 @@
 
 import UIKit
 
-class DisplayEditViewController: UIViewController {
+class DisplayEditViewController: UIViewController,UITextViewDelegate {
     @IBOutlet var displayEditContent: UITextView!
+
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
     
     @IBAction func saveDisplayEditContent(_ sender: Any) {
         let updatedMessage:String = displayEditContent.text
@@ -30,7 +39,8 @@ class DisplayEditViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        displayEditContent.delegate = self
+        displayEditContent.text = appSettings.getDisplayMessage()
         // Do any additional setup after loading the view.
     }
 
