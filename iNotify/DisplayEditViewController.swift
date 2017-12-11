@@ -11,8 +11,9 @@ import UIKit
 class DisplayEditViewController: UIViewController,UITextViewDelegate {
     @IBOutlet var displayEditContent: UITextView!
 
-    
+    // Edit logic of keyboard
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        //Make 'Done/Return' button close keyboard
         if (text == "\n") {
             textView.resignFirstResponder()
             return false
@@ -39,7 +40,9 @@ class DisplayEditViewController: UIViewController,UITextViewDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Change delegate of UITextView to this ViewController to modify keyboard 'Done button
         displayEditContent.delegate = self
+        //Set up display text from what's stored in appSettings
         displayEditContent.text = appSettings.getDisplayMessage()
         // Do any additional setup after loading the view.
     }

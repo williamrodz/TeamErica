@@ -30,13 +30,24 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
         _  = self.navigationController?.popToRootViewController(animated: true)
         
         
-        
-        
-        
     }
+    
+    
+    // Edit logic of keyboard
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        //Make 'Done/Return' button close keyboard
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Make the UITextView delegate this ViewController so we can modify keyboard behavior
+        notifyMessage.delegate = self
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         recipients.text = preSetRecipients

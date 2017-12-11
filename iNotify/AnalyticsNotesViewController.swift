@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate {
+class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate {
     
     
     @IBOutlet weak var timeStamp: UILabel!
@@ -25,8 +25,21 @@ class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate {
         appSettings.addAnalyticsNote(Month: month, Analyticslabel: dataPointTime, Note: Notes.text)
     }
     
+    // Edit logic of keyboard
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        //Make 'Done/Return' button close keyboard
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Make the UITextView delegate this ViewController so we can modify keyboard behavior
+        Notes.delegate = self
         self.hideKeyboardWhenTappedAround()
         var details = (appSettings.getAnalyticsDataPointinfo(Month: month, Timestamp: dataPointTime))
             
