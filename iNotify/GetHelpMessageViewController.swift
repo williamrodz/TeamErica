@@ -10,7 +10,7 @@ import UIKit
 import Contacts
 import ContactsUI
 
-class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate {
+class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate, UITextViewDelegate {
 
     @IBOutlet weak var getHelpName: UITextField!
     
@@ -21,6 +21,19 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate {
     var preSetNickname = ""
     var preSetContact = ""
     var preSetMessage = ""
+    
+    // Edit logic of keyboard
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        //Make 'Done/Return' button close keyboard
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    
+    
     
     @IBAction func contacts(_ sender: Any) {
         let entityType = CNEntityType.contacts
@@ -84,6 +97,8 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Make the UITextView delegate this ViewController so we can modify keyboard behavior
+        getHelpMessage.delegate = self
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         
