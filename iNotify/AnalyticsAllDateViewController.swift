@@ -28,7 +28,6 @@ class AnalyticsAllDateViewController: UIViewController, UITableViewDelegate, UIT
         let dataLabel = dataForMonth[indexPath.row]
         let cell = allDatesData.dequeueReusableCell(withIdentifier: "dataPoint") as! analyticsTableViewCell
         
-        cell.analyticsDataCell.layer.cornerRadius = cell.analyticsDataCell.frame.height / 2
         cell.analyticsButton.addTarget(self, action: #selector(getNotes), for: .touchUpInside)
         cell.analyticsButton.setTitle(dataLabel, for: .normal)
         cell.analyticsButton.tag = indexPath.row

@@ -30,7 +30,6 @@ class AnalyticsViewController: UIViewController, UITableViewDelegate, UITableVie
         let dataLabel = analyticsList[indexPath.row]
         let cell = analyticsTable.dequeueReusableCell(withIdentifier: "analyticsCell") as! analyticsTableViewCell
         
-        cell.analyticsDataCell.layer.cornerRadius = cell.analyticsDataCell.frame.height / 2
         cell.analyticsButton.addTarget(self, action: #selector(getMonthData), for: .touchUpInside)
         cell.analyticsButton.setTitle(dataLabel, for: .normal)
         cell.analyticsButton.tag = indexPath.row

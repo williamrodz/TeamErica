@@ -167,11 +167,6 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         }))
         
         present(refreshAlert, animated: true, completion: nil)
-        
-        
-        
-        
-        
 
     }
     
@@ -190,7 +185,6 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         let avenue = appSettings.getNotifyContactInfo(Name: contactName)["Type"]
         let cell = notifiTable.dequeueReusableCell(withIdentifier: "notifyCell") as! customTableViewCell
         
-        cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
         cell.cellButton.setTitle(contactName, for: .normal)
         cell.cellButton.tag = indexPath.row
         cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height / 3

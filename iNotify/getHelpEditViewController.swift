@@ -40,7 +40,6 @@ class getHelpEditViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = getHelpEditTable.dequeueReusableCell(withIdentifier: "getHelpEditCell") as! customTableViewCell
         
-        cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
         cell.cellButton.setTitle(getHelpContacts[indexPath.row], for: .normal)
         cell.cellButton.tag = indexPath.row
         cell.cellButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)

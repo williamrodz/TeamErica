@@ -45,7 +45,6 @@ class NotifyEditViewController: UIViewController, UITableViewDataSource, UITable
         let avenue = appSettings.getNotifyContactInfo(Name: contactName)["Type"]
         let cell = notifyEditTable.dequeueReusableCell(withIdentifier: "notifyEditCell") as! customTableViewCell
         
-        cell.cellView.layer.cornerRadius = cell.cellView.frame.height / 2
         cell.cellButton.setTitle(contactName, for: .normal)
         cell.cellButton.tag = indexPath.row
         cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height / 3
