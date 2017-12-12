@@ -14,7 +14,7 @@ class MainEditViewController: UIViewController, CNContactPickerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -23,6 +23,9 @@ class MainEditViewController: UIViewController, CNContactPickerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "Settings"
+    }
 
     /*
     // MARK: - Navigation
