@@ -112,7 +112,9 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "Add Text Message"
+    }
     /*
     // MARK: - Navigation
 

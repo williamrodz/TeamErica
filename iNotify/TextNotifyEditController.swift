@@ -72,7 +72,9 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "Add Text Message"
+    }
     
     
     

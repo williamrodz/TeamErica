@@ -30,6 +30,9 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "Notify"
+    }
     func sendData(toPhoneNumber:String, bodyOfMessage:String) {
         let headers = [
             "Content-Type": "application/x-www-form-urlencoded"

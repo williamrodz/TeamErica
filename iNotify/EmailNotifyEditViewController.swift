@@ -52,7 +52,9 @@ class EmailNotifyEditViewController: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "Add Email"
+    }
     @IBAction func notifyAddEmail(_ sender: Any) {
         appSettings.addNotifiEmailRecipient(Name: emailGroupName.text!, toContact: emailRecipients.text!, Subject: emailSubject.text!, Message: emailMessage.text)
         _  = self.navigationController?.popToRootViewController(animated: true)

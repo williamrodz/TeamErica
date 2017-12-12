@@ -27,6 +27,10 @@ class getHelpEditViewController: UIViewController, UITableViewDelegate, UITableV
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "Edit Get Help"
+    }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getHelpContacts.count
     }

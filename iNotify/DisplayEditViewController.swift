@@ -51,7 +51,9 @@ class DisplayEditViewController: UIViewController,UITextViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "Edit Display"
+    }
 
     /*
     // MARK: - Navigation

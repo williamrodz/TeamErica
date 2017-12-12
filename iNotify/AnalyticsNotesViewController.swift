@@ -13,7 +13,6 @@ class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate,UIText
     
     @IBOutlet weak var timeStamp: UILabel!
     @IBOutlet weak var recipient: UILabel!
-    @IBOutlet weak var type: UILabel!
     @IBOutlet weak var Notes: UITextView!
     
     var month = ""
@@ -45,7 +44,6 @@ class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate,UIText
             
         timeStamp.text = dataPointTime
         recipient.text = details["Name"]
-        type.text = details["Type"]
         Notes.text = details["Notes"]
 
         // Do any additional setup after loading the view.
@@ -57,7 +55,9 @@ class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate,UIText
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "Details"
+    }
     /*
     // MARK: - Navigation
 

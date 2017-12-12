@@ -68,7 +68,9 @@ class AnalyticsAllDateViewController: UIViewController, UITableViewDelegate, UIT
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "Analytics"
+    }
     /*
     // MARK: - Navigation
 
