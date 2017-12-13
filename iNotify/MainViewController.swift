@@ -31,7 +31,7 @@ extension UIViewController {
     }
 }
 
-class MainViewController: UIViewController, CLLocationManagerDelegate {
+class MainViewController: UIViewController, CLLocationManagerDelegate, UITabBarControllerDelegate {
     
     let manager = CLLocationManager()
 
@@ -42,9 +42,11 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         appSettings.updateLongitude( newLongitude: location.coordinate.longitude)
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tabBarController?.delegate = self
         // set variables for location
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest //get best location accuuracy possible
@@ -54,6 +56,17 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         // Do any additional setup after loading the view.
     }
 
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        // Make so that every time the tabs are pressed on TabController,
+        // the root of it is always accessed.
+        var indexOfDesiredViewController = 0
+        repeat {
+            let secondVC = tabBarController.viewControllers?[indexOfDesiredViewController] as! UINavigationController
+            secondVC.popToRootViewController(animated: false)
+            indexOfDesiredViewController += 1
+        } while indexOfDesiredViewController < 3
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
