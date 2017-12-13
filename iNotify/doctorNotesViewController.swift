@@ -19,7 +19,7 @@ class doctorNotesViewController: UIViewController {
         let savedNotes = appSettings.getDoctorNotesDict()
         
         for (date, note) in savedNotes {
-            notes = notes + "Notification - " + date + "\n" + note + "\n"
+            notes = notes + date + "\n" + note + "\n \n"
         }
         doctorNotes.text = notes
     }
