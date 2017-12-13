@@ -79,7 +79,7 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         builder.header.to = [MCOAddress(displayName: mailSettings["mailDisplayName"], mailbox: notifyContactInfo["To"])]
         builder.header.from = MCOAddress(displayName: mailSettings["mailDisplayName"], mailbox: mailSettings["mailUserName"])
         builder.header.subject = notifyContactInfo["Subject"]
-        builder.htmlBody="<p>This is a test using MailCore</p>"
+        builder.htmlBody = notifyContactInfo["MessageBody"]!
         
         let rfc822Data = builder.data()
         
