@@ -10,6 +10,7 @@ import UIKit
 
 class getHelpEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
+    @IBOutlet weak var emptyGetHelpLabel: UILabel!
     @IBOutlet weak var getHelpEditTable: UITableView!
     
     let getHelpContacts = [String](appSettings.getGetHelpScreenDict().keys) //finds the recipients of the get help feature
@@ -19,6 +20,9 @@ class getHelpEditViewController: UIViewController, UITableViewDelegate, UITableV
         getHelpEditTable.dataSource = self
         super.viewDidLoad()
         
+        if getHelpContacts.count == 0 {
+            emptyGetHelpLabel.text = "No Current Messages"
+        }
         // Do any additional setup after loading the view.
     }
     

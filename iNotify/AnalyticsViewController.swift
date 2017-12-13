@@ -11,6 +11,7 @@ import UIKit
 class AnalyticsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //analyticsTable that will be connected to the storyboard
     
+    @IBOutlet weak var emptyAnalyticsLabel: UILabel!
     @IBOutlet weak var analyticsTable: UITableView!
     
     var analyticsList = [String](appSettings.getAnalyticsScreenDict().keys)
@@ -61,6 +62,9 @@ class AnalyticsViewController: UIViewController, UITableViewDelegate, UITableVie
         analyticsTable.delegate = self
         analyticsTable.dataSource = self
         
+        if analyticsList.count == 0 {
+            emptyAnalyticsLabel.text = "No Activity"
+        }
         // Do any additional setup after loading the view.
     }
     

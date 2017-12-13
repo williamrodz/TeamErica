@@ -10,6 +10,7 @@ import UIKit
 
 class NotifyEditViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var emptyNotifyEditLabel: UILabel!
     @IBOutlet weak var notifyEditTable: UITableView!
     
     let notifyEditContacts = [String](appSettings.getNotifyScreenDict().keys) //finds the recipients of the get help feature
@@ -20,7 +21,9 @@ class NotifyEditViewController: UIViewController, UITableViewDataSource, UITable
         
         
         super.viewDidLoad()
-
+        if notifyEditContacts.count == 0 {
+            emptyNotifyEditLabel.text = "No Current Messages"
+        }
         // Do any additional setup after loading the view.
     }
 

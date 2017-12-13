@@ -12,6 +12,7 @@ import Alamofire
 class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
+    @IBOutlet weak var emptyGetHelpLabel: UILabel!
     @IBOutlet weak var getHelpTable: UITableView!
     
     var getHelpContacts = [String](appSettings.getGetHelpScreenDict().keys) //finds the recipients of the get help feature
@@ -137,7 +138,9 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
         getHelpTable.dataSource = self
         
         super.viewDidLoad()
-        
+        if getHelpContacts.count == 0 {
+            emptyGetHelpLabel.text = "No Current Messages"
+        }
         // Do any additional setup after loading the view.
     }
     

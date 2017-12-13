@@ -10,6 +10,7 @@ import UIKit
 
 class AnalyticsAllDateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var emptyDataLabel: UILabel!
     @IBOutlet weak var allDatesData: UITableView!
     
     var senderMonth = ""
@@ -60,6 +61,10 @@ class AnalyticsAllDateViewController: UIViewController, UITableViewDelegate, UIT
         
         super.viewDidLoad()
         print(dataForMonth)
+        
+        if dataForMonth.count == 0 {
+            emptyDataLabel.text = "No Activity"
+        }
         // Do any additional setup after loading the view.
     }
 

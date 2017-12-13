@@ -11,6 +11,7 @@ import Alamofire
 
 class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var EmptyTableLabel: UILabel!
     
     @IBOutlet weak var notifiTable: UITableView!
     
@@ -21,7 +22,9 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         notifiTable.dataSource = self
         
         super.viewDidLoad()
-
+        if notifiContacts.count == 0 {
+            EmptyTableLabel.text = "No Current Messages"
+        }
         // Do any additional setup after loading the view.
     }
 
