@@ -34,8 +34,12 @@ class EmailSettingsViewController: UIViewController,UITextFieldDelegate {
     }
     // Retrived from https://stackoverflow.com/questions/28079123/how-to-check-validity-of-url-in-swift
     func isValidUrl (urlString: String?) -> Bool {
-        let urlRegEx = "((?:http|https)://)?(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?"
-        return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: urlString)
+        
+        if (urlString?.count)! > 0{ //just checks non-empty, should switch to proper regex
+            return true
+        } else {
+            return false
+        }
     }
     
     @IBAction func saveEmailSettings(_ sender: Any) {
