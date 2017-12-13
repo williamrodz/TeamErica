@@ -110,20 +110,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HZ-EZ-Kaf">
-                                                    <rect key="frame" x="23" y="19" width="330" height="62"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                                    <state key="normal" title="Button">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nxl-gE-8Xc">
+                                                    <rect key="frame" x="0.0" y="5" width="376" height="90"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8HZ-EZ-Kaf">
+                                                            <rect key="frame" x="8" y="8" width="360" height="74"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                                            <state key="normal" title="Button">
+                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.032232753810000001" green="0.2295275195" blue="0.81811151650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="8HZ-EZ-Kaf" firstAttribute="trailing" secondItem="Nxl-gE-8Xc" secondAttribute="trailingMargin" id="3N6-Uu-ENe"/>
+                                                        <constraint firstItem="8HZ-EZ-Kaf" firstAttribute="bottom" secondItem="Nxl-gE-8Xc" secondAttribute="bottomMargin" id="85o-eV-pU5"/>
+                                                        <constraint firstItem="8HZ-EZ-Kaf" firstAttribute="leading" secondItem="Nxl-gE-8Xc" secondAttribute="leadingMargin" id="kch-A4-xm9"/>
+                                                        <constraint firstItem="8HZ-EZ-Kaf" firstAttribute="top" secondItem="Nxl-gE-8Xc" secondAttribute="topMargin" id="m88-NO-cTC"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.032232753810000001" green="0.2295275195" blue="0.81811151650000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="8HZ-EZ-Kaf" firstAttribute="top" secondItem="hxG-BF-n6g" secondAttribute="topMargin" constant="8" id="3uU-lS-WHd"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="8HZ-EZ-Kaf" secondAttribute="trailing" constant="8" id="Bsl-ZT-nhi"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="8HZ-EZ-Kaf" secondAttribute="bottom" constant="8" id="CCy-qZ-1Bu"/>
-                                                <constraint firstItem="8HZ-EZ-Kaf" firstAttribute="leading" secondItem="hxG-BF-n6g" secondAttribute="leadingMargin" constant="8" id="f6a-C2-0jl"/>
+                                                <constraint firstItem="Nxl-gE-8Xc" firstAttribute="leading" secondItem="hxG-BF-n6g" secondAttribute="leading" id="4RO-5a-Nbr"/>
+                                                <constraint firstItem="Nxl-gE-8Xc" firstAttribute="top" secondItem="hxG-BF-n6g" secondAttribute="top" constant="5" id="Koj-JF-GSh"/>
+                                                <constraint firstAttribute="trailing" secondItem="Nxl-gE-8Xc" secondAttribute="trailing" id="Yjm-af-zpu"/>
+                                                <constraint firstAttribute="bottom" secondItem="Nxl-gE-8Xc" secondAttribute="bottom" constant="5" id="yZU-yd-VSc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -791,10 +802,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCt-Ok-Ewb">
-                                                    <rect key="frame" x="5" y="10" width="365" height="79.5"/>
+                                                    <rect key="frame" x="5" y="5" width="365" height="90"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a0s-Gv-SqC">
-                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                            <rect key="frame" x="0.0" y="5.5" width="80" height="80"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="32Z-aM-85h"/>
                                                                 <constraint firstAttribute="width" constant="80" id="3A6-RH-p3r"/>
@@ -803,7 +814,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJ5-Il-O6o">
-                                                            <rect key="frame" x="88" y="8" width="269" height="63.5"/>
+                                                            <rect key="frame" x="88" y="8" width="269" height="74"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                                             <state key="normal" title="Button">
                                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -823,14 +834,12 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="RCt-Ok-Ewb" firstAttribute="top" secondItem="hwm-FV-4rL" secondAttribute="top" constant="10" id="06t-dq-fF2"/>
                                                 <constraint firstAttribute="trailing" secondItem="RCt-Ok-Ewb" secondAttribute="trailing" constant="5" id="HBU-0B-rjy"/>
                                                 <constraint firstItem="RCt-Ok-Ewb" firstAttribute="leading" secondItem="hwm-FV-4rL" secondAttribute="leading" constant="5" id="HiH-A3-UGg"/>
-                                                <constraint firstItem="RCt-Ok-Ewb" firstAttribute="top" secondItem="hwm-FV-4rL" secondAttribute="top" constant="10" id="T7o-8S-hsO"/>
-                                                <constraint firstAttribute="bottom" secondItem="RCt-Ok-Ewb" secondAttribute="bottom" constant="10" id="X02-KB-7tJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="RCt-Ok-Ewb" secondAttribute="bottom" constant="5" id="b64-E5-HNC"/>
                                                 <constraint firstItem="RCt-Ok-Ewb" firstAttribute="leading" secondItem="hwm-FV-4rL" secondAttribute="leading" constant="5" id="dh5-Ak-jOb"/>
+                                                <constraint firstItem="RCt-Ok-Ewb" firstAttribute="top" secondItem="hwm-FV-4rL" secondAttribute="top" constant="5" id="dzY-P0-3Cf"/>
                                                 <constraint firstAttribute="trailing" secondItem="RCt-Ok-Ewb" secondAttribute="trailing" constant="5" id="eKw-mE-igK"/>
-                                                <constraint firstAttribute="bottom" secondItem="RCt-Ok-Ewb" secondAttribute="bottom" constant="10" id="iwU-NR-nd5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
