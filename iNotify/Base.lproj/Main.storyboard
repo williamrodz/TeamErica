@@ -1103,6 +1103,9 @@
                                 <state key="normal" title="Delete">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="notifyDeleteMessage:" destination="K2M-Sp-z0K" eventType="touchUpInside" id="ypl-b2-FJO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLw-nc-Qn6">
                                 <rect key="frame" x="0.0" y="493" width="375" height="48"/>
@@ -1214,6 +1217,9 @@
                                 <state key="normal" title="Delete">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="NotifyDeleteEmail:" destination="mdY-K5-tD4" eventType="touchUpInside" id="wrZ-7u-FlQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1312,6 +1318,9 @@
                                 <state key="normal" title="Delete">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="getHelpDeleteMessage:" destination="kuK-4Y-DBV" eventType="touchUpInside" id="Ip3-fY-Kzc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

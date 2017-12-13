@@ -95,7 +95,7 @@ class NotifyEditViewController: UIViewController, UITableViewDataSource, UITable
             let contactInfo = appSettings.getNotifyContactInfo(Name: nameContact)
             
             nextVC.preSetGroupName = contactInfo["Name"]!
-            nextVC.preSetRecipients = contactInfo["Contact"]!
+            nextVC.preSetRecipients = contactInfo["To"]!
             nextVC.preSetMessage = contactInfo["MessageBody"]!
             nextVC.preSetEmailSubject = contactInfo["Subject"]!
         }

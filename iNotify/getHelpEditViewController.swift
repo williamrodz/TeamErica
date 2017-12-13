@@ -69,7 +69,7 @@ class getHelpEditViewController: UIViewController, UITableViewDelegate, UITableV
             let contactInfo = appSettings.getGetHelpContactInfo(Name: nameContact)
             
             nextVC.preSetNickname = contactInfo["Name"]!
-            nextVC.preSetContact = contactInfo["Contact"]!
+            nextVC.preSetContact = contactInfo["To"]!
             nextVC.preSetMessage = contactInfo["MessageBody"]!
         }
             

@@ -144,6 +144,14 @@ class Settings {
         self.notifyScreenDict[Name] = messageContent
     }
     
+    func deleteNotifyRecipient (Name: String) {
+        self.notifyScreenDict.removeValue(forKey: Name)
+    }
+    
+    func deleteGetHelpRecipient (Name: String) {
+        self.getHelpScreenDict.removeValue(forKey: Name)
+    }
+    
     func updateLatitude(newLatitude:Double){
         self.latitude = newLatitude
     }

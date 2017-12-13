@@ -104,6 +104,12 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate, U
         appSettings.addGetHelpRecipient(Name: getHelpName.text!, Contact: getHelpContact.text!, Message: getHelpMessage.text)
         _  = self.navigationController?.popToRootViewController(animated: true)
     }
+    
+    
+    @IBAction func getHelpDeleteMessage(_ sender: Any) {
+        appSettings.deleteGetHelpRecipient(Name: preSetNickname)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Make the UITextView delegate this ViewController so we can modify keyboard behavior

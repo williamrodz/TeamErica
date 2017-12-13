@@ -32,6 +32,10 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
         
     }
     
+    @IBAction func notifyDeleteMessage(_ sender: Any) {
+        appSettings.deleteNotifyRecipient(Name: preSetGroupName)
+        
+    }
     
     // Edit logic of keyboard
     // For UITextView

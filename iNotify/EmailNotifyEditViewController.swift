@@ -72,7 +72,10 @@ class EmailNotifyEditViewController: UIViewController, UITextViewDelegate, UITex
         _  = self.navigationController?.popToRootViewController(animated: true)
     }
     
-
+    @IBAction func NotifyDeleteEmail(_ sender: Any) {
+        appSettings.deleteNotifyRecipient(Name: preSetGroupName)
+    }
+    
     
 
     /*
