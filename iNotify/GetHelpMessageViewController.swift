@@ -13,9 +13,7 @@ import ContactsUI
 class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var getHelpName: UITextField!
-    
     @IBOutlet weak var getHelpContact: UITextField!
-    
     @IBOutlet weak var getHelpMessage: UITextView!
     
     var preSetNickname = ""
@@ -42,8 +40,9 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate, U
     }
     
     
-    
-    
+    /**
+     Request access to user's contacts and call openContacts to select message recipient
+     */
     @IBAction func contacts(_ sender: Any) {
         let entityType = CNEntityType.contacts
         let authStatus = CNContactStore.authorizationStatus(for: entityType)
@@ -64,7 +63,10 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate, U
             self.openContacts()
         }
     }
-    
+    /**
+     Helper function to pop up list of user's phone contacts to select a message recipient
+     
+     */
     func openContacts(){
         let contactPicker = CNContactPickerViewController.init()
         contactPicker.delegate = self
@@ -99,13 +101,18 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate, U
         }
         
     }
-    
+    /**
+     Save the Get Help instance inputted by the user
+     
+     */
     @IBAction func getHelpSaveMessage(_ sender: Any) {
         appSettings.addGetHelpRecipient(Name: getHelpName.text!, Contact: getHelpContact.text!, Message: getHelpMessage.text)
         _  = self.navigationController?.popToRootViewController(animated: true)
     }
     
-    
+    /**
+     Delete a Get Help instance previously inputted by the user
+     */
     @IBAction func getHelpDeleteMessage(_ sender: Any) {
         appSettings.deleteGetHelpRecipient(Name: preSetNickname)
         _  = self.navigationController?.popToRootViewController(animated: true)
