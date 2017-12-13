@@ -14,6 +14,7 @@ class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate,UIText
     @IBOutlet weak var timeStamp: UILabel!
     @IBOutlet weak var recipient: UILabel!
     @IBOutlet weak var Notes: UITextView!
+    @IBOutlet weak var notesForMe: UITextView!
     
     var month = ""
     var dataPointTime = ""
@@ -21,7 +22,8 @@ class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate,UIText
     @IBAction func saveNote(_ sender: Any) {
         //let preSetNote = (appSettings.getAnalyticsDataPointinfo(Month: month, Timestamp: dataPointTime))
         
-        appSettings.addAnalyticsNote(Month: month, Analyticslabel: dataPointTime, Note: Notes.text)
+        appSettings.addAnalyticsNote(Month: month, Analyticslabel: dataPointTime, Note: Notes.text, NotesForMe: notesForMe.text)
+        
         appSettings.addDoctorNotesDict(Timestamp: dataPointTime, Note: Notes.text)
         _ = navigationController?.popViewController(animated: true)
     }
@@ -47,6 +49,7 @@ class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate,UIText
         timeStamp.text = dataPointTime
         recipient.text = details["Name"]
         Notes.text = details["Notes"]
+        notesForMe.text = details["NotesForMe"]
 
         // Do any additional setup after loading the view.
     }

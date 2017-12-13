@@ -125,7 +125,7 @@ class Settings {
     }
     
     func addAnalyticsScreenDict (Name: String, Timestamp: String, Type: String, Month: String) {
-        let messageContent: Dictionary<String, String> = ["Timestamp": Timestamp, "Type": Type, "Name": Name, "Month": Month, "Notes": ""]
+        let messageContent: Dictionary<String, String> = ["Timestamp": Timestamp, "Type": Type, "Name": Name, "Month": Month, "Notes": "", "NotesForMe": ""]
         let analyticsLabel = Timestamp + " " + Type + ": " + Name
         print([analyticsLabel:messageContent])
         if (self.analyticsScreenDict.keys.contains(Month)) {
@@ -136,8 +136,9 @@ class Settings {
         }
     }
     
-    func addAnalyticsNote (Month: String, Analyticslabel: String, Note: String) {
+    func addAnalyticsNote (Month: String, Analyticslabel: String, Note: String, NotesForMe: String) {
         self.analyticsScreenDict[Month]![Analyticslabel]!["Notes"] = Note
+        self.analyticsScreenDict[Month]![Analyticslabel]!["NotesForMe"] = NotesForMe
     }
     
     func addGetHelpRecipient (Name: String, Contact: String, Message:String) {
