@@ -22,6 +22,8 @@ class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate,UIText
         //let preSetNote = (appSettings.getAnalyticsDataPointinfo(Month: month, Timestamp: dataPointTime))
         
         appSettings.addAnalyticsNote(Month: month, Analyticslabel: dataPointTime, Note: Notes.text)
+        appSettings.addDoctorNotesDict(Timestamp: dataPointTime, Note: Notes.text)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     // Edit logic of keyboard

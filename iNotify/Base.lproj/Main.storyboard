@@ -33,6 +33,9 @@
                                 <state key="normal" title="Show Doctor's Notes">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="98a-kk-kAR" kind="show" id="P8S-nk-isS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Re-xz-RUb">
                                 <rect key="frame" x="0.0" y="386" width="375" height="84"/>
@@ -59,6 +62,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qr2-jH-JFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-623.20000000000005" y="1399.2503748125939"/>
+        </scene>
+        <!--Doctor Notes View Controller-->
+        <scene sceneID="lU4-fW-iHP">
+            <objects>
+                <viewController id="98a-kk-kAR" customClass="doctorNotesViewController" customModule="iNotify" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3nS-6J-pDt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="doctorNotes" translatesAutoresizingMaskIntoConstraints="NO" id="9CZ-t1-rCw">
+                                <rect key="frame" x="16" y="87" width="343" height="514"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="CUa-TR-KGg"/>
+                    </view>
+                    <connections>
+                        <outlet property="doctorNotes" destination="9CZ-t1-rCw" id="gTN-FA-hcv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h2o-XO-CAp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-620" y="2095.5022488755626"/>
         </scene>
         <!--Analytics View Controller-->
         <scene sceneID="skp-gR-aOY">
@@ -210,7 +240,7 @@
                                     <action selector="saveNote:" destination="0yu-nS-8Cd" eventType="touchUpInside" id="ec4-lX-b1g"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter notes for my Doctor here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="grG-BW-APP">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="grG-BW-APP">
                                 <rect key="frame" x="16" y="247" width="343" height="107"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -245,7 +275,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter notes for me here!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W95-Uk-RdH">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W95-Uk-RdH">
                                 <rect key="frame" x="16" y="404" width="337" height="134"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

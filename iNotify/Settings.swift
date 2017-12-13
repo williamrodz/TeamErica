@@ -21,6 +21,7 @@ class Settings {
     var getHelpScreenDict:[String:Dictionary<String, String>]
     var analyticsScreenDict:[String:[String: Dictionary<String, String>]]
     var analyticsTrackerDict:[String:Int]
+    var doctorNotesDict:[String:String]
     
     var mailSMTPHostName: String
     var mailUserName: String
@@ -51,6 +52,7 @@ class Settings {
             self.getHelpScreenDict = UserDefaults.standard.object(forKey: "getHelpScreenDict") as![String:Dictionary<String, String>]
             self.analyticsScreenDict = UserDefaults.standard.object(forKey: "analyticsScreenDict") as![String:[String: Dictionary<String, String>]]
             self.analyticsTrackerDict = UserDefaults.standard.object(forKey: "analyticsTrackerDict") as! [String:Int]
+            self.doctorNotesDict = UserDefaults.standard.object(forKey: "doctorNotesDict") as! [String:String]
         }
             
         else {
@@ -66,6 +68,7 @@ class Settings {
             self.getHelpScreenDict = [:]
             self.analyticsScreenDict = [:]
             self.analyticsTrackerDict = ["Total Get Help":0, "Total Notify":0, "Total Display":0]
+            self.doctorNotesDict=[:]
         }
     }
     
@@ -83,6 +86,10 @@ class Settings {
     
     func getAnalyticsTrackerDict () -> [String:Int] {
         return self.analyticsTrackerDict
+    }
+    
+    func getDoctorNotesDict () -> [String:String] {
+        return self.doctorNotesDict
     }
     
     func getGetHelpContactInfo (Name: String) -> [String: String]{
@@ -111,6 +118,10 @@ class Settings {
     
     func addAnalyticsTrackerNotify () {
         self.analyticsTrackerDict["Total Notify"]? += 1
+    }
+    
+    func addDoctorNotesDict (Timestamp: String, Note: String) {
+        self.doctorNotesDict[Timestamp] = Note
     }
     
     func addAnalyticsScreenDict (Name: String, Timestamp: String, Type: String, Month: String) {

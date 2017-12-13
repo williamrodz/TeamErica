@@ -108,6 +108,7 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate, U
     
     @IBAction func getHelpDeleteMessage(_ sender: Any) {
         appSettings.deleteGetHelpRecipient(Name: preSetNickname)
+        _  = self.navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewDidLoad() {

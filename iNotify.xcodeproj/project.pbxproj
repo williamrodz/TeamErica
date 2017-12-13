@@ -25,6 +25,7 @@
 		C0218FFE1FD3F36A006D0BF1 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0218FFD1FD3F36A006D0BF1 /* AnalyticsViewController.swift */; };
 		C02190001FD3F703006D0BF1 /* analyticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0218FFF1FD3F703006D0BF1 /* analyticsTableViewCell.swift */; };
 		C02190021FD5B719006D0BF1 /* AnalyticsHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02190011FD5B718006D0BF1 /* AnalyticsHomeViewController.swift */; };
+		C035F7041FE1238100A5D0A5 /* doctorNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C035F7031FE1238000A5D0A5 /* doctorNotesViewController.swift */; };
 		C076DA7A1F8E7CF700D648A2 /* NotifiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C076DA791F8E7CF700D648A2 /* NotifiViewController.swift */; };
 		C099B5871FD3DDD800B24AE1 /* NotifyEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C099B5861FD3DDD700B24AE1 /* NotifyEditViewController.swift */; };
 		C0D77A591FCE3AC7006EFA75 /* customTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D77A581FCE3AC7006EFA75 /* customTableViewCell.swift */; };
@@ -80,6 +81,7 @@
 		C0218FFD1FD3F36A006D0BF1 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		C0218FFF1FD3F703006D0BF1 /* analyticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = analyticsTableViewCell.swift; sourceTree = "<group>"; };
 		C02190011FD5B718006D0BF1 /* AnalyticsHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsHomeViewController.swift; sourceTree = "<group>"; };
+		C035F7031FE1238000A5D0A5 /* doctorNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doctorNotesViewController.swift; sourceTree = "<group>"; };
 		C076DA791F8E7CF700D648A2 /* NotifiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifiViewController.swift; sourceTree = "<group>"; };
 		C099B5861FD3DDD700B24AE1 /* NotifyEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyEditViewController.swift; sourceTree = "<group>"; };
 		C0D77A581FCE3AC7006EFA75 /* customTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				3D10EF711F8D73C700479B43 /* AppDelegate.swift */,
 				3D10EF751F8D73C700479B43 /* Main.storyboard */,
 				C007A60D1FD69629006E67C8 /* AnalyticsNotesViewController.swift */,
+				C035F7031FE1238000A5D0A5 /* doctorNotesViewController.swift */,
 				C007A60B1FD68F72006E67C8 /* AnalyticsAllDateViewController.swift */,
 				C02190011FD5B718006D0BF1 /* AnalyticsHomeViewController.swift */,
 				C099B5861FD3DDD700B24AE1 /* NotifyEditViewController.swift */,
@@ -420,6 +423,7 @@
 				3D0DBD521FC236AC00B9BF5E /* Settings.swift in Sources */,
 				C02190021FD5B719006D0BF1 /* AnalyticsHomeViewController.swift in Sources */,
 				3D10EF721F8D73C700479B43 /* AppDelegate.swift in Sources */,
+				C035F7041FE1238100A5D0A5 /* doctorNotesViewController.swift in Sources */,
 				C099B5871FD3DDD800B24AE1 /* NotifyEditViewController.swift in Sources */,
 				3D3B74E71FD3909A00D1105E /* EmailSettingsViewController.swift in Sources */,
 				3D0F25EE1FA6BF1300B796B6 /* DisplayMessageViewController.swift in Sources */,
