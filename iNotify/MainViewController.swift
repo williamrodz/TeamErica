@@ -10,8 +10,9 @@ import UIKit
 import MapKit
 import CoreLocation
 
-// Settings variable here has to be outside of view controller class defintion for
-// it to be global and public
+/*
+Settings variable here has to be outside of view controller class defintion for it to be global and public
+*/
 
 var buttonSettings: [String:Any] = ["enabled":false,"messageBody":"default body"]
 
