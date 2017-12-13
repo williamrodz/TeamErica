@@ -39,7 +39,20 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
         return googleMapsURL + latitude + "," + longitude
     }
     
+    
+    func processPhoneNumberString(rawPhoneNumberText:String) -> String {
+        // Trim Whitespace
+        let noWhiteSpacePhoneNumbers = rawPhoneNumberText.replacingOccurrences(of: " ", with: "")
+        // Take out parentheses, hyphens, and pluses
+        var processingNumbers = noWhiteSpacePhoneNumbers.replacingOccurrences(of: "(", with: "")
+        processingNumbers = processingNumbers.replacingOccurrences(of: ")", with: "")
+        processingNumbers = processingNumbers.replacingOccurrences(of: "-", with: "")
+        processingNumbers = processingNumbers.replacingOccurrences(of: "+", with: "")
+        return processingNumbers
+    }
+    
     @IBAction func getHelpFromContact(_ sender: Any) {
+        
         
         
         
@@ -60,19 +73,23 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
         let message:String = contactInfo["MessageBody"]! + "\nI am currently at \(googleMapsURL)\n I was here at \(hour):\(minutes)"
         
         print("Button \(nameContact) was pressed!")
-        var rawPhoneNumberText:String = contactInfo["Contact"]!
+        let rawPhoneNumberText:String = contactInfo["Contact"]!
         print("Sending text to \(rawPhoneNumberText)")
-        // Trim Whitespace
-        let noWhiteSpacePhoneNumbers = rawPhoneNumberText.trimmingCharacters(in: .whitespaces)
+
+        
+        
+        let processedNumbersString = processPhoneNumberString(rawPhoneNumberText: rawPhoneNumberText)
         
         //Check if more than one phone number in recipients
         var recipientsArray:[String] = []
-        if noWhiteSpacePhoneNumbers.range(of:";") != nil {
-            recipientsArray = noWhiteSpacePhoneNumbers.components(separatedBy: ";")
+        if processedNumbersString.range(of:";") != nil {
+            recipientsArray = processedNumbersString.components(separatedBy: ";")
         } else {
-            recipientsArray.append(noWhiteSpacePhoneNumbers)
+            recipientsArray.append(processedNumbersString)
         }
         
+        
+        print("Will send message to these phonenumber(s)\n\(recipientsArray)")
         
         // Confirm box
         let refreshAlert = UIAlertController(title: "Get Help", message: "Are you sure you want to send your message to \(nameContact)?", preferredStyle: UIAlertControllerStyle.alert)

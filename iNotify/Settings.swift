@@ -50,7 +50,7 @@ class Settings {
             self.notifyScreenDict = UserDefaults.standard.object(forKey: "notifyScreenDict") as![String:Dictionary<String, String>]
             self.getHelpScreenDict = UserDefaults.standard.object(forKey: "getHelpScreenDict") as![String:Dictionary<String, String>]
             self.analyticsScreenDict = UserDefaults.standard.object(forKey: "analyticsScreenDict") as![String:[String: Dictionary<String, String>]]
-            self.analyticsTrackerDict = UserDefaults.standard.object(forKey: "analyticsTracker") as! [String:Int]
+            self.analyticsTrackerDict = UserDefaults.standard.object(forKey: "analyticsTrackerDict") as! [String:Int]
         }
             
         else {

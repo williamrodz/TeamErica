@@ -132,6 +132,18 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
 
     }
     
+    func processPhoneNumberString(rawPhoneNumberText:String) -> String {
+        // Trim Whitespace
+        let noWhiteSpacePhoneNumbers = rawPhoneNumberText.replacingOccurrences(of: " ", with: "")
+        // Take out parentheses, hyphens, and pluses
+        var processingNumbers = noWhiteSpacePhoneNumbers.replacingOccurrences(of: "(", with: "")
+        processingNumbers = processingNumbers.replacingOccurrences(of: ")", with: "")
+        processingNumbers = processingNumbers.replacingOccurrences(of: "-", with: "")
+        processingNumbers = processingNumbers.replacingOccurrences(of: "+", with: "")
+        return processingNumbers
+    }
+    
+    
     @IBAction func notifyContact(_ sender: Any) {
         let notifyButton = sender as! UIButton
         let notifyContact = notifiContacts[notifyButton.tag]
@@ -145,6 +157,28 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         
         //Confirm box
         let refreshAlert = UIAlertController(title: "Notifying by SMS", message: "Are you sure you want to send your preset SMS to \"\(notifyContact)\"", preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        let rawPhoneNumberText:String = notifyContactInfo["Contact"]!
+        print("Sending text to \(rawPhoneNumberText)")
+
+        
+        let processedNumbersString = processPhoneNumberString(rawPhoneNumberText: rawPhoneNumberText)
+        
+        //Check if more than one phone number in recipients
+        var recipientsArray:[String] = []
+        if processedNumbersString.range(of:";") != nil {
+            recipientsArray = processedNumbersString.components(separatedBy: ";")
+        } else {
+            recipientsArray.append(processedNumbersString)
+        }
+        
+        
+        //send message to everyone
+        recipientsArray.forEach { individualPhoneNumber in
+            self.sendData(toPhoneNumber: individualPhoneNumber, bodyOfMessage: message)
+        }
+        
         
         refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
             self.sendData(toPhoneNumber: notifyContactInfo["Contact"]!, bodyOfMessage: message)
