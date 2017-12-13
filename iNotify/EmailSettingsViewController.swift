@@ -8,12 +8,22 @@
 
 import UIKit
 
-class EmailSettingsViewController: UIViewController {
+class EmailSettingsViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var emailDisplayName: UITextField!
     @IBOutlet var emailAddress: UITextField!
     @IBOutlet var emailPassword: UITextField!
     @IBOutlet var emailSMTPserver: UITextField!
     @IBOutlet weak var currentEmailLabel: UILabel!
+    
+    // hides text fields keyboard upon 'Return/Done'
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (string == "\n") {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
     
     // Retrieved from https://stackoverflow.com/questions/24842834/swift-good-coding-practice-if-statement-with-optional-type-bool
     func isValidEmail(testStr:String) -> Bool {
@@ -95,6 +105,12 @@ class EmailSettingsViewController: UIViewController {
         emailDisplayName.text = appSettings.mailDisplayName
         emailAddress.text = appSettings.mailUserName
         emailSMTPserver.text = appSettings.mailSMTPHostName
+        emailDisplayName.delegate = self
+        emailAddress.delegate = self
+        emailPassword.delegate = self
+        emailSMTPserver.delegate = self
+        
+        
 
         // Do any additional setup after loading the view.
     }

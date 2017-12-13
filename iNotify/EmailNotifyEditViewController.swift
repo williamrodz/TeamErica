@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmailNotifyEditViewController: UIViewController, UITextViewDelegate {
+class EmailNotifyEditViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
     
     @IBOutlet weak var emailGroupName: UITextField!
@@ -22,10 +22,19 @@ class EmailNotifyEditViewController: UIViewController, UITextViewDelegate {
     var preSetEmailSubject = ""
     
     // Edit logic of keyboard
+    // For UITextView
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         //Make 'Done/Return' button close keyboard
         if (text == "\n") {
             textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    // For UITextField
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (string == "\n") {
+            textField.resignFirstResponder()
             return false
         }
         return true
@@ -38,6 +47,9 @@ class EmailNotifyEditViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         //Make the UITextView delegate this ViewController so we can modify keyboard behavior
         emailMessage.delegate = self
+        emailGroupName.delegate = self
+        emailRecipients.delegate = self
+        emailSubject.delegate = self
         
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.

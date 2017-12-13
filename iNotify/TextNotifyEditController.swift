@@ -11,7 +11,7 @@ import UIKit
 import Contacts
 import ContactsUI
 
-class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITextViewDelegate{
+class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITextViewDelegate, UITextFieldDelegate{
     
     @IBOutlet weak var recipients: UITextField!
     @IBOutlet weak var notifyMessage: UITextView!
@@ -34,6 +34,7 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
     
     
     // Edit logic of keyboard
+    // For UITextView
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         //Make 'Done/Return' button close keyboard
         if (text == "\n") {
@@ -44,10 +45,23 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
     }
     
     
+    // hides text fields keyboard upon 'Return/Done'
+    // For UITextField
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (string == "\n") {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Make the UITextView delegate this ViewController so we can modify keyboard behavior
         notifyMessage.delegate = self
+        recipients.delegate = self
+        notifyGroupName.delegate = self
         self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         recipients.text = preSetRecipients
