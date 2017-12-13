@@ -23,6 +23,7 @@ class DisplayEditViewController: UIViewController,UITextViewDelegate {
         }
         return true
     }
+    
     /**
      Saving the user-inputted Display Message
      */
