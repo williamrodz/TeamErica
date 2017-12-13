@@ -40,9 +40,6 @@ class EmailNotifyEditViewController: UIViewController, UITextViewDelegate, UITex
         return true
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Make the UITextView delegate this ViewController so we can modify keyboard behavior
@@ -67,11 +64,17 @@ class EmailNotifyEditViewController: UIViewController, UITextViewDelegate, UITex
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "Add Email"
     }
+    /**
+     Add email as a Notify instance
+     */
     @IBAction func notifyAddEmail(_ sender: Any) {
         appSettings.addNotifiEmailRecipient(Name: emailGroupName.text!, toContact: emailRecipients.text!, Subject: emailSubject.text!, Message: emailMessage.text)
         _  = self.navigationController?.popToRootViewController(animated: true)
     }
     
+    /**
+     Delete email as a Notify instance
+     */
     @IBAction func NotifyDeleteEmail(_ sender: Any) {
         appSettings.deleteNotifyRecipient(Name: preSetGroupName)
         _  = self.navigationController?.popToRootViewController(animated: true)

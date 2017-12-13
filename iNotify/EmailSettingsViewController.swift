@@ -24,15 +24,27 @@ class EmailSettingsViewController: UIViewController,UITextFieldDelegate {
         return true
     }
     
-    
-    // Retrieved from https://stackoverflow.com/questions/24842834/swift-good-coding-practice-if-statement-with-optional-type-bool
+    /**
+     Checks if email inputted is valid
+     Retrieved from https://stackoverflow.com/questions/24842834/swift-good-coding-practice-if-statement-with-optional-type-bool
+
+     @param: email String
+     @return: boolean if email is valid
+     */
     func isValidEmail(testStr:String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
-    // Retrived from https://stackoverflow.com/questions/28079123/how-to-check-validity-of-url-in-swift
+    
+    /**
+     Checks if URL exists
+     Retrived from https://stackoverflow.com/questions/28079123/how-to-check-validity-of-url-in-swift
+ 
+     @param: URL String
+     @return: boolean if there is a URL
+     */
     func isValidUrl (urlString: String?) -> Bool {
         
         if (urlString?.count)! > 0{ //just checks non-empty, should switch to proper regex
@@ -42,6 +54,10 @@ class EmailSettingsViewController: UIViewController,UITextFieldDelegate {
         }
     }
     
+    /**
+     Saves the email settings that are inputted
+     
+     */
     @IBAction func saveEmailSettings(_ sender: Any) {
         //Check if email is valid
         if !isValidEmail(testStr: self.emailAddress.text!) {
@@ -52,7 +68,6 @@ class EmailSettingsViewController: UIViewController,UITextFieldDelegate {
                 return
 
             }))
-            
             
             present(alert, animated: true, completion: nil)
             

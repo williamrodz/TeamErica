@@ -56,6 +56,10 @@ class getHelpEditViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    /**
+     Segue to adding a new Get Help instance when a table cell or add contact is selected
+     
+     */
     @objc func buttonPressed(sender: Any) {
         performSegue(withIdentifier: "customizeGetHelpSegue", sender: sender)
     }

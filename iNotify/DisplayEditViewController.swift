@@ -12,15 +12,20 @@ class DisplayEditViewController: UIViewController,UITextViewDelegate {
     @IBOutlet var displayEditContent: UITextView!
 
     // Edit logic of keyboard
+    
+    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        //Make 'Done/Return' button close keyboard
+        
+        //Make the 'Done/Return' button close keyboard
         if (text == "\n") {
             textView.resignFirstResponder()
             return false
         }
         return true
     }
-    
+    /**
+     Saving the user-inputted Display Message
+     */
     @IBAction func saveDisplayEditContent(_ sender: Any) {
         let updatedMessage:String = displayEditContent.text
         let refreshAlert = UIAlertController(title: "Changing display message", message: "Message that will be displayed on screen to passerbys will now be\n\"\(updatedMessage)\"", preferredStyle: UIAlertControllerStyle.alert)
