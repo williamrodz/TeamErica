@@ -13,11 +13,53 @@ class EmailSettingsViewController: UIViewController {
     @IBOutlet var emailAddress: UITextField!
     @IBOutlet var emailPassword: UITextField!
     @IBOutlet var emailSMTPserver: UITextField!
+    @IBOutlet weak var currentEmailLabel: UILabel!
     
-    
-    
+    // Retrieved from https://stackoverflow.com/questions/24842834/swift-good-coding-practice-if-statement-with-optional-type-bool
+    func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
+    // Retrived from https://stackoverflow.com/questions/28079123/how-to-check-validity-of-url-in-swift
+    func isValidUrl (urlString: String?) -> Bool {
+        let urlRegEx = "((?:http|https)://)?(?:www\\.)?[\\w\\d\\-_]+\\.\\w{2,3}(\\.\\w{2})?(/(?<=/)(?:[\\w\\d\\-./_]+)?)?"
+        return NSPredicate(format: "SELF MATCHES %@", urlRegEx).evaluate(with: urlString)
+    }
     
     @IBAction func saveEmailSettings(_ sender: Any) {
+        //Check if email is valid
+        if !isValidEmail(testStr: self.emailAddress.text!) {
+            // Confirm box
+            let alert = UIAlertController(title: "Invalid email", message: "Please enter a valid email address", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                return
+
+            }))
+            
+            
+            present(alert, animated: true, completion: nil)
+            
+        }
+        //Check if server URL is valid
+        if !isValidUrl(urlString: self.emailSMTPserver.text!) {
+            // Confirm box
+            let alert = UIAlertController(title: "Invalid SMTP Host Name", message: "Please enter a valid SMTP Host Name URL", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                return
+                
+            }))
+            
+            
+            present(alert, animated: true, completion: nil)
+            
+        }
+        
+        
+        
         let newDisplayName:String = self.emailDisplayName.text!
         let newMailUserName:String = self.emailAddress.text!
         let newMailPassword:String = self.emailPassword.text!
@@ -48,6 +90,11 @@ class EmailSettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Pre-populate fields with current settings
+        currentEmailLabel.text = "\(appSettings.mailDisplayName) (\(appSettings.mailUserName))"
+        emailDisplayName.text = appSettings.mailDisplayName
+        emailAddress.text = appSettings.mailUserName
+        emailSMTPserver.text = appSettings.mailSMTPHostName
 
         // Do any additional setup after loading the view.
     }
