@@ -13,7 +13,7 @@ class NotifyEditViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var emptyNotifyEditLabel: UILabel!
     @IBOutlet weak var notifyEditTable: UITableView!
     
-    let notifyEditContacts = [String](appSettings.getNotifyScreenDict().keys) //finds the recipients of the get help feature
+    let notifyEditContacts = [String](appSettings.getNotifyScreenDict().keys) //Finds the recipients of the get help feature
     
     override func viewDidLoad() {
         notifyEditTable.delegate = self
@@ -21,6 +21,7 @@ class NotifyEditViewController: UIViewController, UITableViewDataSource, UITable
         
         
         super.viewDidLoad()
+        //To inform if no messages have been set
         if notifyEditContacts.count == 0 {
             emptyNotifyEditLabel.text = "No Current Messages"
         }
@@ -53,12 +54,15 @@ class NotifyEditViewController: UIViewController, UITableViewDataSource, UITable
         
         cell.cellButton.setTitle(contactName, for: .normal)
         cell.cellButton.tag = indexPath.row
-        cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height / 3
+        cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height / 3 //To manage the UI of the cells
         
+        //Assigning mail icon for email
         if (avenue == "Email") {
             cell.cellButton.addTarget(self, action: #selector(notifyEmailSegue), for: .touchUpInside)
             cell.cellImage.image = UIImage(named: "mail-icon")
-        } else {
+        }
+        //Assigning message icon for text
+        else {
             cell.cellButton.addTarget(self, action: #selector(notifyTextSegue), for: .touchUpInside)
             cell.cellImage.image = UIImage(named: "message-icon")
         }
@@ -75,6 +79,7 @@ class NotifyEditViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //variables to be updated for the text message
         if segue.identifier == "editNotifyTextSegue" {
             let nextVC: TextNotifyEditController = segue.destination as! TextNotifyEditController
             
@@ -87,6 +92,7 @@ class NotifyEditViewController: UIViewController, UITableViewDataSource, UITable
             nextVC.preSetMessage = contactInfo["MessageBody"]!
         }
         
+        //Variables to be updated for the email message
         else if segue.identifier == "editNotifyEmailSegue" {
             let nextVC: EmailNotifyEditViewController = segue.destination as! EmailNotifyEditViewController
             

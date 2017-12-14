@@ -15,13 +15,14 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var notifiTable: UITableView!
     
-    var notifiContacts = [String](appSettings.getNotifyScreenDict().keys) //finds the recipients of the notify application.
+    var notifiContacts = [String](appSettings.getNotifyScreenDict().keys) //Finds the recipients of the notify application.
     
     override func viewDidLoad() {
         notifiTable.delegate = self
         notifiTable.dataSource = self
         
         super.viewDidLoad()
+        // To be dispayed when no contact has been added
         if notifiContacts.count == 0 {
             EmptyTableLabel.text = "No Current Messages"
         }
@@ -36,6 +37,12 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "Notify"
     }
+    
+    /// Function to send the text message to recipients
+    ///
+    /// - Parameters:
+    ///   - toPhoneNumber: The phone number to send to
+    ///   - bodyOfMessage: Body of message to be sent
     func sendData(toPhoneNumber:String, bodyOfMessage:String) {
         let headers = [
             "Content-Type": "application/x-www-form-urlencoded"
@@ -46,8 +53,7 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
             "Body": bodyOfMessage ?? ""
         ]
         
-        //old url was https://sparkling-credit-8614.twil.io/sms
-        
+        //Uses Twilio to handle sending messages
         Alamofire.request("https://faint-hospital-4825.twil.io/sms", method: .post, parameters: parameters, headers: headers).responseJSON { response in
             print(response.response)
         }
@@ -62,6 +68,7 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         let smtpSession = MCOSMTPSession()
         let mailSettings = appSettings.getMailSettings()
 
+        //Variables for sending email
         smtpSession.hostname = mailSettings["mailSMTPHostName"]
         smtpSession.username = mailSettings["mailUserName"]
         smtpSession.password = mailSettings["mailPassword"]
@@ -135,6 +142,10 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
 
     }
     
+    /// To process phone number into send-able format
+    ///
+    /// - Parameter rawPhoneNumberText: Phone number we have
+    /// - Returns: Processed phone number
     func processPhoneNumberString(rawPhoneNumberText:String) -> String {
         // Trim Whitespace
         let noWhiteSpacePhoneNumbers = rawPhoneNumberText.replacingOccurrences(of: " ", with: "")
@@ -158,7 +169,7 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         print("The button has been clicked.")
         
         
-        //Confirm box
+        //Confirmatioin box
         let refreshAlert = UIAlertController(title: "Notifying by SMS", message: "Are you sure you want to send your preset SMS to \"\(notifyContact)\"", preferredStyle: UIAlertControllerStyle.alert)
         
         
@@ -177,7 +188,7 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         }
         
         
-        //send message to everyone
+        //Send message to everyone
         recipientsArray.forEach { individualPhoneNumber in
             self.sendData(toPhoneNumber: individualPhoneNumber, bodyOfMessage: message)
         }

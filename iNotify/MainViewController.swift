@@ -10,16 +10,20 @@ import UIKit
 import MapKit
 import CoreLocation
 
-// Settings variable here has to be outside of view controller class defintion for
-// it to be global and public
+
+//Settings variable here has to be outside of view controller class defintion for it to be global and public
+
 
 var buttonSettings: [String:Any] = ["enabled":false,"messageBody":"default body"]
 
 var appSettings = Settings()
 
+//This makes sure that latitude and longitude received will be displayed to the recipient as a location
 let googleMapsURL:String = "https://www.google.com/maps/place/"
 
 extension UIViewController {
+    
+    /// Called when keyboard is open and when tapped anywhere around it, gets closed
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -49,7 +53,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UITabBarC
         tabBarController?.delegate = self
         // set variables for location
         manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest //get best location accuuracy possible
+        manager.desiredAccuracy = kCLLocationAccuracyBest //get best location accuracy possible
         manager.requestWhenInUseAuthorization() // only need location when using the app
         manager.startUpdatingLocation()
         
@@ -57,8 +61,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate, UITabBarC
     }
 
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        // Make so that every time the tabs are pressed on TabController,
-        // the root of it is always accessed.
+        // Make so that every time the tabs are pressed on TabController, the root of it is always accessed.
         var indexOfDesiredViewController = 0
         repeat {
             let secondVC = tabBarController.viewControllers?[indexOfDesiredViewController] as! UINavigationController

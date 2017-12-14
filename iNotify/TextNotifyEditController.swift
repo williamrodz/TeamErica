@@ -21,15 +21,9 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
     var preSetMessage = ""
     var preSetGroupName = ""
     
-    //var phoneNumberPicker:UIPickerView = UIPickerView()
-    
     @IBAction func notifyAddText(_ sender: Any) {
-        
-
         appSettings.addNotifiTextRecipient(Name: notifyGroupName.text!, Contact: recipients.text!, Message: notifyMessage.text)
         _  = self.navigationController?.popToRootViewController(animated: true)
-        
-        
     }
     
     @IBAction func notifyDeleteMessage(_ sender: Any) {
@@ -37,10 +31,14 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
         _  = self.navigationController?.popToRootViewController(animated: true)
     }
     
-    // Edit logic of keyboard
-    // For UITextView
+    
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - textView: To close the keyboard for text view on pressing the Done/Return button
+    ///   - text: Here, this is the Return button
+    /// - Returns: Closes the keyboard by setting bool false
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        //Make 'Done/Return' button close keyboard
         if (text == "\n") {
             textView.resignFirstResponder()
             return false
@@ -49,8 +47,13 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
     }
     
     
-    // hides text fields keyboard upon 'Return/Done'
-    // For UITextField
+  
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - textField: To close the keyboard for text view on pressing the Done/Return button
+    ///   - string: Here, this is the Return button
+    /// - Returns: Closes the keyboard by setting bool false
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if (string == "\n") {
             textField.resignFirstResponder()
@@ -78,14 +81,6 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
 
     }
     
-//    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-//        if(text == "\n") { //return key pressed
-//            textView.resignFirstResponder()
-//            return false
-//        }
-//        return true
-//    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -94,14 +89,11 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
         navigationItem.title = "Add Text Message"
     }
     
-    
-    
-    
-    //contacts stuff
+// Accessing Contacts
     @IBAction func contacts(_ sender: Any) {
 
         let entityType = CNEntityType.contacts
-        let authStatus = CNContactStore.authorizationStatus(for: entityType)
+        let authStatus = CNContactStore.authorizationStatus(for: entityType) //Asks for permission to access contacts
         
         if authStatus == CNAuthorizationStatus.notDetermined{
             let contactStore = CNContactStore.init()
@@ -120,22 +112,26 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
         }
     }
     
+    /// Function that opens the contacts from the user's phone
     func openContacts(){
         let contactPicker = CNContactPickerViewController.init()
         contactPicker.delegate = self
         self.present(contactPicker, animated: true, completion: nil)
     }
     
+    /// Called when user does not pick any contact and presses cancel
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
         picker.dismiss(animated: true){
             
         }
     }
     
+    
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         let fullName = "\(contact.givenName) \(contact.familyName)"
         
         var phoneNumbers = [String]()
+        //Access the phone number of the contact and assign it to variable
         if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
             for phoneNumber in contact.phoneNumbers {
                 
@@ -144,7 +140,7 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
             }
         }
         
-        
+        //Make the UI look good when displaying the numbers
         if recipients.text!.isEmpty{
             recipients.text = phoneNumbers[0] //currently just appending first phone number
         }
