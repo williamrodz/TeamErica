@@ -179,7 +179,7 @@ class Settings {
     /// - Parameters:
     ///   - Month: month in String form of desired episode
     ///   - Timestamp: timestamp in String form of desired episode
-    /// - Returns: <#return value description#>
+    /// - Returns: individual data point of episode dictionary of dictionaries
     func getAnalyticsDataPointinfo (Month: String, Timestamp: String) -> Dictionary<String, String> {
         return self.analyticsScreenDict[Month]![Timestamp]!
     }
