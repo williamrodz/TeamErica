@@ -5,38 +5,46 @@
 //  Created by Meseret  Kebede on 03/12/2017.
 //  Copyright © 2017 Team Erica. All rights reserved.
 //
+//  This will be the First TableView for the Analytics Page, organized by monthly view. Includes logic such that when one presses each button they will do into all of the datapoints for that month. 
+//
+//
 
 import UIKit
 
 class AnalyticsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    //analyticsTable that will be connected to the storyboard
+    
     
     @IBOutlet weak var emptyAnalyticsLabel: UILabel!
-    @IBOutlet weak var analyticsTable: UITableView!
+    @IBOutlet weak var analyticsTable: UITableView! //analyticsTable that will be connected to the storyboard
     
     var analyticsList = [String](appSettings.getAnalyticsScreenDict().keys)
     
+    // Has documentation
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(analyticsList)
         return analyticsList.count
     }
     
+    // Has documentation
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        print(analyticsList)
         return 100
     }
     
-    
+    // Has documentation
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dataLabel = analyticsList[indexPath.row]
         let cell = analyticsTable.dequeueReusableCell(withIdentifier: "analyticsCell") as! analyticsTableViewCell
         
+        // sets the cell title, tag and button target
         cell.analyticsButton.addTarget(self, action: #selector(getMonthData), for: .touchUpInside)
         cell.analyticsButton.setTitle(dataLabel, for: .normal)
         cell.analyticsButton.tag = indexPath.row
         return cell
     }
     
+    
+    /// Performs a segue when the button is pressed. This goes from the Montly view to all of the data points in a month.
+    ///
+    /// - Parameter sender: UIButton that was pressed.
     @objc func getMonthData(sender: Any) {
         performSegue(withIdentifier: "dataForMonth", sender: sender)
     }
@@ -47,7 +55,6 @@ class AnalyticsViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let button = sender as! UIButton
             let month = analyticsList[button.tag]
-            let dataForMonth = [String] (appSettings.getAnalyticsMonthInfo(Month: month).keys)
 
             nextVC.senderMonth = month
             nextVC.dataForMonth = [String] (appSettings.getAnalyticsMonthInfo(Month: month).keys)
@@ -75,14 +82,5 @@ class AnalyticsViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "Analytics"
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
