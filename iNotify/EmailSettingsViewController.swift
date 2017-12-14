@@ -81,14 +81,12 @@ class EmailSettingsViewController: UIViewController,UITextFieldDelegate {
                 return
                 
             }))
-            
-            
             present(alert, animated: true, completion: nil)
             
         }
         
         
-        
+        // gets the preset values from email settings
         let newDisplayName:String = self.emailDisplayName.text!
         let newMailUserName:String = self.emailAddress.text!
         let newMailPassword:String = self.emailPassword.text!
@@ -96,8 +94,10 @@ class EmailSettingsViewController: UIViewController,UITextFieldDelegate {
         
         let bodyMessage:String = "Changing sending email address to \"\(newDisplayName)\" (\(newMailUserName)) \n through this outgoing email server: \(newMailSMTPHostName)"
         
+        // confirms if user wants to update these settings
         let refreshAlert = UIAlertController(title: "Updating Email Settings", message: bodyMessage, preferredStyle: UIAlertControllerStyle.alert)
         
+        // if user says yes update the settings
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
             appSettings.updateMailDisplayName(newDisplayName:newDisplayName )
             appSettings.updateMailUserName(newEmail: newMailUserName )
@@ -108,6 +108,7 @@ class EmailSettingsViewController: UIViewController,UITextFieldDelegate {
             _  = self.navigationController?.popToRootViewController(animated: true)
         }))
         
+        // if user presses cancel then dont do anything
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             print("Handle Cancel Logic here")
         }))
@@ -141,15 +142,4 @@ class EmailSettingsViewController: UIViewController,UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "Edit Email Settings"
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
