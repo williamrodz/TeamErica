@@ -8,6 +8,20 @@
 
 import UIKit
 
+extension UIViewController {
+    
+    /// Called when keyboard is open and when tapped anywhere around it, gets closed
+    func hideKeyboardWhenTappedElsewhere() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboardWhenTapped() {
+        view.endEditing(true)
+    }
+}
+
 class EmailNotifyEditViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
     
@@ -23,14 +37,15 @@ class EmailNotifyEditViewController: UIViewController, UITextViewDelegate, UITex
     
     // Edit logic of keyboard
     // For UITextView
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        //Make 'Done/Return' button close keyboard
-        if (text == "\n") {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
-    }
+//    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+//        //Make 'Done/Return' button close keyboard
+//        if (text == "\n") {
+//            textView.resignFirstResponder()
+//            return false
+//        }
+//        return true
+//    }
+    
     // For UITextField
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if (string == "\n") {
