@@ -5,6 +5,8 @@
 //  Created by Meseret  Kebede on 05/12/2017.
 //  Copyright © 2017 Team Erica. All rights reserved.
 //
+//  This is the UIViewController for the detailed notes for a datapoint. This includes logic for saving the Notes and any Doctor Notes that Erica may want to add. 
+//
 
 import UIKit
 
@@ -16,14 +18,18 @@ class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate,UIText
     @IBOutlet weak var Notes: UITextView!
     @IBOutlet weak var notesForMe: UITextView!
     
+    // Reciever values for the segue.
     var month = ""
     var dataPointTime = ""
     
+    
+    /// Saves the note once the Save button is pushed.
+    ///
+    /// - Parameter sender: UIButton that calles this function when pressed.
     @IBAction func saveNote(_ sender: Any) {
-        //let preSetNote = (appSettings.getAnalyticsDataPointinfo(Month: month, Timestamp: dataPointTime))
         
+        // save the notes, as well as any notes for the Doctor.
         appSettings.addAnalyticsNote(Month: month, Analyticslabel: dataPointTime, Note: Notes.text, NotesForMe: notesForMe.text)
-        
         appSettings.addDoctorNotesDict(Timestamp: dataPointTime, Note: Notes.text)
         _ = navigationController?.popViewController(animated: true)
     }
@@ -51,7 +57,6 @@ class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate,UIText
         Notes.text = details["Notes"]
         notesForMe.text = details["NotesForMe"]
 
-        // Do any additional setup after loading the view.
     }
     
 
@@ -60,17 +65,9 @@ class AnalyticsNotesViewController: UIViewController, UITextFieldDelegate,UIText
         // Dispose of any resources that can be recreated.
     }
     
+    // sets the title of the page.
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "Details"
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
