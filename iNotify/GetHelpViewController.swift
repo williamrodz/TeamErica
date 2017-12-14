@@ -63,13 +63,11 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
         return processingNumbers
     }
     
+    
+    /// Send contact a get help message. This text message includes a the location and the time of the message.
+    ///
+    /// - Parameter sender: UIButton that calls this function
     @IBAction func getHelpFromContact(_ sender: Any) {
-        
-        
-        
-        
-        
-        
         
         let googleMapsURL = getGoogleMapsLocationURL()
         
@@ -137,11 +135,6 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
         }))
         
         present(refreshAlert, animated: true, completion: nil)
-        
-        
-        
-        
-        
 
     }
     
@@ -164,29 +157,21 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
         navigationItem.title = "Get Help"
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+    //built-in documentation
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getHelpContacts.count
     }
     
-    
+    //built-in documentation
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
-    
+    //built-in documentation
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = getHelpTable.dequeueReusableCell(withIdentifier: "customCell") as! customTableViewCell
         
+        // sets values for the cell
         cell.cellButton.setTitle(getHelpContacts[indexPath.row], for: .normal)
         cell.cellButton.tag = indexPath.row
         cell.cellButton.addTarget(self, action: #selector(getHelpFromContact), for: .touchUpInside)

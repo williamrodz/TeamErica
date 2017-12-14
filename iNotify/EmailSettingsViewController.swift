@@ -56,7 +56,6 @@ class EmailSettingsViewController: UIViewController,UITextFieldDelegate {
     
     /**
      Saves the email settings that are inputted
-     
      */
     @IBAction func saveEmailSettings(_ sender: Any) {
         //Check if email is valid

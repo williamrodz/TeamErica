@@ -59,8 +59,13 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         }
     }
     
+    
+    ///  Sends an pre-set email based on the sender button tag.
+    ///
+    /// - Parameter sender: UIButton that calles this function.
     @IBAction func sendEmail(_ sender: Any) {
         
+        //finds the contactInfo for recipient
         let notifyButton = sender as! UIButton
         let notifyContact = notifiContacts[notifyButton.tag]
         let notifyContactInfo = appSettings.getNotifyContactInfo(Name: notifyContact)
@@ -82,6 +87,8 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
                 }
             }
         }
+        
+        // constructs email
         let builder = MCOMessageBuilder()
         builder.header.to = [MCOAddress(displayName: mailSettings["mailDisplayName"], mailbox: notifyContactInfo["To"])]
         builder.header.from = MCOAddress(displayName: mailSettings["mailDisplayName"], mailbox: mailSettings["mailUserName"])
@@ -130,16 +137,6 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         }))
         
         present(refreshAlert, animated: true, completion: nil)
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
     }
     
     /// To process phone number into send-able format
@@ -158,6 +155,9 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
     }
     
     
+    /// Notifies the contact via text based upon the button tag.
+    ///
+    /// - Parameter sender: UIButton that calls this function
     @IBAction func notifyContact(_ sender: Any) {
         let notifyButton = sender as! UIButton
         let notifyContact = notifiContacts[notifyButton.tag]
@@ -165,16 +165,13 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         
         let message:String = notifyContactInfo["MessageBody"]!
         
-        print("Button \(notifyContact) was pressed!")
-        print("The button has been clicked.")
-        
         
         //Confirmatioin box
         let refreshAlert = UIAlertController(title: "Notifying by SMS", message: "Are you sure you want to send your preset SMS to \"\(notifyContact)\"", preferredStyle: UIAlertControllerStyle.alert)
         
         
         let rawPhoneNumberText:String = notifyContactInfo["Contact"]!
-        print("Sending text to \(rawPhoneNumberText)")
+        //print("Sending text to \(rawPhoneNumberText)")
 
         
         let processedNumbersString = processPhoneNumberString(rawPhoneNumberText: rawPhoneNumberText)
@@ -193,7 +190,7 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
             self.sendData(toPhoneNumber: individualPhoneNumber, bodyOfMessage: message)
         }
         
-        
+        // if the user says yes. 
         refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
             self.sendData(toPhoneNumber: notifyContactInfo["Contact"]!, bodyOfMessage: message)
             
@@ -209,7 +206,6 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
             print(resultDate)
             appSettings.addAnalyticsScreenDict(Name: notifyContact, Timestamp: resultDate, Type: "Notify", Month: month)
             
-            
             _  = self.navigationController?.popToRootViewController(animated: true)
         }))
         
@@ -221,21 +217,23 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
 
     }
     
+    //built-in documentation
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notifiContacts.count
     }
     
-    
+    //built-in documentation
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
-    
+    //built-in documentation
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let contactName = notifiContacts[indexPath.row]
         let avenue = appSettings.getNotifyContactInfo(Name: contactName)["Type"]
         let cell = notifiTable.dequeueReusableCell(withIdentifier: "notifyCell") as! customTableViewCell
         
+        // sets the cell values
         cell.cellButton.setTitle(contactName, for: .normal)
         cell.cellButton.tag = indexPath.row
         cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height / 3
@@ -250,15 +248,5 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         
         return cell
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

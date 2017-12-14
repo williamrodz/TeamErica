@@ -29,21 +29,10 @@ class DisplayEditViewController: UIViewController,UITextViewDelegate {
      */
     @IBAction func saveDisplayEditContent(_ sender: Any) {
         let updatedMessage:String = displayEditContent.text
-        let refreshAlert = UIAlertController(title: "Changing display message", message: "Message that will be displayed on screen to passerbys will now be\n\"\(updatedMessage)\"", preferredStyle: UIAlertControllerStyle.alert)
         
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            appSettings.updateDisplayMessage(newMessage: updatedMessage)
-            _  = self.navigationController?.popToRootViewController(animated: true)
-        }))
-        
-        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("Handle Cancel Logic here")
-        }))
-        
-        present(refreshAlert, animated: true, completion: nil)
-   
-
+        appSettings.updateDisplayMessage(newMessage: updatedMessage)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Change delegate of UITextView to this ViewController to modify keyboard 'Done button
@@ -60,15 +49,5 @@ class DisplayEditViewController: UIViewController,UITextViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "Edit Display"
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

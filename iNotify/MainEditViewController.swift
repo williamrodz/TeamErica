@@ -5,6 +5,7 @@
 //  Created by Jenny Jin on 10/29/17.
 //  Copyright © 2017 Team Erica. All rights reserved.
 //
+//  UIViewController for the landing page of the Custimizablity/Settings page 
 
 import UIKit
 import Contacts
@@ -23,18 +24,10 @@ class MainEditViewController: UIViewController, CNContactPickerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+   
     override func viewWillAppear(_ animated: Bool) {
+         // set the title
         navigationItem.title = "Settings"
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

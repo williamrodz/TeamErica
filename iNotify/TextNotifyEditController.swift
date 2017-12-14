@@ -32,12 +32,7 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
     }
     
     
-    /// <#Description#>
-    ///
-    /// - Parameters:
-    ///   - textView: To close the keyboard for text view on pressing the Done/Return button
-    ///   - text: Here, this is the Return button
-    /// - Returns: Closes the keyboard by setting bool false
+    // Built-in documentation
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if (text == "\n") {
             textView.resignFirstResponder()
@@ -48,7 +43,7 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
     
     
   
-    /// <#Description#>
+    /// Closes that keyboard for a text view
     ///
     /// - Parameters:
     ///   - textField: To close the keyboard for text view on pressing the Done/Return button
@@ -89,7 +84,10 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
         navigationItem.title = "Add Text Message"
     }
     
-// Accessing Contacts
+    
+    /// Accesses the saved contacts from the phone
+    ///
+    /// - Parameter sender: UIButton that called this function
     @IBAction func contacts(_ sender: Any) {
 
         let entityType = CNEntityType.contacts
@@ -126,7 +124,7 @@ class TextNotifyEditController: UIViewController, CNContactPickerDelegate, UITex
         }
     }
     
-    
+    // built-in documentation
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         let fullName = "\(contact.givenName) \(contact.familyName)"
         

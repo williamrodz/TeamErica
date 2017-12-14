@@ -10,21 +10,20 @@ import UIKit
 
 class DisplayMessageViewController: UIViewController {
     
-//
-//    var settings = MainViewController.settings
     
     @IBOutlet weak var displayMessageLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Display message in appSettings is \(appSettings.getDisplayMessage())")
+        
+        // Get data from appSettings
         appSettings.addAnalyticsTrackerDisplay()
         displayMessageLabel.text =  appSettings.getDisplayMessage()
         displayMessageLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
 
         
-        
+        // logic to prevent the screen from going to sleep when in display mode
         let secondsinOneMinute:Int = 60
         UIApplication.shared.isIdleTimerDisabled = true // Stop screen from going to sleep
         let desiredMinutesBeforeSleep:Int = 20
@@ -45,15 +44,5 @@ class DisplayMessageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "Display"
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

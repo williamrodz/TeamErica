@@ -63,9 +63,9 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate, U
             self.openContacts()
         }
     }
+    
     /**
      Helper function to pop up list of user's phone contacts to select a message recipient
-     
      */
     func openContacts(){
         let contactPicker = CNContactPickerViewController.init()
@@ -101,9 +101,9 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate, U
         }
         
     }
+    
     /**
      Save the Get Help instance inputted by the user
-     
      */
     @IBAction func getHelpSaveMessage(_ sender: Any) {
         appSettings.addGetHelpRecipient(Name: getHelpName.text!, Contact: getHelpContact.text!, Message: getHelpMessage.text)
@@ -140,14 +140,5 @@ class GetHelpMessageViewController: UIViewController, CNContactPickerDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "Add Text Message"
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

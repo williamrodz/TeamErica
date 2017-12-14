@@ -55,7 +55,8 @@ class AnalyticsViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let button = sender as! UIButton
             let month = analyticsList[button.tag]
-
+            
+            // pass these variables to the AnalyticsAllDateViewController
             nextVC.senderMonth = month
             nextVC.dataForMonth = [String] (appSettings.getAnalyticsMonthInfo(Month: month).keys)
             
@@ -65,10 +66,10 @@ class AnalyticsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(analyticsList)
         analyticsTable.delegate = self
         analyticsTable.dataSource = self
         
+        // set the title of the page 
         if analyticsList.count == 0 {
             emptyAnalyticsLabel.text = "No Activity"
         }

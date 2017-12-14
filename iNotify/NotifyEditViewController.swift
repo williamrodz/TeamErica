@@ -37,16 +37,17 @@ class NotifyEditViewController: UIViewController, UITableViewDataSource, UITable
         navigationItem.title = "Edit Notify"
     }
     
+    //built-in documentation
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notifyEditContacts.count
     }
     
-    
+    //built-in documentation
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
-    
+    //built-in documentation
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let contactName = notifyEditContacts[indexPath.row]
         let avenue = appSettings.getNotifyContactInfo(Name: contactName)["Type"]
@@ -70,10 +71,18 @@ class NotifyEditViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    
+    /// Performs a segue to the TextNotifyEditController
+    ///
+    /// - Parameter sender: UIButton that calls this function
     @objc func notifyTextSegue(sender: Any) {
         performSegue(withIdentifier: "editNotifyTextSegue", sender: sender)
     }
     
+    
+    ///  Performs a segue to the EmailNotifyEditViewController
+    ///
+    /// - Parameter sender: UIButton that calls this function
     @objc func notifyEmailSegue(sender: Any) {
         performSegue(withIdentifier: "editNotifyEmailSegue", sender: sender)
     }
@@ -87,6 +96,7 @@ class NotifyEditViewController: UIViewController, UITableViewDataSource, UITable
             let nameContact = notifyEditContacts[button.tag]
             let contactInfo = appSettings.getNotifyContactInfo(Name: nameContact)
             
+            //send to the next View Controller
             nextVC.preSetGroupName = contactInfo["Name"]!
             nextVC.preSetRecipients = contactInfo["Contact"]!
             nextVC.preSetMessage = contactInfo["MessageBody"]!
@@ -100,6 +110,7 @@ class NotifyEditViewController: UIViewController, UITableViewDataSource, UITable
             let nameContact = notifyEditContacts[button.tag]
             let contactInfo = appSettings.getNotifyContactInfo(Name: nameContact)
             
+            //send to the next View Controller
             nextVC.preSetGroupName = contactInfo["Name"]!
             nextVC.preSetRecipients = contactInfo["To"]!
             nextVC.preSetMessage = contactInfo["MessageBody"]!
@@ -107,16 +118,4 @@ class NotifyEditViewController: UIViewController, UITableViewDataSource, UITable
         }
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
