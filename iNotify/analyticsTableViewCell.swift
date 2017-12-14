@@ -5,6 +5,8 @@
 //  Created by Meseret  Kebede on 03/12/2017.
 //  Copyright © 2017 Team Erica. All rights reserved.
 //
+//  This is a UITableViewCell Object. Allows us to reuse this framework of a cell throughout our Analytics Table Views whien creating the cells programatically. 
+//
 
 import UIKit
 
