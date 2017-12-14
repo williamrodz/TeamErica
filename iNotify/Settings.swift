@@ -35,41 +35,82 @@ class Settings {
         //Check if app settings have been changed at least once
         if let x = UserDefaults.standard.object(forKey: "firstTimeRunning") as? Bool{
             self.firstTimeRunning = x
-            self.displayMessage = UserDefaults.standard.object(forKey: "displayMessage") as! String
-            //Location variables
-            self.latitude = UserDefaults.standard.object(forKey: "latitude") as! Double
-            self.longitude = UserDefaults.standard.object(forKey: "longitude") as! Double
-            //Mail variables
-            self.mailSMTPHostName = UserDefaults.standard.object(forKey: "mailSMTPHostName") as! String
-            self.mailUserName = UserDefaults.standard.object(forKey: "mailUserName") as! String
-            self.mailPassword = UserDefaults.standard.object(forKey: "mailPassword") as! String
-            self.mailDisplayName = UserDefaults.standard.object(forKey: "mailDisplayName") as! String
-            // Notify, GetHelp, Analytics dictionaries
-            self.notifyScreenDict = UserDefaults.standard.object(forKey: "notifyScreenDict") as![String:Dictionary<String, String>]
-            self.getHelpScreenDict = UserDefaults.standard.object(forKey: "getHelpScreenDict") as![String:Dictionary<String, String>]
-            self.analyticsScreenDict = UserDefaults.standard.object(forKey: "analyticsScreenDict") as![String:[String: Dictionary<String, String>]]
-            self.analyticsTrackerDict = UserDefaults.standard.object(forKey: "analyticsTrackerDict") as! [String:Int]
-            self.doctorNotesDict = UserDefaults.standard.object(forKey: "doctorNotesDict") as! [String:String]
-        }
-            
-        else {
-            
-            //Default values for app settings when run for the first time
+        } else {
             self.firstTimeRunning = true
-            self.displayMessage = "I'm doing fine. I just need to sit here until I feel better and do not need further help. Thank you for the concern!"
-            //Location settings
+
+        }
+        if let existingDisplayMessage = UserDefaults.standard.object(forKey: "displayMessage") as? String {
+            self.displayMessage = existingDisplayMessage
+        } else {
+            self.displayMessage = "I'm doing fine. I just need to sit here until I feel better and do not need further help. Thank you for the concern!" //Default display message can be modified here
+        }
+        
+        //Location variables
+        if let existingLatitude = UserDefaults.standard.object(forKey: "latitude") as? Double {
+            self.latitude = existingLatitude
+        } else {
             self.latitude = 0
+        }
+        
+        if let existingLongitude = UserDefaults.standard.object(forKey: "longitude") as? Double {
+            self.longitude = existingLongitude
+        } else {
             self.longitude = 0
-            //Mail settings
+        }
+        
+        //Mail variables
+        if let existingMailSMTPHostName = UserDefaults.standard.object(forKey: "mailSMTPHostName") as? String {
+            self.mailSMTPHostName = existingMailSMTPHostName
+        } else {
             self.mailSMTPHostName = "smtp.gmail.com"
+        }
+        
+        if let existingMailUserName = UserDefaults.standard.object(forKey: "mailUserName") as? String {
+            self.mailUserName = existingMailUserName
+        } else {
             self.mailUserName = "jennyjin43@gmail.com"
+        }
+        
+        if let existingMailPassword = UserDefaults.standard.object(forKey: "mailPassword") as? String {
+            self.mailPassword = existingMailPassword
+        } else {
             self.mailPassword = "newbeginnings<3"
+        }
+        
+        if let existingMailDisplayName = UserDefaults.standard.object(forKey: "mailDisplayName") as? String {
+            self.mailDisplayName = existingMailDisplayName
+        } else {
             self.mailDisplayName = "Jenny"
-            // Notify, GetHelp, and Analytics dictionaries
+        }
+        
+        // Notify, GetHelp, Analytics dictionaries
+        if let existingNotifyScreenDict = UserDefaults.standard.object(forKey: "notifyScreenDict") as? [String:Dictionary<String, String>] {
+            self.notifyScreenDict = existingNotifyScreenDict
+        } else {
             self.notifyScreenDict = [:]
+        }
+        
+        if let existingGetHelpScreenDict =  UserDefaults.standard.object(forKey: "getHelpScreenDict") as? [String:Dictionary<String, String>] {
+            self.getHelpScreenDict = existingGetHelpScreenDict
+        } else {
             self.getHelpScreenDict = [:]
+        }
+        
+        if let existingAnalyticsScreenDict = UserDefaults.standard.object(forKey: "analyticsScreenDict") as? [String:[String: Dictionary<String, String>]] {
+            self.analyticsScreenDict = existingAnalyticsScreenDict
+        } else {
             self.analyticsScreenDict = [:]
+        }
+        
+        if let existingAnalyticsTrackerDict = UserDefaults.standard.object(forKey: "analyticsTrackerDict") as? [String:Int] {
+            self.analyticsTrackerDict = existingAnalyticsTrackerDict
+        } else {
             self.analyticsTrackerDict = ["Total Get Help":0, "Total Notify":0, "Total Display":0]
+        }
+        
+        if let existingDoctorNotesDict = UserDefaults.standard.object(forKey: "doctorNotesDict") as? [String:String] {
+            self.doctorNotesDict = existingDoctorNotesDict
+        } else {
             self.doctorNotesDict=[:]
         }
     }
