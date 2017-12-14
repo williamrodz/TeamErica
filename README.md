@@ -1,9 +1,9 @@
 # TeamErica
 Team Project for MIT 6.811 Assistive Technology
 iNotify is a discrete and customizable iOS notification app that allows the user to easily and effectively communicate and seek help while experiencing symptoms of aphasia. The app includes three main communication features, as well as an analytics feature: 
-+ Notify: Sends pre-customized emails and texts to recipients. Used for instances when one wants to alert others of their current state but does not send the location within the message. 
-+ Get Help: Sends pre-customized texts with the location to the recipient. Used in instances when the user is seeking help from the recipient of the message. 
-+ Display: Show a pre-set message to passerby who may be wondering of the best way to help the individual. 
++ __Notify__: Sends pre-customized emails and texts to recipients. Used for instances when one wants to alert others of their current state but does not send the location within the message. 
++ __Get Help__: Sends pre-customized texts with the location to the recipient. Used in instances when the user is seeking help from the recipient of the message. 
++ __Display__: Show a pre-set message to passerby who may be wondering of the best way to help the individual. 
 
 INotify is not available on the Apple’s app store yet however users will be able to download it to their iphone by following the steps below:
 1. Download and install XCode from the app store.
