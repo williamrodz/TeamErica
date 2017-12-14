@@ -17,6 +17,11 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var getHelpContacts = [String](appSettings.getGetHelpScreenDict().keys) //finds the recipients of the get help feature
     
+    /// This function is called to send the location to the recipient
+    ///
+    /// - Parameters:
+    ///   - toPhoneNumber: Phone number to be sent to
+    ///   - bodyOfMessage: Message to which the location needs to be attached to
     func sendData(toPhoneNumber:String, bodyOfMessage:String) {
         let headers = [
             "Content-Type": "application/x-www-form-urlencoded"
@@ -26,7 +31,6 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
             "To": toPhoneNumber ?? "",
             "Body": bodyOfMessage ?? ""
         ]
-        // old account url was https://sparkling-credit-8614.twil.io/sms
         
         Alamofire.request("https://faint-hospital-4825.twil.io/sms", method: .post, parameters: parameters, headers: headers).responseJSON { response in
             print(response.response)
@@ -34,6 +38,9 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    /// Converting the latitude and longitude obtained as an actual location
+    ///
+    /// - Returns: A string that points to the location
     func getGoogleMapsLocationURL() -> String {
         let latitude = String(appSettings.getLatitude())
         let longitude = String(appSettings.getLongitude())
@@ -41,6 +48,10 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
+    /// Used to process the phone number into a send-able form
+    ///
+    /// - Parameter rawPhoneNumberText: Phone number we have
+    /// - Returns: The processed format without "+" or "-" or brackets
     func processPhoneNumberString(rawPhoneNumberText:String) -> String {
         // Trim Whitespace
         let noWhiteSpacePhoneNumbers = rawPhoneNumberText.replacingOccurrences(of: " ", with: "")
@@ -65,12 +76,14 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
         let button = sender as! UIButton
         let nameContact = getHelpContacts[button.tag]
         let contactInfo = appSettings.getGetHelpContactInfo(Name: nameContact)
-        // Get time and date information
+        
+        // Get time and date information to specify where the user was at the time it was sent
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
         
+        // Structure the body of the message to be sent
         let message:String = contactInfo["MessageBody"]! + "\nI am currently at \(googleMapsURL)\n I was here at \(hour):\(minutes)"
         
         print("Button \(nameContact) was pressed!")
@@ -92,19 +105,18 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         print("Will send message to these phonenumber(s)\n\(recipientsArray)")
         
-        // Confirm box
+        // Confirmation box
         let refreshAlert = UIAlertController(title: "Get Help", message: "Are you sure you want to send your message to \(nameContact)?", preferredStyle: UIAlertControllerStyle.alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
             
-            //send message to everyone
+            //Send message to everyone in the recipients box
             recipientsArray.forEach { individualPhoneNumber in
                 self.sendData(toPhoneNumber: individualPhoneNumber, bodyOfMessage: message)
             }
             
             
             //Add to Analytics data storage
-            //        let date = Date() : Date already saved above
             appSettings.addAnalyticsTrackerGetHelp()
             let dateToday = Date()
             let fullFormat = DateFormatter()
@@ -116,7 +128,7 @@ class GetHelpViewController: UIViewController, UITableViewDelegate, UITableViewD
             print(resultDate)
             appSettings.addAnalyticsScreenDict(Name: nameContact, Timestamp: resultDate, Type: "Get Help", Month: month)
             
-            //return to root of Home
+            //Return to root of Home
             _  = self.navigationController?.popToRootViewController(animated: true)
         }))
         
