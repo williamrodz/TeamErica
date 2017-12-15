@@ -185,15 +185,14 @@ class NotifiViewController: UIViewController,  UITableViewDelegate, UITableViewD
         }
         
         
-        //Send message to everyone
-        recipientsArray.forEach { individualPhoneNumber in
-            self.sendData(toPhoneNumber: individualPhoneNumber, bodyOfMessage: message)
-        }
+
         
         // if the user says yes. 
         refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-            self.sendData(toPhoneNumber: notifyContactInfo["Contact"]!, bodyOfMessage: message)
-            
+            //Send message to everyone
+            recipientsArray.forEach { individualPhoneNumber in
+                self.sendData(toPhoneNumber: individualPhoneNumber, bodyOfMessage: message)
+            }
             //Add to Analytics data storage
             appSettings.addAnalyticsTrackerNotify()
             let date = Date()
